@@ -1,0 +1,503 @@
+// Copyright 2015 gRPC authors.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.examples.UnityAPI";
+option java_outer_classname = "UnityAPIProto";
+option objc_class_prefix = "UAPI";
+
+package UnityAPI;
+
+// The greeting service definition.
+service UnityAPIService {
+	rpc FrontLowLightControl(FrontLowLightRequest) returns (FrontLowLightReply) {}
+	rpc FrontHighLightControl(FrontHighLightRequest) returns (FrontHighLightReply) {}
+	rpc RearLightControl(RearLightRequest) returns (RearLightReply) {}
+	rpc FrontDaytimeLightControl(FrontDaytimeLightRequest) returns (FrontDaytimeLightReply) {}
+	rpc BrakeLightControl(BrakeLightRequest) returns (BrakeLightReply) {}
+	rpc ReverseLightControl(ReverseLightRequest) returns (ReverseLightReply) {}
+	rpc FrontFogLightControl(FrontFogLightRequest) returns (FrontFogLightReply) {}
+	rpc RearFogLightControl(RearFogLightRequest) returns (RearFogLightReply) {}
+	rpc ClearanceLampControl(ClearanceLampRequest) returns (ClearanceLampReply) {}
+	rpc FrontLeftBlinkerLightControl(FrontLeftBlinkerLightRequest) returns (FrontLeftBlinkerLightReply) {}
+	rpc FrontRightBlinkerLightControl(FrontRightBlinkerLightRequest) returns (FrontRightBlinkerLightReply) {}
+	rpc RearLeftBlinkerLightControl(RearLeftBlinkerLightRequest) returns (RearLeftBlinkerLightReply) {}
+	rpc RearRightBlinkerLightControl(RearRightBlinkerLightRequest) returns (RearRightBlinkerLightReply) {}
+	rpc FrontWiperControl(FrontWiperRequest) returns (FrontWiperReply) {}
+	rpc RearWiperControl(RearWiperRequest) returns (RearWiperReply) {}
+	rpc LeftSideMirrorControl(LeftSideMirrorRequest) returns (LeftSideMirrorReply) {}
+	rpc RightSideMirrorControl(RightSideMirrorRequest) returns (RightSideMirrorReply) {}
+	rpc FrontRightDoorControl(FrontRightDoorRequest) returns (FrontRightDoorReply) {}
+	rpc FrontLeftDoorControl(FrontLeftDoorRequest) returns (FrontLeftDoorReply) {}
+	rpc RearRightDoorControl(RearRightDoorRequest) returns (RearRightDoorReply) {}
+	rpc RearLeftDoorControl(RearLeftDoorRequest) returns (RearLeftDoorReply) {}
+	rpc TrunkControl(TrunkRequest) returns (TrunkReply) {}
+	rpc SunRoofControl(SunRoofRequest) returns (SunRoofReply) {}
+	rpc FrontRightPowerWindowsControl(FrontRightPowerWindowsRequest) returns (FrontRightPowerWindowsReply) {}
+	rpc FrontLeftPowerWindowsControl(FrontLeftPowerWindowsRequest) returns (FrontLeftPowerWindowsReply) {}
+	rpc RearRightPowerWindowsControl(RearRightPowerWindowsRequest) returns (RearRightPowerWindowsReply) {}
+	rpc RearLeftPowerWindowsControl(RearLeftPowerWindowsRequest) returns (RearLeftPowerWindowsReply) {}
+	rpc SideMirrorSwitchControl(SideMirrorSwitchRequest) returns (SideMirrorSwitchReply) {}
+	rpc InstrumentLightControl(InstrumentLightRequest) returns (InstrumentLightReply) {}
+	rpc PassgenerRoomDomeLightControl(PassgenerRoomDomeLightRequest) returns (PassgenerRoomDomeLightReply) {}
+	rpc ReadingLightDriverSideControl(ReadingLightDriverSideRequest) returns (ReadingLightDriverSideReply) {}
+	rpc ReadingLightPassgenerSideControl(ReadingLightPassgenerSideRequest) returns (ReadingLightPassgenerSideReply) {}
+	rpc FrontRightPowerWindowsSwitchControl(FrontRightPowerWindowsSwitchRequest) returns (FrontRightPowerWindowsSwitchReply) {}
+	rpc FrontLeftPowerWindowsSwitchControl(FrontLeftPowerWindowsSwitchRequest) returns (FrontLeftPowerWindowsSwitchReply) {}
+	rpc RearRightPowerWindowsSwitchControl(RearRightPowerWindowsSwitchRequest) returns (RearRightPowerWindowsSwitchReply) {}
+	rpc RearLeftPowerWindowsSwitchControl(RearLeftPowerWindowsSwitchRequest) returns (RearLeftPowerWindowsSwitchReply) {}
+	rpc HornControl(HornRequest) returns (HornReply) {}
+	rpc BuzzerControl(BuzzerRequest) returns (BuzzerReply) {}
+	rpc AirConditionerControl(AirConditionerRequest) returns (AirConditionerReply) {}
+	rpc AirConditionerTemperatureControl(AirCondTemperatureRequest) returns (AirCondTemperatureReply) {}
+	rpc AirConditionerFanSpeedControl(AirConditionerFanSpeedRequest) returns (AirConditionerFanSpeedReply) {}
+	rpc HandlingControl(HandlingRequest) returns (HandlingReply) {}
+	rpc CentralDoorLockSwitchControl(CentralDoorLockSwitchRequest) returns (CentralDoorLockSwitchReply) {}
+	rpc FrontRightDoorLockSwitchControl(FrontRightDoorLockSwitchRequest) returns (FrontRightDoorLockSwitchReply) {}
+	rpc FrontLeftDoorLockSwitchControl(FrontLeftDoorLockSwitchRequest) returns (FrontLeftDoorLockSwitchReply) {}
+	rpc RearRightDoorLockSwitchControl(RearRightDoorLockSwitchRequest) returns (RearRightDoorLockSwitchReply) {}
+	rpc RearLeftDoorLockSwitchControl(RearLeftDoorLockSwitchRequest) returns (RearLeftDoorLockSwitchReply) {}
+}
+
+// Request
+message FrontLowLightRequest {
+	bool setMode = 1;
+	bool flag = 2;
+}
+
+message FrontHighLightRequest {
+	bool setMode = 1;
+	bool flag = 2;
+}
+
+message RearLightRequest {
+	bool setMode = 1;
+	bool flag = 2;
+}
+
+message FrontDaytimeLightRequest {
+	bool setMode = 1;
+	bool flag = 2;
+}
+
+message BrakeLightRequest {
+	bool setMode = 1;
+	bool flag = 2;
+}
+
+message ReverseLightRequest {
+	bool setMode = 1;
+	bool flag = 2;
+}
+
+message FrontFogLightRequest {
+	bool setMode = 1;
+	bool flag = 2;
+}
+
+message RearFogLightRequest {
+	bool setMode = 1;
+	bool flag = 2;
+}
+
+message ClearanceLampRequest {
+	bool setMode = 1;
+	bool flag = 2;
+}
+
+message FrontLeftBlinkerLightRequest {
+	bool setMode = 1;
+	bool flag = 2;
+}
+
+message FrontRightBlinkerLightRequest {
+	bool setMode = 1;
+	bool flag = 2;
+}
+
+message RearLeftBlinkerLightRequest {
+	bool setMode = 1;
+	bool flag = 2;
+}
+
+message RearRightBlinkerLightRequest {
+	bool setMode = 1;
+	bool flag = 2;
+}
+
+message FrontWiperRequest {
+	bool setMode = 1;
+	bool flag = 2;
+}
+
+message RearWiperRequest {
+	bool setMode = 1;
+	bool flag = 2;
+}
+
+message LeftSideMirrorRequest {
+	bool setMode = 1;
+	double angle = 2;
+}
+
+message RightSideMirrorRequest {
+	bool setMode = 1;
+	double angle = 2;
+}
+
+message FrontRightDoorRequest {
+	bool setMode = 1;
+	bool flag = 2;
+}
+
+message FrontLeftDoorRequest {
+	bool setMode = 1;
+	bool flag = 2;
+}
+
+message RearRightDoorRequest {
+	bool setMode = 1;
+	bool flag = 2;
+}
+
+message RearLeftDoorRequest {
+	bool setMode = 1;
+	bool flag = 2;
+}
+
+message TrunkRequest {
+	bool setMode = 1;
+	bool flag = 2;
+}
+
+message SunRoofRequest {
+	bool setMode = 1;
+	bool flag = 2;
+}
+
+message FrontRightPowerWindowsRequest {
+	bool setMode = 1;
+	double highLevel = 2;
+}
+
+message FrontLeftPowerWindowsRequest {
+	bool setMode = 1;
+	double highLevel = 2;
+}
+
+message RearRightPowerWindowsRequest {
+	bool setMode = 1;
+	double highLevel = 2;
+}
+
+message RearLeftPowerWindowsRequest {
+	bool setMode = 1;
+	double highLevel = 2;
+}
+
+message SideMirrorSwitchRequest {
+	bool setMode = 1;
+	bool flag = 2;
+}
+
+message InstrumentLightRequest {
+	bool setMode = 1;
+	bool flag = 2;
+}
+
+message PassgenerRoomDomeLightRequest {
+	bool setMode = 1;
+	bool flag = 2;
+}
+
+message ReadingLightDriverSideRequest {
+	bool setMode = 1;
+	bool flag = 2;
+}
+
+message ReadingLightPassgenerSideRequest {
+	bool setMode = 1;
+	bool flag = 2;
+}
+
+message FrontRightPowerWindowsSwitchRequest {
+	bool setMode = 1;
+	bool flag = 2;
+}
+
+message FrontLeftPowerWindowsSwitchRequest {
+	bool setMode = 1;
+	bool flag = 2;
+}
+
+message RearRightPowerWindowsSwitchRequest {
+	bool setMode = 1;
+	bool flag = 2;
+}
+
+message RearLeftPowerWindowsSwitchRequest {
+	bool setMode = 1;
+	bool flag = 2;
+}
+
+message HornRequest {
+	bool setMode = 1;
+	bool flag = 2;
+}
+
+message BuzzerRequest {
+	bool setMode = 1;
+	bool flag = 2;
+}
+
+message AirConditionerRequest {
+	bool setMode = 1;
+	bool flag = 2;
+}
+
+message AirCondTemperatureRequest {
+	bool setMode = 1;
+	double temperature = 2;
+}
+
+message AirConditionerFanSpeedRequest {
+	bool setMode = 1;
+	int32 fanSpeed = 2;
+}
+
+message HandlingRequest {
+	bool setMode = 1;
+	bool flag = 2;
+}
+
+message CentralDoorLockSwitchRequest {
+	bool setMode = 1;
+	bool flag = 2;
+}
+
+message FrontRightDoorLockSwitchRequest {
+	bool setMode = 1;
+	bool flag = 2;
+}
+
+message FrontLeftDoorLockSwitchRequest {
+	bool setMode = 1;
+	bool flag = 2;
+}
+
+message RearRightDoorLockSwitchRequest {
+	bool setMode = 1;
+	bool flag = 2;
+}
+
+message RearLeftDoorLockSwitchRequest {
+	bool setMode = 1;
+	bool flag = 2;
+}
+
+
+//Reply
+message FrontLowLightReply {
+	bool status = 1;
+}
+
+message FrontHighLightReply {
+	bool status = 1;
+}
+
+message RearLightReply {
+	bool status = 1;
+}
+
+message FrontDaytimeLightReply {
+	bool status = 1;
+}
+
+message BrakeLightReply {
+	bool status = 1;
+}
+
+message ReverseLightReply {
+	bool status = 1;
+}
+
+message FrontFogLightReply {
+	bool status = 1;
+}
+
+message RearFogLightReply {
+	bool status = 1;
+}
+
+message ClearanceLampReply {
+	bool status = 1;
+}
+
+message FrontLeftBlinkerLightReply {
+	bool status = 1;
+}
+
+message FrontRightBlinkerLightReply {
+	bool status = 1;
+}
+
+message RearLeftBlinkerLightReply {
+	bool status = 1;
+}
+
+message RearRightBlinkerLightReply {
+	bool status = 1;
+}
+
+message FrontWiperReply {
+	bool status = 1;
+}
+
+message RearWiperReply {
+	bool status = 1;
+}
+
+message LeftSideMirrorReply {
+	double angle = 1;
+}
+
+message RightSideMirrorReply {
+	double angle = 1;
+}
+
+message FrontRightDoorReply {
+	bool status = 1;
+}
+
+message FrontLeftDoorReply {
+	bool status = 1;
+}
+
+message RearRightDoorReply {
+	bool status = 1;
+}
+
+message RearLeftDoorReply {
+	bool status = 1;
+}
+
+message TrunkReply {
+	bool status = 1;
+}
+
+message SunRoofReply {
+	bool status = 1;
+}
+
+message FrontRightPowerWindowsReply {
+	double highLevel = 1;
+}
+
+message FrontLeftPowerWindowsReply {
+	double highLevel = 1;
+}
+
+message RearRightPowerWindowsReply {
+	double highLevel = 1;
+}
+
+message RearLeftPowerWindowsReply {
+	double highLevel = 1;
+}
+
+message SideMirrorSwitchReply {
+	bool status = 1;
+}
+
+message InstrumentLightReply {
+	bool status = 1;
+}
+
+message PassgenerRoomDomeLightReply {
+	bool status = 1;
+}
+
+message ReadingLightDriverSideReply {
+	bool status = 1;
+}
+
+message ReadingLightPassgenerSideReply {
+	bool status = 1;
+}
+
+message FrontRightPowerWindowsSwitchReply {
+	bool status = 1;
+}
+
+message FrontLeftPowerWindowsSwitchReply {
+	bool status = 1;
+}
+
+message RearRightPowerWindowsSwitchReply {
+	bool status = 1;
+}
+
+message RearLeftPowerWindowsSwitchReply {
+	bool status = 1;
+}
+
+message HornReply {
+	bool status = 1;
+}
+
+message BuzzerReply {
+	bool status = 1;
+}
+
+message AirConditionerReply {
+	bool status = 1;
+}
+
+message AirCondTemperatureReply {
+	double temperature = 1;
+}
+
+message AirConditionerFanSpeedReply {
+	int32 fanSpeed = 1;
+}
+
+message HandlingReply {
+	bool status = 1;
+}
+
+message CentralDoorLockSwitchReply {
+	bool status = 1;
+}
+
+message FrontRightDoorLockSwitchReply {
+	bool status = 1;
+}
+
+message FrontLeftDoorLockSwitchReply {
+	bool status = 1;
+}
+
+message RearRightDoorLockSwitchReply {
+	bool status = 1;
+}
+
+message RearLeftDoorLockSwitchReply {
+	bool status = 1;
+}
+
+
+  
+  
