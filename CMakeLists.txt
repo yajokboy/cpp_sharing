@@ -21,7 +21,7 @@ cmake_minimum_required(VERSION 3.5.1)
 
 project(ClientService)
 
-include(~/grpc/examples/cpp/cmake/common.cmake)
+include(/usr/src/grpc/examples/cpp/cmake/common.cmake)
 
 # Proto file
 get_filename_component(hw_proto "./proto/UnityAPI.proto" ABSOLUTE)
