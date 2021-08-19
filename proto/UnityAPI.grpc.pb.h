@@ -381,6 +381,20 @@ class UnityAPIService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::UnityAPI::RearLeftDoorLockSwitchReply>> PrepareAsyncRearLeftDoorLockSwitchControl(::grpc::ClientContext* context, const ::UnityAPI::RearLeftDoorLockSwitchRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::UnityAPI::RearLeftDoorLockSwitchReply>>(PrepareAsyncRearLeftDoorLockSwitchControlRaw(context, request, cq));
     }
+    virtual ::grpc::Status get_database(::grpc::ClientContext* context, const ::UnityAPI::getDBRequest& request, ::UnityAPI::getDBReply* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::UnityAPI::getDBReply>> Asyncget_database(::grpc::ClientContext* context, const ::UnityAPI::getDBRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::UnityAPI::getDBReply>>(Asyncget_databaseRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::UnityAPI::getDBReply>> PrepareAsyncget_database(::grpc::ClientContext* context, const ::UnityAPI::getDBRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::UnityAPI::getDBReply>>(PrepareAsyncget_databaseRaw(context, request, cq));
+    }
+    virtual ::grpc::Status send_update_database(::grpc::ClientContext* context, const ::UnityAPI::setDBRequest& request, ::UnityAPI::setDBReply* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::UnityAPI::setDBReply>> Asyncsend_update_database(::grpc::ClientContext* context, const ::UnityAPI::setDBRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::UnityAPI::setDBReply>>(Asyncsend_update_databaseRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::UnityAPI::setDBReply>> PrepareAsyncsend_update_database(::grpc::ClientContext* context, const ::UnityAPI::setDBRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::UnityAPI::setDBReply>>(PrepareAsyncsend_update_databaseRaw(context, request, cq));
+    }
     class experimental_async_interface {
      public:
       virtual ~experimental_async_interface() {}
@@ -666,6 +680,18 @@ class UnityAPIService final {
       #else
       virtual void RearLeftDoorLockSwitchControl(::grpc::ClientContext* context, const ::UnityAPI::RearLeftDoorLockSwitchRequest* request, ::UnityAPI::RearLeftDoorLockSwitchReply* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
+      virtual void get_database(::grpc::ClientContext* context, const ::UnityAPI::getDBRequest* request, ::UnityAPI::getDBReply* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void get_database(::grpc::ClientContext* context, const ::UnityAPI::getDBRequest* request, ::UnityAPI::getDBReply* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void get_database(::grpc::ClientContext* context, const ::UnityAPI::getDBRequest* request, ::UnityAPI::getDBReply* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      virtual void send_update_database(::grpc::ClientContext* context, const ::UnityAPI::setDBRequest* request, ::UnityAPI::setDBReply* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void send_update_database(::grpc::ClientContext* context, const ::UnityAPI::setDBRequest* request, ::UnityAPI::setDBReply* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void send_update_database(::grpc::ClientContext* context, const ::UnityAPI::setDBRequest* request, ::UnityAPI::setDBReply* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
     };
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     typedef class experimental_async_interface async_interface;
@@ -769,6 +795,10 @@ class UnityAPIService final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::UnityAPI::RearRightDoorLockSwitchReply>* PrepareAsyncRearRightDoorLockSwitchControlRaw(::grpc::ClientContext* context, const ::UnityAPI::RearRightDoorLockSwitchRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::UnityAPI::RearLeftDoorLockSwitchReply>* AsyncRearLeftDoorLockSwitchControlRaw(::grpc::ClientContext* context, const ::UnityAPI::RearLeftDoorLockSwitchRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::UnityAPI::RearLeftDoorLockSwitchReply>* PrepareAsyncRearLeftDoorLockSwitchControlRaw(::grpc::ClientContext* context, const ::UnityAPI::RearLeftDoorLockSwitchRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::UnityAPI::getDBReply>* Asyncget_databaseRaw(::grpc::ClientContext* context, const ::UnityAPI::getDBRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::UnityAPI::getDBReply>* PrepareAsyncget_databaseRaw(::grpc::ClientContext* context, const ::UnityAPI::getDBRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::UnityAPI::setDBReply>* Asyncsend_update_databaseRaw(::grpc::ClientContext* context, const ::UnityAPI::setDBRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::UnityAPI::setDBReply>* PrepareAsyncsend_update_databaseRaw(::grpc::ClientContext* context, const ::UnityAPI::setDBRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -1102,6 +1132,20 @@ class UnityAPIService final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::UnityAPI::RearLeftDoorLockSwitchReply>> PrepareAsyncRearLeftDoorLockSwitchControl(::grpc::ClientContext* context, const ::UnityAPI::RearLeftDoorLockSwitchRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::UnityAPI::RearLeftDoorLockSwitchReply>>(PrepareAsyncRearLeftDoorLockSwitchControlRaw(context, request, cq));
     }
+    ::grpc::Status get_database(::grpc::ClientContext* context, const ::UnityAPI::getDBRequest& request, ::UnityAPI::getDBReply* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::UnityAPI::getDBReply>> Asyncget_database(::grpc::ClientContext* context, const ::UnityAPI::getDBRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::UnityAPI::getDBReply>>(Asyncget_databaseRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::UnityAPI::getDBReply>> PrepareAsyncget_database(::grpc::ClientContext* context, const ::UnityAPI::getDBRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::UnityAPI::getDBReply>>(PrepareAsyncget_databaseRaw(context, request, cq));
+    }
+    ::grpc::Status send_update_database(::grpc::ClientContext* context, const ::UnityAPI::setDBRequest& request, ::UnityAPI::setDBReply* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::UnityAPI::setDBReply>> Asyncsend_update_database(::grpc::ClientContext* context, const ::UnityAPI::setDBRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::UnityAPI::setDBReply>>(Asyncsend_update_databaseRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::UnityAPI::setDBReply>> PrepareAsyncsend_update_database(::grpc::ClientContext* context, const ::UnityAPI::setDBRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::UnityAPI::setDBReply>>(PrepareAsyncsend_update_databaseRaw(context, request, cq));
+    }
     class experimental_async final :
       public StubInterface::experimental_async_interface {
      public:
@@ -1387,6 +1431,18 @@ class UnityAPIService final {
       #else
       void RearLeftDoorLockSwitchControl(::grpc::ClientContext* context, const ::UnityAPI::RearLeftDoorLockSwitchRequest* request, ::UnityAPI::RearLeftDoorLockSwitchReply* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
+      void get_database(::grpc::ClientContext* context, const ::UnityAPI::getDBRequest* request, ::UnityAPI::getDBReply* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void get_database(::grpc::ClientContext* context, const ::UnityAPI::getDBRequest* request, ::UnityAPI::getDBReply* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void get_database(::grpc::ClientContext* context, const ::UnityAPI::getDBRequest* request, ::UnityAPI::getDBReply* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      void send_update_database(::grpc::ClientContext* context, const ::UnityAPI::setDBRequest* request, ::UnityAPI::setDBReply* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void send_update_database(::grpc::ClientContext* context, const ::UnityAPI::setDBRequest* request, ::UnityAPI::setDBReply* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void send_update_database(::grpc::ClientContext* context, const ::UnityAPI::setDBRequest* request, ::UnityAPI::setDBReply* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -1492,6 +1548,10 @@ class UnityAPIService final {
     ::grpc::ClientAsyncResponseReader< ::UnityAPI::RearRightDoorLockSwitchReply>* PrepareAsyncRearRightDoorLockSwitchControlRaw(::grpc::ClientContext* context, const ::UnityAPI::RearRightDoorLockSwitchRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::UnityAPI::RearLeftDoorLockSwitchReply>* AsyncRearLeftDoorLockSwitchControlRaw(::grpc::ClientContext* context, const ::UnityAPI::RearLeftDoorLockSwitchRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::UnityAPI::RearLeftDoorLockSwitchReply>* PrepareAsyncRearLeftDoorLockSwitchControlRaw(::grpc::ClientContext* context, const ::UnityAPI::RearLeftDoorLockSwitchRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::UnityAPI::getDBReply>* Asyncget_databaseRaw(::grpc::ClientContext* context, const ::UnityAPI::getDBRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::UnityAPI::getDBReply>* PrepareAsyncget_databaseRaw(::grpc::ClientContext* context, const ::UnityAPI::getDBRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::UnityAPI::setDBReply>* Asyncsend_update_databaseRaw(::grpc::ClientContext* context, const ::UnityAPI::setDBRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::UnityAPI::setDBReply>* PrepareAsyncsend_update_databaseRaw(::grpc::ClientContext* context, const ::UnityAPI::setDBRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_FrontLowLightControl_;
     const ::grpc::internal::RpcMethod rpcmethod_FrontHighLightControl_;
     const ::grpc::internal::RpcMethod rpcmethod_RearLightControl_;
@@ -1539,6 +1599,8 @@ class UnityAPIService final {
     const ::grpc::internal::RpcMethod rpcmethod_FrontLeftDoorLockSwitchControl_;
     const ::grpc::internal::RpcMethod rpcmethod_RearRightDoorLockSwitchControl_;
     const ::grpc::internal::RpcMethod rpcmethod_RearLeftDoorLockSwitchControl_;
+    const ::grpc::internal::RpcMethod rpcmethod_get_database_;
+    const ::grpc::internal::RpcMethod rpcmethod_send_update_database_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -1593,6 +1655,8 @@ class UnityAPIService final {
     virtual ::grpc::Status FrontLeftDoorLockSwitchControl(::grpc::ServerContext* context, const ::UnityAPI::FrontLeftDoorLockSwitchRequest* request, ::UnityAPI::FrontLeftDoorLockSwitchReply* response);
     virtual ::grpc::Status RearRightDoorLockSwitchControl(::grpc::ServerContext* context, const ::UnityAPI::RearRightDoorLockSwitchRequest* request, ::UnityAPI::RearRightDoorLockSwitchReply* response);
     virtual ::grpc::Status RearLeftDoorLockSwitchControl(::grpc::ServerContext* context, const ::UnityAPI::RearLeftDoorLockSwitchRequest* request, ::UnityAPI::RearLeftDoorLockSwitchReply* response);
+    virtual ::grpc::Status get_database(::grpc::ServerContext* context, const ::UnityAPI::getDBRequest* request, ::UnityAPI::getDBReply* response);
+    virtual ::grpc::Status send_update_database(::grpc::ServerContext* context, const ::UnityAPI::setDBRequest* request, ::UnityAPI::setDBReply* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_FrontLowLightControl : public BaseClass {
@@ -2534,7 +2598,47 @@ class UnityAPIService final {
       ::grpc::Service::RequestAsyncUnary(46, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_FrontLowLightControl<WithAsyncMethod_FrontHighLightControl<WithAsyncMethod_RearLightControl<WithAsyncMethod_FrontDaytimeLightControl<WithAsyncMethod_BrakeLightControl<WithAsyncMethod_ReverseLightControl<WithAsyncMethod_FrontFogLightControl<WithAsyncMethod_RearFogLightControl<WithAsyncMethod_ClearanceLampControl<WithAsyncMethod_FrontLeftBlinkerLightControl<WithAsyncMethod_FrontRightBlinkerLightControl<WithAsyncMethod_RearLeftBlinkerLightControl<WithAsyncMethod_RearRightBlinkerLightControl<WithAsyncMethod_FrontWiperControl<WithAsyncMethod_RearWiperControl<WithAsyncMethod_LeftSideMirrorControl<WithAsyncMethod_RightSideMirrorControl<WithAsyncMethod_FrontRightDoorControl<WithAsyncMethod_FrontLeftDoorControl<WithAsyncMethod_RearRightDoorControl<WithAsyncMethod_RearLeftDoorControl<WithAsyncMethod_TrunkControl<WithAsyncMethod_SunRoofControl<WithAsyncMethod_FrontRightPowerWindowsControl<WithAsyncMethod_FrontLeftPowerWindowsControl<WithAsyncMethod_RearRightPowerWindowsControl<WithAsyncMethod_RearLeftPowerWindowsControl<WithAsyncMethod_SideMirrorSwitchControl<WithAsyncMethod_InstrumentLightControl<WithAsyncMethod_PassgenerRoomDomeLightControl<WithAsyncMethod_ReadingLightDriverSideControl<WithAsyncMethod_ReadingLightPassgenerSideControl<WithAsyncMethod_FrontRightPowerWindowsSwitchControl<WithAsyncMethod_FrontLeftPowerWindowsSwitchControl<WithAsyncMethod_RearRightPowerWindowsSwitchControl<WithAsyncMethod_RearLeftPowerWindowsSwitchControl<WithAsyncMethod_HornControl<WithAsyncMethod_BuzzerControl<WithAsyncMethod_AirConditionerControl<WithAsyncMethod_AirConditionerTemperatureControl<WithAsyncMethod_AirConditionerFanSpeedControl<WithAsyncMethod_HandlingControl<WithAsyncMethod_CentralDoorLockSwitchControl<WithAsyncMethod_FrontRightDoorLockSwitchControl<WithAsyncMethod_FrontLeftDoorLockSwitchControl<WithAsyncMethod_RearRightDoorLockSwitchControl<WithAsyncMethod_RearLeftDoorLockSwitchControl<Service > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > AsyncService;
+  template <class BaseClass>
+  class WithAsyncMethod_get_database : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_get_database() {
+      ::grpc::Service::MarkMethodAsync(47);
+    }
+    ~WithAsyncMethod_get_database() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status get_database(::grpc::ServerContext* /*context*/, const ::UnityAPI::getDBRequest* /*request*/, ::UnityAPI::getDBReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void Requestget_database(::grpc::ServerContext* context, ::UnityAPI::getDBRequest* request, ::grpc::ServerAsyncResponseWriter< ::UnityAPI::getDBReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(47, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_send_update_database : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_send_update_database() {
+      ::grpc::Service::MarkMethodAsync(48);
+    }
+    ~WithAsyncMethod_send_update_database() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status send_update_database(::grpc::ServerContext* /*context*/, const ::UnityAPI::setDBRequest* /*request*/, ::UnityAPI::setDBReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void Requestsend_update_database(::grpc::ServerContext* context, ::UnityAPI::setDBRequest* request, ::grpc::ServerAsyncResponseWriter< ::UnityAPI::setDBReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(48, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_FrontLowLightControl<WithAsyncMethod_FrontHighLightControl<WithAsyncMethod_RearLightControl<WithAsyncMethod_FrontDaytimeLightControl<WithAsyncMethod_BrakeLightControl<WithAsyncMethod_ReverseLightControl<WithAsyncMethod_FrontFogLightControl<WithAsyncMethod_RearFogLightControl<WithAsyncMethod_ClearanceLampControl<WithAsyncMethod_FrontLeftBlinkerLightControl<WithAsyncMethod_FrontRightBlinkerLightControl<WithAsyncMethod_RearLeftBlinkerLightControl<WithAsyncMethod_RearRightBlinkerLightControl<WithAsyncMethod_FrontWiperControl<WithAsyncMethod_RearWiperControl<WithAsyncMethod_LeftSideMirrorControl<WithAsyncMethod_RightSideMirrorControl<WithAsyncMethod_FrontRightDoorControl<WithAsyncMethod_FrontLeftDoorControl<WithAsyncMethod_RearRightDoorControl<WithAsyncMethod_RearLeftDoorControl<WithAsyncMethod_TrunkControl<WithAsyncMethod_SunRoofControl<WithAsyncMethod_FrontRightPowerWindowsControl<WithAsyncMethod_FrontLeftPowerWindowsControl<WithAsyncMethod_RearRightPowerWindowsControl<WithAsyncMethod_RearLeftPowerWindowsControl<WithAsyncMethod_SideMirrorSwitchControl<WithAsyncMethod_InstrumentLightControl<WithAsyncMethod_PassgenerRoomDomeLightControl<WithAsyncMethod_ReadingLightDriverSideControl<WithAsyncMethod_ReadingLightPassgenerSideControl<WithAsyncMethod_FrontRightPowerWindowsSwitchControl<WithAsyncMethod_FrontLeftPowerWindowsSwitchControl<WithAsyncMethod_RearRightPowerWindowsSwitchControl<WithAsyncMethod_RearLeftPowerWindowsSwitchControl<WithAsyncMethod_HornControl<WithAsyncMethod_BuzzerControl<WithAsyncMethod_AirConditionerControl<WithAsyncMethod_AirConditionerTemperatureControl<WithAsyncMethod_AirConditionerFanSpeedControl<WithAsyncMethod_HandlingControl<WithAsyncMethod_CentralDoorLockSwitchControl<WithAsyncMethod_FrontRightDoorLockSwitchControl<WithAsyncMethod_FrontLeftDoorLockSwitchControl<WithAsyncMethod_RearRightDoorLockSwitchControl<WithAsyncMethod_RearLeftDoorLockSwitchControl<WithAsyncMethod_get_database<WithAsyncMethod_send_update_database<Service > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_FrontLowLightControl : public BaseClass {
    private:
@@ -4744,11 +4848,105 @@ class UnityAPIService final {
     #endif
       { return nullptr; }
   };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_get_database : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_get_database() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(47,
+          new ::grpc::internal::CallbackUnaryHandler< ::UnityAPI::getDBRequest, ::UnityAPI::getDBReply>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::UnityAPI::getDBRequest* request, ::UnityAPI::getDBReply* response) { return this->get_database(context, request, response); }));}
+    void SetMessageAllocatorFor_get_database(
+        ::grpc::experimental::MessageAllocator< ::UnityAPI::getDBRequest, ::UnityAPI::getDBReply>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(47);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(47);
+    #endif
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::UnityAPI::getDBRequest, ::UnityAPI::getDBReply>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_get_database() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status get_database(::grpc::ServerContext* /*context*/, const ::UnityAPI::getDBRequest* /*request*/, ::UnityAPI::getDBReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* get_database(
+      ::grpc::CallbackServerContext* /*context*/, const ::UnityAPI::getDBRequest* /*request*/, ::UnityAPI::getDBReply* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* get_database(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::UnityAPI::getDBRequest* /*request*/, ::UnityAPI::getDBReply* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_send_update_database : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_send_update_database() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(48,
+          new ::grpc::internal::CallbackUnaryHandler< ::UnityAPI::setDBRequest, ::UnityAPI::setDBReply>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::UnityAPI::setDBRequest* request, ::UnityAPI::setDBReply* response) { return this->send_update_database(context, request, response); }));}
+    void SetMessageAllocatorFor_send_update_database(
+        ::grpc::experimental::MessageAllocator< ::UnityAPI::setDBRequest, ::UnityAPI::setDBReply>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(48);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(48);
+    #endif
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::UnityAPI::setDBRequest, ::UnityAPI::setDBReply>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_send_update_database() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status send_update_database(::grpc::ServerContext* /*context*/, const ::UnityAPI::setDBRequest* /*request*/, ::UnityAPI::setDBReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* send_update_database(
+      ::grpc::CallbackServerContext* /*context*/, const ::UnityAPI::setDBRequest* /*request*/, ::UnityAPI::setDBReply* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* send_update_database(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::UnityAPI::setDBRequest* /*request*/, ::UnityAPI::setDBReply* /*response*/)
+    #endif
+      { return nullptr; }
+  };
   #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-  typedef ExperimentalWithCallbackMethod_FrontLowLightControl<ExperimentalWithCallbackMethod_FrontHighLightControl<ExperimentalWithCallbackMethod_RearLightControl<ExperimentalWithCallbackMethod_FrontDaytimeLightControl<ExperimentalWithCallbackMethod_BrakeLightControl<ExperimentalWithCallbackMethod_ReverseLightControl<ExperimentalWithCallbackMethod_FrontFogLightControl<ExperimentalWithCallbackMethod_RearFogLightControl<ExperimentalWithCallbackMethod_ClearanceLampControl<ExperimentalWithCallbackMethod_FrontLeftBlinkerLightControl<ExperimentalWithCallbackMethod_FrontRightBlinkerLightControl<ExperimentalWithCallbackMethod_RearLeftBlinkerLightControl<ExperimentalWithCallbackMethod_RearRightBlinkerLightControl<ExperimentalWithCallbackMethod_FrontWiperControl<ExperimentalWithCallbackMethod_RearWiperControl<ExperimentalWithCallbackMethod_LeftSideMirrorControl<ExperimentalWithCallbackMethod_RightSideMirrorControl<ExperimentalWithCallbackMethod_FrontRightDoorControl<ExperimentalWithCallbackMethod_FrontLeftDoorControl<ExperimentalWithCallbackMethod_RearRightDoorControl<ExperimentalWithCallbackMethod_RearLeftDoorControl<ExperimentalWithCallbackMethod_TrunkControl<ExperimentalWithCallbackMethod_SunRoofControl<ExperimentalWithCallbackMethod_FrontRightPowerWindowsControl<ExperimentalWithCallbackMethod_FrontLeftPowerWindowsControl<ExperimentalWithCallbackMethod_RearRightPowerWindowsControl<ExperimentalWithCallbackMethod_RearLeftPowerWindowsControl<ExperimentalWithCallbackMethod_SideMirrorSwitchControl<ExperimentalWithCallbackMethod_InstrumentLightControl<ExperimentalWithCallbackMethod_PassgenerRoomDomeLightControl<ExperimentalWithCallbackMethod_ReadingLightDriverSideControl<ExperimentalWithCallbackMethod_ReadingLightPassgenerSideControl<ExperimentalWithCallbackMethod_FrontRightPowerWindowsSwitchControl<ExperimentalWithCallbackMethod_FrontLeftPowerWindowsSwitchControl<ExperimentalWithCallbackMethod_RearRightPowerWindowsSwitchControl<ExperimentalWithCallbackMethod_RearLeftPowerWindowsSwitchControl<ExperimentalWithCallbackMethod_HornControl<ExperimentalWithCallbackMethod_BuzzerControl<ExperimentalWithCallbackMethod_AirConditionerControl<ExperimentalWithCallbackMethod_AirConditionerTemperatureControl<ExperimentalWithCallbackMethod_AirConditionerFanSpeedControl<ExperimentalWithCallbackMethod_HandlingControl<ExperimentalWithCallbackMethod_CentralDoorLockSwitchControl<ExperimentalWithCallbackMethod_FrontRightDoorLockSwitchControl<ExperimentalWithCallbackMethod_FrontLeftDoorLockSwitchControl<ExperimentalWithCallbackMethod_RearRightDoorLockSwitchControl<ExperimentalWithCallbackMethod_RearLeftDoorLockSwitchControl<Service > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > CallbackService;
+  typedef ExperimentalWithCallbackMethod_FrontLowLightControl<ExperimentalWithCallbackMethod_FrontHighLightControl<ExperimentalWithCallbackMethod_RearLightControl<ExperimentalWithCallbackMethod_FrontDaytimeLightControl<ExperimentalWithCallbackMethod_BrakeLightControl<ExperimentalWithCallbackMethod_ReverseLightControl<ExperimentalWithCallbackMethod_FrontFogLightControl<ExperimentalWithCallbackMethod_RearFogLightControl<ExperimentalWithCallbackMethod_ClearanceLampControl<ExperimentalWithCallbackMethod_FrontLeftBlinkerLightControl<ExperimentalWithCallbackMethod_FrontRightBlinkerLightControl<ExperimentalWithCallbackMethod_RearLeftBlinkerLightControl<ExperimentalWithCallbackMethod_RearRightBlinkerLightControl<ExperimentalWithCallbackMethod_FrontWiperControl<ExperimentalWithCallbackMethod_RearWiperControl<ExperimentalWithCallbackMethod_LeftSideMirrorControl<ExperimentalWithCallbackMethod_RightSideMirrorControl<ExperimentalWithCallbackMethod_FrontRightDoorControl<ExperimentalWithCallbackMethod_FrontLeftDoorControl<ExperimentalWithCallbackMethod_RearRightDoorControl<ExperimentalWithCallbackMethod_RearLeftDoorControl<ExperimentalWithCallbackMethod_TrunkControl<ExperimentalWithCallbackMethod_SunRoofControl<ExperimentalWithCallbackMethod_FrontRightPowerWindowsControl<ExperimentalWithCallbackMethod_FrontLeftPowerWindowsControl<ExperimentalWithCallbackMethod_RearRightPowerWindowsControl<ExperimentalWithCallbackMethod_RearLeftPowerWindowsControl<ExperimentalWithCallbackMethod_SideMirrorSwitchControl<ExperimentalWithCallbackMethod_InstrumentLightControl<ExperimentalWithCallbackMethod_PassgenerRoomDomeLightControl<ExperimentalWithCallbackMethod_ReadingLightDriverSideControl<ExperimentalWithCallbackMethod_ReadingLightPassgenerSideControl<ExperimentalWithCallbackMethod_FrontRightPowerWindowsSwitchControl<ExperimentalWithCallbackMethod_FrontLeftPowerWindowsSwitchControl<ExperimentalWithCallbackMethod_RearRightPowerWindowsSwitchControl<ExperimentalWithCallbackMethod_RearLeftPowerWindowsSwitchControl<ExperimentalWithCallbackMethod_HornControl<ExperimentalWithCallbackMethod_BuzzerControl<ExperimentalWithCallbackMethod_AirConditionerControl<ExperimentalWithCallbackMethod_AirConditionerTemperatureControl<ExperimentalWithCallbackMethod_AirConditionerFanSpeedControl<ExperimentalWithCallbackMethod_HandlingControl<ExperimentalWithCallbackMethod_CentralDoorLockSwitchControl<ExperimentalWithCallbackMethod_FrontRightDoorLockSwitchControl<ExperimentalWithCallbackMethod_FrontLeftDoorLockSwitchControl<ExperimentalWithCallbackMethod_RearRightDoorLockSwitchControl<ExperimentalWithCallbackMethod_RearLeftDoorLockSwitchControl<ExperimentalWithCallbackMethod_get_database<ExperimentalWithCallbackMethod_send_update_database<Service > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > CallbackService;
   #endif
 
-  typedef ExperimentalWithCallbackMethod_FrontLowLightControl<ExperimentalWithCallbackMethod_FrontHighLightControl<ExperimentalWithCallbackMethod_RearLightControl<ExperimentalWithCallbackMethod_FrontDaytimeLightControl<ExperimentalWithCallbackMethod_BrakeLightControl<ExperimentalWithCallbackMethod_ReverseLightControl<ExperimentalWithCallbackMethod_FrontFogLightControl<ExperimentalWithCallbackMethod_RearFogLightControl<ExperimentalWithCallbackMethod_ClearanceLampControl<ExperimentalWithCallbackMethod_FrontLeftBlinkerLightControl<ExperimentalWithCallbackMethod_FrontRightBlinkerLightControl<ExperimentalWithCallbackMethod_RearLeftBlinkerLightControl<ExperimentalWithCallbackMethod_RearRightBlinkerLightControl<ExperimentalWithCallbackMethod_FrontWiperControl<ExperimentalWithCallbackMethod_RearWiperControl<ExperimentalWithCallbackMethod_LeftSideMirrorControl<ExperimentalWithCallbackMethod_RightSideMirrorControl<ExperimentalWithCallbackMethod_FrontRightDoorControl<ExperimentalWithCallbackMethod_FrontLeftDoorControl<ExperimentalWithCallbackMethod_RearRightDoorControl<ExperimentalWithCallbackMethod_RearLeftDoorControl<ExperimentalWithCallbackMethod_TrunkControl<ExperimentalWithCallbackMethod_SunRoofControl<ExperimentalWithCallbackMethod_FrontRightPowerWindowsControl<ExperimentalWithCallbackMethod_FrontLeftPowerWindowsControl<ExperimentalWithCallbackMethod_RearRightPowerWindowsControl<ExperimentalWithCallbackMethod_RearLeftPowerWindowsControl<ExperimentalWithCallbackMethod_SideMirrorSwitchControl<ExperimentalWithCallbackMethod_InstrumentLightControl<ExperimentalWithCallbackMethod_PassgenerRoomDomeLightControl<ExperimentalWithCallbackMethod_ReadingLightDriverSideControl<ExperimentalWithCallbackMethod_ReadingLightPassgenerSideControl<ExperimentalWithCallbackMethod_FrontRightPowerWindowsSwitchControl<ExperimentalWithCallbackMethod_FrontLeftPowerWindowsSwitchControl<ExperimentalWithCallbackMethod_RearRightPowerWindowsSwitchControl<ExperimentalWithCallbackMethod_RearLeftPowerWindowsSwitchControl<ExperimentalWithCallbackMethod_HornControl<ExperimentalWithCallbackMethod_BuzzerControl<ExperimentalWithCallbackMethod_AirConditionerControl<ExperimentalWithCallbackMethod_AirConditionerTemperatureControl<ExperimentalWithCallbackMethod_AirConditionerFanSpeedControl<ExperimentalWithCallbackMethod_HandlingControl<ExperimentalWithCallbackMethod_CentralDoorLockSwitchControl<ExperimentalWithCallbackMethod_FrontRightDoorLockSwitchControl<ExperimentalWithCallbackMethod_FrontLeftDoorLockSwitchControl<ExperimentalWithCallbackMethod_RearRightDoorLockSwitchControl<ExperimentalWithCallbackMethod_RearLeftDoorLockSwitchControl<Service > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > ExperimentalCallbackService;
+  typedef ExperimentalWithCallbackMethod_FrontLowLightControl<ExperimentalWithCallbackMethod_FrontHighLightControl<ExperimentalWithCallbackMethod_RearLightControl<ExperimentalWithCallbackMethod_FrontDaytimeLightControl<ExperimentalWithCallbackMethod_BrakeLightControl<ExperimentalWithCallbackMethod_ReverseLightControl<ExperimentalWithCallbackMethod_FrontFogLightControl<ExperimentalWithCallbackMethod_RearFogLightControl<ExperimentalWithCallbackMethod_ClearanceLampControl<ExperimentalWithCallbackMethod_FrontLeftBlinkerLightControl<ExperimentalWithCallbackMethod_FrontRightBlinkerLightControl<ExperimentalWithCallbackMethod_RearLeftBlinkerLightControl<ExperimentalWithCallbackMethod_RearRightBlinkerLightControl<ExperimentalWithCallbackMethod_FrontWiperControl<ExperimentalWithCallbackMethod_RearWiperControl<ExperimentalWithCallbackMethod_LeftSideMirrorControl<ExperimentalWithCallbackMethod_RightSideMirrorControl<ExperimentalWithCallbackMethod_FrontRightDoorControl<ExperimentalWithCallbackMethod_FrontLeftDoorControl<ExperimentalWithCallbackMethod_RearRightDoorControl<ExperimentalWithCallbackMethod_RearLeftDoorControl<ExperimentalWithCallbackMethod_TrunkControl<ExperimentalWithCallbackMethod_SunRoofControl<ExperimentalWithCallbackMethod_FrontRightPowerWindowsControl<ExperimentalWithCallbackMethod_FrontLeftPowerWindowsControl<ExperimentalWithCallbackMethod_RearRightPowerWindowsControl<ExperimentalWithCallbackMethod_RearLeftPowerWindowsControl<ExperimentalWithCallbackMethod_SideMirrorSwitchControl<ExperimentalWithCallbackMethod_InstrumentLightControl<ExperimentalWithCallbackMethod_PassgenerRoomDomeLightControl<ExperimentalWithCallbackMethod_ReadingLightDriverSideControl<ExperimentalWithCallbackMethod_ReadingLightPassgenerSideControl<ExperimentalWithCallbackMethod_FrontRightPowerWindowsSwitchControl<ExperimentalWithCallbackMethod_FrontLeftPowerWindowsSwitchControl<ExperimentalWithCallbackMethod_RearRightPowerWindowsSwitchControl<ExperimentalWithCallbackMethod_RearLeftPowerWindowsSwitchControl<ExperimentalWithCallbackMethod_HornControl<ExperimentalWithCallbackMethod_BuzzerControl<ExperimentalWithCallbackMethod_AirConditionerControl<ExperimentalWithCallbackMethod_AirConditionerTemperatureControl<ExperimentalWithCallbackMethod_AirConditionerFanSpeedControl<ExperimentalWithCallbackMethod_HandlingControl<ExperimentalWithCallbackMethod_CentralDoorLockSwitchControl<ExperimentalWithCallbackMethod_FrontRightDoorLockSwitchControl<ExperimentalWithCallbackMethod_FrontLeftDoorLockSwitchControl<ExperimentalWithCallbackMethod_RearRightDoorLockSwitchControl<ExperimentalWithCallbackMethod_RearLeftDoorLockSwitchControl<ExperimentalWithCallbackMethod_get_database<ExperimentalWithCallbackMethod_send_update_database<Service > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_FrontLowLightControl : public BaseClass {
    private:
@@ -5544,6 +5742,40 @@ class UnityAPIService final {
     }
     // disable synchronous version of this method
     ::grpc::Status RearLeftDoorLockSwitchControl(::grpc::ServerContext* /*context*/, const ::UnityAPI::RearLeftDoorLockSwitchRequest* /*request*/, ::UnityAPI::RearLeftDoorLockSwitchReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_get_database : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_get_database() {
+      ::grpc::Service::MarkMethodGeneric(47);
+    }
+    ~WithGenericMethod_get_database() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status get_database(::grpc::ServerContext* /*context*/, const ::UnityAPI::getDBRequest* /*request*/, ::UnityAPI::getDBReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_send_update_database : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_send_update_database() {
+      ::grpc::Service::MarkMethodGeneric(48);
+    }
+    ~WithGenericMethod_send_update_database() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status send_update_database(::grpc::ServerContext* /*context*/, const ::UnityAPI::setDBRequest* /*request*/, ::UnityAPI::setDBReply* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -6486,6 +6718,46 @@ class UnityAPIService final {
     }
     void RequestRearLeftDoorLockSwitchControl(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(46, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_get_database : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_get_database() {
+      ::grpc::Service::MarkMethodRaw(47);
+    }
+    ~WithRawMethod_get_database() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status get_database(::grpc::ServerContext* /*context*/, const ::UnityAPI::getDBRequest* /*request*/, ::UnityAPI::getDBReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void Requestget_database(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(47, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_send_update_database : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_send_update_database() {
+      ::grpc::Service::MarkMethodRaw(48);
+    }
+    ~WithRawMethod_send_update_database() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status send_update_database(::grpc::ServerContext* /*context*/, const ::UnityAPI::setDBRequest* /*request*/, ::UnityAPI::setDBReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void Requestsend_update_database(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(48, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -8275,6 +8547,82 @@ class UnityAPIService final {
       { return nullptr; }
   };
   template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_get_database : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_get_database() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(47,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->get_database(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_get_database() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status get_database(::grpc::ServerContext* /*context*/, const ::UnityAPI::getDBRequest* /*request*/, ::UnityAPI::getDBReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* get_database(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* get_database(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_send_update_database : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_send_update_database() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(48,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->send_update_database(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_send_update_database() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status send_update_database(::grpc::ServerContext* /*context*/, const ::UnityAPI::setDBRequest* /*request*/, ::UnityAPI::setDBReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* send_update_database(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* send_update_database(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
   class WithStreamedUnaryMethod_FrontLowLightControl : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
@@ -9543,9 +9891,63 @@ class UnityAPIService final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedRearLeftDoorLockSwitchControl(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::UnityAPI::RearLeftDoorLockSwitchRequest,::UnityAPI::RearLeftDoorLockSwitchReply>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_FrontLowLightControl<WithStreamedUnaryMethod_FrontHighLightControl<WithStreamedUnaryMethod_RearLightControl<WithStreamedUnaryMethod_FrontDaytimeLightControl<WithStreamedUnaryMethod_BrakeLightControl<WithStreamedUnaryMethod_ReverseLightControl<WithStreamedUnaryMethod_FrontFogLightControl<WithStreamedUnaryMethod_RearFogLightControl<WithStreamedUnaryMethod_ClearanceLampControl<WithStreamedUnaryMethod_FrontLeftBlinkerLightControl<WithStreamedUnaryMethod_FrontRightBlinkerLightControl<WithStreamedUnaryMethod_RearLeftBlinkerLightControl<WithStreamedUnaryMethod_RearRightBlinkerLightControl<WithStreamedUnaryMethod_FrontWiperControl<WithStreamedUnaryMethod_RearWiperControl<WithStreamedUnaryMethod_LeftSideMirrorControl<WithStreamedUnaryMethod_RightSideMirrorControl<WithStreamedUnaryMethod_FrontRightDoorControl<WithStreamedUnaryMethod_FrontLeftDoorControl<WithStreamedUnaryMethod_RearRightDoorControl<WithStreamedUnaryMethod_RearLeftDoorControl<WithStreamedUnaryMethod_TrunkControl<WithStreamedUnaryMethod_SunRoofControl<WithStreamedUnaryMethod_FrontRightPowerWindowsControl<WithStreamedUnaryMethod_FrontLeftPowerWindowsControl<WithStreamedUnaryMethod_RearRightPowerWindowsControl<WithStreamedUnaryMethod_RearLeftPowerWindowsControl<WithStreamedUnaryMethod_SideMirrorSwitchControl<WithStreamedUnaryMethod_InstrumentLightControl<WithStreamedUnaryMethod_PassgenerRoomDomeLightControl<WithStreamedUnaryMethod_ReadingLightDriverSideControl<WithStreamedUnaryMethod_ReadingLightPassgenerSideControl<WithStreamedUnaryMethod_FrontRightPowerWindowsSwitchControl<WithStreamedUnaryMethod_FrontLeftPowerWindowsSwitchControl<WithStreamedUnaryMethod_RearRightPowerWindowsSwitchControl<WithStreamedUnaryMethod_RearLeftPowerWindowsSwitchControl<WithStreamedUnaryMethod_HornControl<WithStreamedUnaryMethod_BuzzerControl<WithStreamedUnaryMethod_AirConditionerControl<WithStreamedUnaryMethod_AirConditionerTemperatureControl<WithStreamedUnaryMethod_AirConditionerFanSpeedControl<WithStreamedUnaryMethod_HandlingControl<WithStreamedUnaryMethod_CentralDoorLockSwitchControl<WithStreamedUnaryMethod_FrontRightDoorLockSwitchControl<WithStreamedUnaryMethod_FrontLeftDoorLockSwitchControl<WithStreamedUnaryMethod_RearRightDoorLockSwitchControl<WithStreamedUnaryMethod_RearLeftDoorLockSwitchControl<Service > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_get_database : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_get_database() {
+      ::grpc::Service::MarkMethodStreamed(47,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::UnityAPI::getDBRequest, ::UnityAPI::getDBReply>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::UnityAPI::getDBRequest, ::UnityAPI::getDBReply>* streamer) {
+                       return this->Streamedget_database(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_get_database() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status get_database(::grpc::ServerContext* /*context*/, const ::UnityAPI::getDBRequest* /*request*/, ::UnityAPI::getDBReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status Streamedget_database(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::UnityAPI::getDBRequest,::UnityAPI::getDBReply>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_send_update_database : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_send_update_database() {
+      ::grpc::Service::MarkMethodStreamed(48,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::UnityAPI::setDBRequest, ::UnityAPI::setDBReply>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::UnityAPI::setDBRequest, ::UnityAPI::setDBReply>* streamer) {
+                       return this->Streamedsend_update_database(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_send_update_database() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status send_update_database(::grpc::ServerContext* /*context*/, const ::UnityAPI::setDBRequest* /*request*/, ::UnityAPI::setDBReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status Streamedsend_update_database(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::UnityAPI::setDBRequest,::UnityAPI::setDBReply>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_FrontLowLightControl<WithStreamedUnaryMethod_FrontHighLightControl<WithStreamedUnaryMethod_RearLightControl<WithStreamedUnaryMethod_FrontDaytimeLightControl<WithStreamedUnaryMethod_BrakeLightControl<WithStreamedUnaryMethod_ReverseLightControl<WithStreamedUnaryMethod_FrontFogLightControl<WithStreamedUnaryMethod_RearFogLightControl<WithStreamedUnaryMethod_ClearanceLampControl<WithStreamedUnaryMethod_FrontLeftBlinkerLightControl<WithStreamedUnaryMethod_FrontRightBlinkerLightControl<WithStreamedUnaryMethod_RearLeftBlinkerLightControl<WithStreamedUnaryMethod_RearRightBlinkerLightControl<WithStreamedUnaryMethod_FrontWiperControl<WithStreamedUnaryMethod_RearWiperControl<WithStreamedUnaryMethod_LeftSideMirrorControl<WithStreamedUnaryMethod_RightSideMirrorControl<WithStreamedUnaryMethod_FrontRightDoorControl<WithStreamedUnaryMethod_FrontLeftDoorControl<WithStreamedUnaryMethod_RearRightDoorControl<WithStreamedUnaryMethod_RearLeftDoorControl<WithStreamedUnaryMethod_TrunkControl<WithStreamedUnaryMethod_SunRoofControl<WithStreamedUnaryMethod_FrontRightPowerWindowsControl<WithStreamedUnaryMethod_FrontLeftPowerWindowsControl<WithStreamedUnaryMethod_RearRightPowerWindowsControl<WithStreamedUnaryMethod_RearLeftPowerWindowsControl<WithStreamedUnaryMethod_SideMirrorSwitchControl<WithStreamedUnaryMethod_InstrumentLightControl<WithStreamedUnaryMethod_PassgenerRoomDomeLightControl<WithStreamedUnaryMethod_ReadingLightDriverSideControl<WithStreamedUnaryMethod_ReadingLightPassgenerSideControl<WithStreamedUnaryMethod_FrontRightPowerWindowsSwitchControl<WithStreamedUnaryMethod_FrontLeftPowerWindowsSwitchControl<WithStreamedUnaryMethod_RearRightPowerWindowsSwitchControl<WithStreamedUnaryMethod_RearLeftPowerWindowsSwitchControl<WithStreamedUnaryMethod_HornControl<WithStreamedUnaryMethod_BuzzerControl<WithStreamedUnaryMethod_AirConditionerControl<WithStreamedUnaryMethod_AirConditionerTemperatureControl<WithStreamedUnaryMethod_AirConditionerFanSpeedControl<WithStreamedUnaryMethod_HandlingControl<WithStreamedUnaryMethod_CentralDoorLockSwitchControl<WithStreamedUnaryMethod_FrontRightDoorLockSwitchControl<WithStreamedUnaryMethod_FrontLeftDoorLockSwitchControl<WithStreamedUnaryMethod_RearRightDoorLockSwitchControl<WithStreamedUnaryMethod_RearLeftDoorLockSwitchControl<WithStreamedUnaryMethod_get_database<WithStreamedUnaryMethod_send_update_database<Service > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_FrontLowLightControl<WithStreamedUnaryMethod_FrontHighLightControl<WithStreamedUnaryMethod_RearLightControl<WithStreamedUnaryMethod_FrontDaytimeLightControl<WithStreamedUnaryMethod_BrakeLightControl<WithStreamedUnaryMethod_ReverseLightControl<WithStreamedUnaryMethod_FrontFogLightControl<WithStreamedUnaryMethod_RearFogLightControl<WithStreamedUnaryMethod_ClearanceLampControl<WithStreamedUnaryMethod_FrontLeftBlinkerLightControl<WithStreamedUnaryMethod_FrontRightBlinkerLightControl<WithStreamedUnaryMethod_RearLeftBlinkerLightControl<WithStreamedUnaryMethod_RearRightBlinkerLightControl<WithStreamedUnaryMethod_FrontWiperControl<WithStreamedUnaryMethod_RearWiperControl<WithStreamedUnaryMethod_LeftSideMirrorControl<WithStreamedUnaryMethod_RightSideMirrorControl<WithStreamedUnaryMethod_FrontRightDoorControl<WithStreamedUnaryMethod_FrontLeftDoorControl<WithStreamedUnaryMethod_RearRightDoorControl<WithStreamedUnaryMethod_RearLeftDoorControl<WithStreamedUnaryMethod_TrunkControl<WithStreamedUnaryMethod_SunRoofControl<WithStreamedUnaryMethod_FrontRightPowerWindowsControl<WithStreamedUnaryMethod_FrontLeftPowerWindowsControl<WithStreamedUnaryMethod_RearRightPowerWindowsControl<WithStreamedUnaryMethod_RearLeftPowerWindowsControl<WithStreamedUnaryMethod_SideMirrorSwitchControl<WithStreamedUnaryMethod_InstrumentLightControl<WithStreamedUnaryMethod_PassgenerRoomDomeLightControl<WithStreamedUnaryMethod_ReadingLightDriverSideControl<WithStreamedUnaryMethod_ReadingLightPassgenerSideControl<WithStreamedUnaryMethod_FrontRightPowerWindowsSwitchControl<WithStreamedUnaryMethod_FrontLeftPowerWindowsSwitchControl<WithStreamedUnaryMethod_RearRightPowerWindowsSwitchControl<WithStreamedUnaryMethod_RearLeftPowerWindowsSwitchControl<WithStreamedUnaryMethod_HornControl<WithStreamedUnaryMethod_BuzzerControl<WithStreamedUnaryMethod_AirConditionerControl<WithStreamedUnaryMethod_AirConditionerTemperatureControl<WithStreamedUnaryMethod_AirConditionerFanSpeedControl<WithStreamedUnaryMethod_HandlingControl<WithStreamedUnaryMethod_CentralDoorLockSwitchControl<WithStreamedUnaryMethod_FrontRightDoorLockSwitchControl<WithStreamedUnaryMethod_FrontLeftDoorLockSwitchControl<WithStreamedUnaryMethod_RearRightDoorLockSwitchControl<WithStreamedUnaryMethod_RearLeftDoorLockSwitchControl<Service > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_FrontLowLightControl<WithStreamedUnaryMethod_FrontHighLightControl<WithStreamedUnaryMethod_RearLightControl<WithStreamedUnaryMethod_FrontDaytimeLightControl<WithStreamedUnaryMethod_BrakeLightControl<WithStreamedUnaryMethod_ReverseLightControl<WithStreamedUnaryMethod_FrontFogLightControl<WithStreamedUnaryMethod_RearFogLightControl<WithStreamedUnaryMethod_ClearanceLampControl<WithStreamedUnaryMethod_FrontLeftBlinkerLightControl<WithStreamedUnaryMethod_FrontRightBlinkerLightControl<WithStreamedUnaryMethod_RearLeftBlinkerLightControl<WithStreamedUnaryMethod_RearRightBlinkerLightControl<WithStreamedUnaryMethod_FrontWiperControl<WithStreamedUnaryMethod_RearWiperControl<WithStreamedUnaryMethod_LeftSideMirrorControl<WithStreamedUnaryMethod_RightSideMirrorControl<WithStreamedUnaryMethod_FrontRightDoorControl<WithStreamedUnaryMethod_FrontLeftDoorControl<WithStreamedUnaryMethod_RearRightDoorControl<WithStreamedUnaryMethod_RearLeftDoorControl<WithStreamedUnaryMethod_TrunkControl<WithStreamedUnaryMethod_SunRoofControl<WithStreamedUnaryMethod_FrontRightPowerWindowsControl<WithStreamedUnaryMethod_FrontLeftPowerWindowsControl<WithStreamedUnaryMethod_RearRightPowerWindowsControl<WithStreamedUnaryMethod_RearLeftPowerWindowsControl<WithStreamedUnaryMethod_SideMirrorSwitchControl<WithStreamedUnaryMethod_InstrumentLightControl<WithStreamedUnaryMethod_PassgenerRoomDomeLightControl<WithStreamedUnaryMethod_ReadingLightDriverSideControl<WithStreamedUnaryMethod_ReadingLightPassgenerSideControl<WithStreamedUnaryMethod_FrontRightPowerWindowsSwitchControl<WithStreamedUnaryMethod_FrontLeftPowerWindowsSwitchControl<WithStreamedUnaryMethod_RearRightPowerWindowsSwitchControl<WithStreamedUnaryMethod_RearLeftPowerWindowsSwitchControl<WithStreamedUnaryMethod_HornControl<WithStreamedUnaryMethod_BuzzerControl<WithStreamedUnaryMethod_AirConditionerControl<WithStreamedUnaryMethod_AirConditionerTemperatureControl<WithStreamedUnaryMethod_AirConditionerFanSpeedControl<WithStreamedUnaryMethod_HandlingControl<WithStreamedUnaryMethod_CentralDoorLockSwitchControl<WithStreamedUnaryMethod_FrontRightDoorLockSwitchControl<WithStreamedUnaryMethod_FrontLeftDoorLockSwitchControl<WithStreamedUnaryMethod_RearRightDoorLockSwitchControl<WithStreamedUnaryMethod_RearLeftDoorLockSwitchControl<WithStreamedUnaryMethod_get_database<WithStreamedUnaryMethod_send_update_database<Service > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > StreamedService;
 };
 
 }  // namespace UnityAPI

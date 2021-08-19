@@ -70,6 +70,25 @@ service UnityAPIService {
 	rpc FrontLeftDoorLockSwitchControl(FrontLeftDoorLockSwitchRequest) returns (FrontLeftDoorLockSwitchReply) {}
 	rpc RearRightDoorLockSwitchControl(RearRightDoorLockSwitchRequest) returns (RearRightDoorLockSwitchReply) {}
 	rpc RearLeftDoorLockSwitchControl(RearLeftDoorLockSwitchRequest) returns (RearLeftDoorLockSwitchReply) {}
+
+	rpc get_database (getDBRequest) returns (getDBReply) {}
+	rpc send_update_database (setDBRequest) returns (setDBReply) {}
+}
+
+message setDBRequest {
+  string message = 1;
+}
+
+message setDBReply {
+  bool status = 1;
+}
+
+message getDBRequest {
+  string name = 1;
+}
+
+message getDBReply {
+  string message = 1;
 }
 
 // Request

@@ -46,7 +46,7 @@ struct TableStruct_UnityAPI_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[94]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[98]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -337,6 +337,18 @@ extern TrunkReplyDefaultTypeInternal _TrunkReply_default_instance_;
 class TrunkRequest;
 struct TrunkRequestDefaultTypeInternal;
 extern TrunkRequestDefaultTypeInternal _TrunkRequest_default_instance_;
+class getDBReply;
+struct getDBReplyDefaultTypeInternal;
+extern getDBReplyDefaultTypeInternal _getDBReply_default_instance_;
+class getDBRequest;
+struct getDBRequestDefaultTypeInternal;
+extern getDBRequestDefaultTypeInternal _getDBRequest_default_instance_;
+class setDBReply;
+struct setDBReplyDefaultTypeInternal;
+extern setDBReplyDefaultTypeInternal _setDBReply_default_instance_;
+class setDBRequest;
+struct setDBRequestDefaultTypeInternal;
+extern setDBRequestDefaultTypeInternal _setDBRequest_default_instance_;
 }  // namespace UnityAPI
 PROTOBUF_NAMESPACE_OPEN
 template<> ::UnityAPI::AirCondTemperatureReply* Arena::CreateMaybeMessage<::UnityAPI::AirCondTemperatureReply>(Arena*);
@@ -433,10 +445,583 @@ template<> ::UnityAPI::SunRoofReply* Arena::CreateMaybeMessage<::UnityAPI::SunRo
 template<> ::UnityAPI::SunRoofRequest* Arena::CreateMaybeMessage<::UnityAPI::SunRoofRequest>(Arena*);
 template<> ::UnityAPI::TrunkReply* Arena::CreateMaybeMessage<::UnityAPI::TrunkReply>(Arena*);
 template<> ::UnityAPI::TrunkRequest* Arena::CreateMaybeMessage<::UnityAPI::TrunkRequest>(Arena*);
+template<> ::UnityAPI::getDBReply* Arena::CreateMaybeMessage<::UnityAPI::getDBReply>(Arena*);
+template<> ::UnityAPI::getDBRequest* Arena::CreateMaybeMessage<::UnityAPI::getDBRequest>(Arena*);
+template<> ::UnityAPI::setDBReply* Arena::CreateMaybeMessage<::UnityAPI::setDBReply>(Arena*);
+template<> ::UnityAPI::setDBRequest* Arena::CreateMaybeMessage<::UnityAPI::setDBRequest>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace UnityAPI {
 
 // ===================================================================
+
+class setDBRequest PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:UnityAPI.setDBRequest) */ {
+ public:
+  inline setDBRequest() : setDBRequest(nullptr) {}
+  virtual ~setDBRequest();
+  explicit constexpr setDBRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  setDBRequest(const setDBRequest& from);
+  setDBRequest(setDBRequest&& from) noexcept
+    : setDBRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline setDBRequest& operator=(const setDBRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline setDBRequest& operator=(setDBRequest&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const setDBRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const setDBRequest* internal_default_instance() {
+    return reinterpret_cast<const setDBRequest*>(
+               &_setDBRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    0;
+
+  friend void swap(setDBRequest& a, setDBRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(setDBRequest* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(setDBRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline setDBRequest* New() const final {
+    return CreateMaybeMessage<setDBRequest>(nullptr);
+  }
+
+  setDBRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<setDBRequest>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const setDBRequest& from);
+  void MergeFrom(const setDBRequest& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(setDBRequest* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "UnityAPI.setDBRequest";
+  }
+  protected:
+  explicit setDBRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_UnityAPI_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kMessageFieldNumber = 1,
+  };
+  // string message = 1;
+  void clear_message();
+  const std::string& message() const;
+  void set_message(const std::string& value);
+  void set_message(std::string&& value);
+  void set_message(const char* value);
+  void set_message(const char* value, size_t size);
+  std::string* mutable_message();
+  std::string* release_message();
+  void set_allocated_message(std::string* message);
+  private:
+  const std::string& _internal_message() const;
+  void _internal_set_message(const std::string& value);
+  std::string* _internal_mutable_message();
+  public:
+
+  // @@protoc_insertion_point(class_scope:UnityAPI.setDBRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr message_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_UnityAPI_2eproto;
+};
+// -------------------------------------------------------------------
+
+class setDBReply PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:UnityAPI.setDBReply) */ {
+ public:
+  inline setDBReply() : setDBReply(nullptr) {}
+  virtual ~setDBReply();
+  explicit constexpr setDBReply(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  setDBReply(const setDBReply& from);
+  setDBReply(setDBReply&& from) noexcept
+    : setDBReply() {
+    *this = ::std::move(from);
+  }
+
+  inline setDBReply& operator=(const setDBReply& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline setDBReply& operator=(setDBReply&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const setDBReply& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const setDBReply* internal_default_instance() {
+    return reinterpret_cast<const setDBReply*>(
+               &_setDBReply_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  friend void swap(setDBReply& a, setDBReply& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(setDBReply* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(setDBReply* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline setDBReply* New() const final {
+    return CreateMaybeMessage<setDBReply>(nullptr);
+  }
+
+  setDBReply* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<setDBReply>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const setDBReply& from);
+  void MergeFrom(const setDBReply& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(setDBReply* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "UnityAPI.setDBReply";
+  }
+  protected:
+  explicit setDBReply(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_UnityAPI_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kStatusFieldNumber = 1,
+  };
+  // bool status = 1;
+  void clear_status();
+  bool status() const;
+  void set_status(bool value);
+  private:
+  bool _internal_status() const;
+  void _internal_set_status(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:UnityAPI.setDBReply)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  bool status_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_UnityAPI_2eproto;
+};
+// -------------------------------------------------------------------
+
+class getDBRequest PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:UnityAPI.getDBRequest) */ {
+ public:
+  inline getDBRequest() : getDBRequest(nullptr) {}
+  virtual ~getDBRequest();
+  explicit constexpr getDBRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  getDBRequest(const getDBRequest& from);
+  getDBRequest(getDBRequest&& from) noexcept
+    : getDBRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline getDBRequest& operator=(const getDBRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline getDBRequest& operator=(getDBRequest&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const getDBRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const getDBRequest* internal_default_instance() {
+    return reinterpret_cast<const getDBRequest*>(
+               &_getDBRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(getDBRequest& a, getDBRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(getDBRequest* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(getDBRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline getDBRequest* New() const final {
+    return CreateMaybeMessage<getDBRequest>(nullptr);
+  }
+
+  getDBRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<getDBRequest>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const getDBRequest& from);
+  void MergeFrom(const getDBRequest& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(getDBRequest* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "UnityAPI.getDBRequest";
+  }
+  protected:
+  explicit getDBRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_UnityAPI_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kNameFieldNumber = 1,
+  };
+  // string name = 1;
+  void clear_name();
+  const std::string& name() const;
+  void set_name(const std::string& value);
+  void set_name(std::string&& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  std::string* mutable_name();
+  std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // @@protoc_insertion_point(class_scope:UnityAPI.getDBRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_UnityAPI_2eproto;
+};
+// -------------------------------------------------------------------
+
+class getDBReply PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:UnityAPI.getDBReply) */ {
+ public:
+  inline getDBReply() : getDBReply(nullptr) {}
+  virtual ~getDBReply();
+  explicit constexpr getDBReply(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  getDBReply(const getDBReply& from);
+  getDBReply(getDBReply&& from) noexcept
+    : getDBReply() {
+    *this = ::std::move(from);
+  }
+
+  inline getDBReply& operator=(const getDBReply& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline getDBReply& operator=(getDBReply&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const getDBReply& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const getDBReply* internal_default_instance() {
+    return reinterpret_cast<const getDBReply*>(
+               &_getDBReply_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(getDBReply& a, getDBReply& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(getDBReply* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(getDBReply* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline getDBReply* New() const final {
+    return CreateMaybeMessage<getDBReply>(nullptr);
+  }
+
+  getDBReply* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<getDBReply>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const getDBReply& from);
+  void MergeFrom(const getDBReply& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(getDBReply* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "UnityAPI.getDBReply";
+  }
+  protected:
+  explicit getDBReply(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_UnityAPI_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kMessageFieldNumber = 1,
+  };
+  // string message = 1;
+  void clear_message();
+  const std::string& message() const;
+  void set_message(const std::string& value);
+  void set_message(std::string&& value);
+  void set_message(const char* value);
+  void set_message(const char* value, size_t size);
+  std::string* mutable_message();
+  std::string* release_message();
+  void set_allocated_message(std::string* message);
+  private:
+  const std::string& _internal_message() const;
+  void _internal_set_message(const std::string& value);
+  std::string* _internal_mutable_message();
+  public:
+
+  // @@protoc_insertion_point(class_scope:UnityAPI.getDBReply)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr message_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_UnityAPI_2eproto;
+};
+// -------------------------------------------------------------------
 
 class FrontLowLightRequest PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:UnityAPI.FrontLowLightRequest) */ {
@@ -481,7 +1066,7 @@ class FrontLowLightRequest PROTOBUF_FINAL :
                &_FrontLowLightRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    0;
+    4;
 
   friend void swap(FrontLowLightRequest& a, FrontLowLightRequest& b) {
     a.Swap(&b);
@@ -629,7 +1214,7 @@ class FrontHighLightRequest PROTOBUF_FINAL :
                &_FrontHighLightRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    5;
 
   friend void swap(FrontHighLightRequest& a, FrontHighLightRequest& b) {
     a.Swap(&b);
@@ -777,7 +1362,7 @@ class RearLightRequest PROTOBUF_FINAL :
                &_RearLightRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    6;
 
   friend void swap(RearLightRequest& a, RearLightRequest& b) {
     a.Swap(&b);
@@ -925,7 +1510,7 @@ class FrontDaytimeLightRequest PROTOBUF_FINAL :
                &_FrontDaytimeLightRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    7;
 
   friend void swap(FrontDaytimeLightRequest& a, FrontDaytimeLightRequest& b) {
     a.Swap(&b);
@@ -1073,7 +1658,7 @@ class BrakeLightRequest PROTOBUF_FINAL :
                &_BrakeLightRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    8;
 
   friend void swap(BrakeLightRequest& a, BrakeLightRequest& b) {
     a.Swap(&b);
@@ -1221,7 +1806,7 @@ class ReverseLightRequest PROTOBUF_FINAL :
                &_ReverseLightRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    9;
 
   friend void swap(ReverseLightRequest& a, ReverseLightRequest& b) {
     a.Swap(&b);
@@ -1369,7 +1954,7 @@ class FrontFogLightRequest PROTOBUF_FINAL :
                &_FrontFogLightRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    10;
 
   friend void swap(FrontFogLightRequest& a, FrontFogLightRequest& b) {
     a.Swap(&b);
@@ -1517,7 +2102,7 @@ class RearFogLightRequest PROTOBUF_FINAL :
                &_RearFogLightRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    11;
 
   friend void swap(RearFogLightRequest& a, RearFogLightRequest& b) {
     a.Swap(&b);
@@ -1665,7 +2250,7 @@ class ClearanceLampRequest PROTOBUF_FINAL :
                &_ClearanceLampRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    12;
 
   friend void swap(ClearanceLampRequest& a, ClearanceLampRequest& b) {
     a.Swap(&b);
@@ -1813,7 +2398,7 @@ class FrontLeftBlinkerLightRequest PROTOBUF_FINAL :
                &_FrontLeftBlinkerLightRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    13;
 
   friend void swap(FrontLeftBlinkerLightRequest& a, FrontLeftBlinkerLightRequest& b) {
     a.Swap(&b);
@@ -1961,7 +2546,7 @@ class FrontRightBlinkerLightRequest PROTOBUF_FINAL :
                &_FrontRightBlinkerLightRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    14;
 
   friend void swap(FrontRightBlinkerLightRequest& a, FrontRightBlinkerLightRequest& b) {
     a.Swap(&b);
@@ -2109,7 +2694,7 @@ class RearLeftBlinkerLightRequest PROTOBUF_FINAL :
                &_RearLeftBlinkerLightRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    15;
 
   friend void swap(RearLeftBlinkerLightRequest& a, RearLeftBlinkerLightRequest& b) {
     a.Swap(&b);
@@ -2257,7 +2842,7 @@ class RearRightBlinkerLightRequest PROTOBUF_FINAL :
                &_RearRightBlinkerLightRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    16;
 
   friend void swap(RearRightBlinkerLightRequest& a, RearRightBlinkerLightRequest& b) {
     a.Swap(&b);
@@ -2405,7 +2990,7 @@ class FrontWiperRequest PROTOBUF_FINAL :
                &_FrontWiperRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    17;
 
   friend void swap(FrontWiperRequest& a, FrontWiperRequest& b) {
     a.Swap(&b);
@@ -2553,7 +3138,7 @@ class RearWiperRequest PROTOBUF_FINAL :
                &_RearWiperRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    18;
 
   friend void swap(RearWiperRequest& a, RearWiperRequest& b) {
     a.Swap(&b);
@@ -2701,7 +3286,7 @@ class LeftSideMirrorRequest PROTOBUF_FINAL :
                &_LeftSideMirrorRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    19;
 
   friend void swap(LeftSideMirrorRequest& a, LeftSideMirrorRequest& b) {
     a.Swap(&b);
@@ -2849,7 +3434,7 @@ class RightSideMirrorRequest PROTOBUF_FINAL :
                &_RightSideMirrorRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    20;
 
   friend void swap(RightSideMirrorRequest& a, RightSideMirrorRequest& b) {
     a.Swap(&b);
@@ -2997,7 +3582,7 @@ class FrontRightDoorRequest PROTOBUF_FINAL :
                &_FrontRightDoorRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    21;
 
   friend void swap(FrontRightDoorRequest& a, FrontRightDoorRequest& b) {
     a.Swap(&b);
@@ -3145,7 +3730,7 @@ class FrontLeftDoorRequest PROTOBUF_FINAL :
                &_FrontLeftDoorRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    22;
 
   friend void swap(FrontLeftDoorRequest& a, FrontLeftDoorRequest& b) {
     a.Swap(&b);
@@ -3293,7 +3878,7 @@ class RearRightDoorRequest PROTOBUF_FINAL :
                &_RearRightDoorRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    23;
 
   friend void swap(RearRightDoorRequest& a, RearRightDoorRequest& b) {
     a.Swap(&b);
@@ -3441,7 +4026,7 @@ class RearLeftDoorRequest PROTOBUF_FINAL :
                &_RearLeftDoorRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    24;
 
   friend void swap(RearLeftDoorRequest& a, RearLeftDoorRequest& b) {
     a.Swap(&b);
@@ -3589,7 +4174,7 @@ class TrunkRequest PROTOBUF_FINAL :
                &_TrunkRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    25;
 
   friend void swap(TrunkRequest& a, TrunkRequest& b) {
     a.Swap(&b);
@@ -3737,7 +4322,7 @@ class SunRoofRequest PROTOBUF_FINAL :
                &_SunRoofRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    26;
 
   friend void swap(SunRoofRequest& a, SunRoofRequest& b) {
     a.Swap(&b);
@@ -3885,7 +4470,7 @@ class FrontRightPowerWindowsRequest PROTOBUF_FINAL :
                &_FrontRightPowerWindowsRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    27;
 
   friend void swap(FrontRightPowerWindowsRequest& a, FrontRightPowerWindowsRequest& b) {
     a.Swap(&b);
@@ -4033,7 +4618,7 @@ class FrontLeftPowerWindowsRequest PROTOBUF_FINAL :
                &_FrontLeftPowerWindowsRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    28;
 
   friend void swap(FrontLeftPowerWindowsRequest& a, FrontLeftPowerWindowsRequest& b) {
     a.Swap(&b);
@@ -4181,7 +4766,7 @@ class RearRightPowerWindowsRequest PROTOBUF_FINAL :
                &_RearRightPowerWindowsRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    29;
 
   friend void swap(RearRightPowerWindowsRequest& a, RearRightPowerWindowsRequest& b) {
     a.Swap(&b);
@@ -4329,7 +4914,7 @@ class RearLeftPowerWindowsRequest PROTOBUF_FINAL :
                &_RearLeftPowerWindowsRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    30;
 
   friend void swap(RearLeftPowerWindowsRequest& a, RearLeftPowerWindowsRequest& b) {
     a.Swap(&b);
@@ -4477,7 +5062,7 @@ class SideMirrorSwitchRequest PROTOBUF_FINAL :
                &_SideMirrorSwitchRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    31;
 
   friend void swap(SideMirrorSwitchRequest& a, SideMirrorSwitchRequest& b) {
     a.Swap(&b);
@@ -4625,7 +5210,7 @@ class InstrumentLightRequest PROTOBUF_FINAL :
                &_InstrumentLightRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    32;
 
   friend void swap(InstrumentLightRequest& a, InstrumentLightRequest& b) {
     a.Swap(&b);
@@ -4773,7 +5358,7 @@ class PassgenerRoomDomeLightRequest PROTOBUF_FINAL :
                &_PassgenerRoomDomeLightRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    33;
 
   friend void swap(PassgenerRoomDomeLightRequest& a, PassgenerRoomDomeLightRequest& b) {
     a.Swap(&b);
@@ -4921,7 +5506,7 @@ class ReadingLightDriverSideRequest PROTOBUF_FINAL :
                &_ReadingLightDriverSideRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    34;
 
   friend void swap(ReadingLightDriverSideRequest& a, ReadingLightDriverSideRequest& b) {
     a.Swap(&b);
@@ -5069,7 +5654,7 @@ class ReadingLightPassgenerSideRequest PROTOBUF_FINAL :
                &_ReadingLightPassgenerSideRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    35;
 
   friend void swap(ReadingLightPassgenerSideRequest& a, ReadingLightPassgenerSideRequest& b) {
     a.Swap(&b);
@@ -5217,7 +5802,7 @@ class FrontRightPowerWindowsSwitchRequest PROTOBUF_FINAL :
                &_FrontRightPowerWindowsSwitchRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    36;
 
   friend void swap(FrontRightPowerWindowsSwitchRequest& a, FrontRightPowerWindowsSwitchRequest& b) {
     a.Swap(&b);
@@ -5365,7 +5950,7 @@ class FrontLeftPowerWindowsSwitchRequest PROTOBUF_FINAL :
                &_FrontLeftPowerWindowsSwitchRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    37;
 
   friend void swap(FrontLeftPowerWindowsSwitchRequest& a, FrontLeftPowerWindowsSwitchRequest& b) {
     a.Swap(&b);
@@ -5513,7 +6098,7 @@ class RearRightPowerWindowsSwitchRequest PROTOBUF_FINAL :
                &_RearRightPowerWindowsSwitchRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    38;
 
   friend void swap(RearRightPowerWindowsSwitchRequest& a, RearRightPowerWindowsSwitchRequest& b) {
     a.Swap(&b);
@@ -5661,7 +6246,7 @@ class RearLeftPowerWindowsSwitchRequest PROTOBUF_FINAL :
                &_RearLeftPowerWindowsSwitchRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    39;
 
   friend void swap(RearLeftPowerWindowsSwitchRequest& a, RearLeftPowerWindowsSwitchRequest& b) {
     a.Swap(&b);
@@ -5809,7 +6394,7 @@ class HornRequest PROTOBUF_FINAL :
                &_HornRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    40;
 
   friend void swap(HornRequest& a, HornRequest& b) {
     a.Swap(&b);
@@ -5957,7 +6542,7 @@ class BuzzerRequest PROTOBUF_FINAL :
                &_BuzzerRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    41;
 
   friend void swap(BuzzerRequest& a, BuzzerRequest& b) {
     a.Swap(&b);
@@ -6105,7 +6690,7 @@ class AirConditionerRequest PROTOBUF_FINAL :
                &_AirConditionerRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    42;
 
   friend void swap(AirConditionerRequest& a, AirConditionerRequest& b) {
     a.Swap(&b);
@@ -6253,7 +6838,7 @@ class AirCondTemperatureRequest PROTOBUF_FINAL :
                &_AirCondTemperatureRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    43;
 
   friend void swap(AirCondTemperatureRequest& a, AirCondTemperatureRequest& b) {
     a.Swap(&b);
@@ -6401,7 +6986,7 @@ class AirConditionerFanSpeedRequest PROTOBUF_FINAL :
                &_AirConditionerFanSpeedRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    44;
 
   friend void swap(AirConditionerFanSpeedRequest& a, AirConditionerFanSpeedRequest& b) {
     a.Swap(&b);
@@ -6549,7 +7134,7 @@ class HandlingRequest PROTOBUF_FINAL :
                &_HandlingRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    41;
+    45;
 
   friend void swap(HandlingRequest& a, HandlingRequest& b) {
     a.Swap(&b);
@@ -6697,7 +7282,7 @@ class CentralDoorLockSwitchRequest PROTOBUF_FINAL :
                &_CentralDoorLockSwitchRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    42;
+    46;
 
   friend void swap(CentralDoorLockSwitchRequest& a, CentralDoorLockSwitchRequest& b) {
     a.Swap(&b);
@@ -6845,7 +7430,7 @@ class FrontRightDoorLockSwitchRequest PROTOBUF_FINAL :
                &_FrontRightDoorLockSwitchRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    43;
+    47;
 
   friend void swap(FrontRightDoorLockSwitchRequest& a, FrontRightDoorLockSwitchRequest& b) {
     a.Swap(&b);
@@ -6993,7 +7578,7 @@ class FrontLeftDoorLockSwitchRequest PROTOBUF_FINAL :
                &_FrontLeftDoorLockSwitchRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    44;
+    48;
 
   friend void swap(FrontLeftDoorLockSwitchRequest& a, FrontLeftDoorLockSwitchRequest& b) {
     a.Swap(&b);
@@ -7141,7 +7726,7 @@ class RearRightDoorLockSwitchRequest PROTOBUF_FINAL :
                &_RearRightDoorLockSwitchRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    45;
+    49;
 
   friend void swap(RearRightDoorLockSwitchRequest& a, RearRightDoorLockSwitchRequest& b) {
     a.Swap(&b);
@@ -7289,7 +7874,7 @@ class RearLeftDoorLockSwitchRequest PROTOBUF_FINAL :
                &_RearLeftDoorLockSwitchRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    46;
+    50;
 
   friend void swap(RearLeftDoorLockSwitchRequest& a, RearLeftDoorLockSwitchRequest& b) {
     a.Swap(&b);
@@ -7437,7 +8022,7 @@ class FrontLowLightReply PROTOBUF_FINAL :
                &_FrontLowLightReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    47;
+    51;
 
   friend void swap(FrontLowLightReply& a, FrontLowLightReply& b) {
     a.Swap(&b);
@@ -7574,7 +8159,7 @@ class FrontHighLightReply PROTOBUF_FINAL :
                &_FrontHighLightReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    48;
+    52;
 
   friend void swap(FrontHighLightReply& a, FrontHighLightReply& b) {
     a.Swap(&b);
@@ -7711,7 +8296,7 @@ class RearLightReply PROTOBUF_FINAL :
                &_RearLightReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    49;
+    53;
 
   friend void swap(RearLightReply& a, RearLightReply& b) {
     a.Swap(&b);
@@ -7848,7 +8433,7 @@ class FrontDaytimeLightReply PROTOBUF_FINAL :
                &_FrontDaytimeLightReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    50;
+    54;
 
   friend void swap(FrontDaytimeLightReply& a, FrontDaytimeLightReply& b) {
     a.Swap(&b);
@@ -7985,7 +8570,7 @@ class BrakeLightReply PROTOBUF_FINAL :
                &_BrakeLightReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    51;
+    55;
 
   friend void swap(BrakeLightReply& a, BrakeLightReply& b) {
     a.Swap(&b);
@@ -8122,7 +8707,7 @@ class ReverseLightReply PROTOBUF_FINAL :
                &_ReverseLightReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    52;
+    56;
 
   friend void swap(ReverseLightReply& a, ReverseLightReply& b) {
     a.Swap(&b);
@@ -8259,7 +8844,7 @@ class FrontFogLightReply PROTOBUF_FINAL :
                &_FrontFogLightReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    53;
+    57;
 
   friend void swap(FrontFogLightReply& a, FrontFogLightReply& b) {
     a.Swap(&b);
@@ -8396,7 +8981,7 @@ class RearFogLightReply PROTOBUF_FINAL :
                &_RearFogLightReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    54;
+    58;
 
   friend void swap(RearFogLightReply& a, RearFogLightReply& b) {
     a.Swap(&b);
@@ -8533,7 +9118,7 @@ class ClearanceLampReply PROTOBUF_FINAL :
                &_ClearanceLampReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    55;
+    59;
 
   friend void swap(ClearanceLampReply& a, ClearanceLampReply& b) {
     a.Swap(&b);
@@ -8670,7 +9255,7 @@ class FrontLeftBlinkerLightReply PROTOBUF_FINAL :
                &_FrontLeftBlinkerLightReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    56;
+    60;
 
   friend void swap(FrontLeftBlinkerLightReply& a, FrontLeftBlinkerLightReply& b) {
     a.Swap(&b);
@@ -8807,7 +9392,7 @@ class FrontRightBlinkerLightReply PROTOBUF_FINAL :
                &_FrontRightBlinkerLightReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    57;
+    61;
 
   friend void swap(FrontRightBlinkerLightReply& a, FrontRightBlinkerLightReply& b) {
     a.Swap(&b);
@@ -8944,7 +9529,7 @@ class RearLeftBlinkerLightReply PROTOBUF_FINAL :
                &_RearLeftBlinkerLightReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    58;
+    62;
 
   friend void swap(RearLeftBlinkerLightReply& a, RearLeftBlinkerLightReply& b) {
     a.Swap(&b);
@@ -9081,7 +9666,7 @@ class RearRightBlinkerLightReply PROTOBUF_FINAL :
                &_RearRightBlinkerLightReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    59;
+    63;
 
   friend void swap(RearRightBlinkerLightReply& a, RearRightBlinkerLightReply& b) {
     a.Swap(&b);
@@ -9218,7 +9803,7 @@ class FrontWiperReply PROTOBUF_FINAL :
                &_FrontWiperReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    60;
+    64;
 
   friend void swap(FrontWiperReply& a, FrontWiperReply& b) {
     a.Swap(&b);
@@ -9355,7 +9940,7 @@ class RearWiperReply PROTOBUF_FINAL :
                &_RearWiperReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    61;
+    65;
 
   friend void swap(RearWiperReply& a, RearWiperReply& b) {
     a.Swap(&b);
@@ -9492,7 +10077,7 @@ class LeftSideMirrorReply PROTOBUF_FINAL :
                &_LeftSideMirrorReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    62;
+    66;
 
   friend void swap(LeftSideMirrorReply& a, LeftSideMirrorReply& b) {
     a.Swap(&b);
@@ -9629,7 +10214,7 @@ class RightSideMirrorReply PROTOBUF_FINAL :
                &_RightSideMirrorReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    63;
+    67;
 
   friend void swap(RightSideMirrorReply& a, RightSideMirrorReply& b) {
     a.Swap(&b);
@@ -9766,7 +10351,7 @@ class FrontRightDoorReply PROTOBUF_FINAL :
                &_FrontRightDoorReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    64;
+    68;
 
   friend void swap(FrontRightDoorReply& a, FrontRightDoorReply& b) {
     a.Swap(&b);
@@ -9903,7 +10488,7 @@ class FrontLeftDoorReply PROTOBUF_FINAL :
                &_FrontLeftDoorReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    65;
+    69;
 
   friend void swap(FrontLeftDoorReply& a, FrontLeftDoorReply& b) {
     a.Swap(&b);
@@ -10040,7 +10625,7 @@ class RearRightDoorReply PROTOBUF_FINAL :
                &_RearRightDoorReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    66;
+    70;
 
   friend void swap(RearRightDoorReply& a, RearRightDoorReply& b) {
     a.Swap(&b);
@@ -10177,7 +10762,7 @@ class RearLeftDoorReply PROTOBUF_FINAL :
                &_RearLeftDoorReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    67;
+    71;
 
   friend void swap(RearLeftDoorReply& a, RearLeftDoorReply& b) {
     a.Swap(&b);
@@ -10314,7 +10899,7 @@ class TrunkReply PROTOBUF_FINAL :
                &_TrunkReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    68;
+    72;
 
   friend void swap(TrunkReply& a, TrunkReply& b) {
     a.Swap(&b);
@@ -10451,7 +11036,7 @@ class SunRoofReply PROTOBUF_FINAL :
                &_SunRoofReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    69;
+    73;
 
   friend void swap(SunRoofReply& a, SunRoofReply& b) {
     a.Swap(&b);
@@ -10588,7 +11173,7 @@ class FrontRightPowerWindowsReply PROTOBUF_FINAL :
                &_FrontRightPowerWindowsReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    70;
+    74;
 
   friend void swap(FrontRightPowerWindowsReply& a, FrontRightPowerWindowsReply& b) {
     a.Swap(&b);
@@ -10725,7 +11310,7 @@ class FrontLeftPowerWindowsReply PROTOBUF_FINAL :
                &_FrontLeftPowerWindowsReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    71;
+    75;
 
   friend void swap(FrontLeftPowerWindowsReply& a, FrontLeftPowerWindowsReply& b) {
     a.Swap(&b);
@@ -10862,7 +11447,7 @@ class RearRightPowerWindowsReply PROTOBUF_FINAL :
                &_RearRightPowerWindowsReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    72;
+    76;
 
   friend void swap(RearRightPowerWindowsReply& a, RearRightPowerWindowsReply& b) {
     a.Swap(&b);
@@ -10999,7 +11584,7 @@ class RearLeftPowerWindowsReply PROTOBUF_FINAL :
                &_RearLeftPowerWindowsReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    73;
+    77;
 
   friend void swap(RearLeftPowerWindowsReply& a, RearLeftPowerWindowsReply& b) {
     a.Swap(&b);
@@ -11136,7 +11721,7 @@ class SideMirrorSwitchReply PROTOBUF_FINAL :
                &_SideMirrorSwitchReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    74;
+    78;
 
   friend void swap(SideMirrorSwitchReply& a, SideMirrorSwitchReply& b) {
     a.Swap(&b);
@@ -11273,7 +11858,7 @@ class InstrumentLightReply PROTOBUF_FINAL :
                &_InstrumentLightReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    75;
+    79;
 
   friend void swap(InstrumentLightReply& a, InstrumentLightReply& b) {
     a.Swap(&b);
@@ -11410,7 +11995,7 @@ class PassgenerRoomDomeLightReply PROTOBUF_FINAL :
                &_PassgenerRoomDomeLightReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    76;
+    80;
 
   friend void swap(PassgenerRoomDomeLightReply& a, PassgenerRoomDomeLightReply& b) {
     a.Swap(&b);
@@ -11547,7 +12132,7 @@ class ReadingLightDriverSideReply PROTOBUF_FINAL :
                &_ReadingLightDriverSideReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    77;
+    81;
 
   friend void swap(ReadingLightDriverSideReply& a, ReadingLightDriverSideReply& b) {
     a.Swap(&b);
@@ -11684,7 +12269,7 @@ class ReadingLightPassgenerSideReply PROTOBUF_FINAL :
                &_ReadingLightPassgenerSideReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    78;
+    82;
 
   friend void swap(ReadingLightPassgenerSideReply& a, ReadingLightPassgenerSideReply& b) {
     a.Swap(&b);
@@ -11821,7 +12406,7 @@ class FrontRightPowerWindowsSwitchReply PROTOBUF_FINAL :
                &_FrontRightPowerWindowsSwitchReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    79;
+    83;
 
   friend void swap(FrontRightPowerWindowsSwitchReply& a, FrontRightPowerWindowsSwitchReply& b) {
     a.Swap(&b);
@@ -11958,7 +12543,7 @@ class FrontLeftPowerWindowsSwitchReply PROTOBUF_FINAL :
                &_FrontLeftPowerWindowsSwitchReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    80;
+    84;
 
   friend void swap(FrontLeftPowerWindowsSwitchReply& a, FrontLeftPowerWindowsSwitchReply& b) {
     a.Swap(&b);
@@ -12095,7 +12680,7 @@ class RearRightPowerWindowsSwitchReply PROTOBUF_FINAL :
                &_RearRightPowerWindowsSwitchReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    81;
+    85;
 
   friend void swap(RearRightPowerWindowsSwitchReply& a, RearRightPowerWindowsSwitchReply& b) {
     a.Swap(&b);
@@ -12232,7 +12817,7 @@ class RearLeftPowerWindowsSwitchReply PROTOBUF_FINAL :
                &_RearLeftPowerWindowsSwitchReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    82;
+    86;
 
   friend void swap(RearLeftPowerWindowsSwitchReply& a, RearLeftPowerWindowsSwitchReply& b) {
     a.Swap(&b);
@@ -12369,7 +12954,7 @@ class HornReply PROTOBUF_FINAL :
                &_HornReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    83;
+    87;
 
   friend void swap(HornReply& a, HornReply& b) {
     a.Swap(&b);
@@ -12506,7 +13091,7 @@ class BuzzerReply PROTOBUF_FINAL :
                &_BuzzerReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    84;
+    88;
 
   friend void swap(BuzzerReply& a, BuzzerReply& b) {
     a.Swap(&b);
@@ -12643,7 +13228,7 @@ class AirConditionerReply PROTOBUF_FINAL :
                &_AirConditionerReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    85;
+    89;
 
   friend void swap(AirConditionerReply& a, AirConditionerReply& b) {
     a.Swap(&b);
@@ -12780,7 +13365,7 @@ class AirCondTemperatureReply PROTOBUF_FINAL :
                &_AirCondTemperatureReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    86;
+    90;
 
   friend void swap(AirCondTemperatureReply& a, AirCondTemperatureReply& b) {
     a.Swap(&b);
@@ -12917,7 +13502,7 @@ class AirConditionerFanSpeedReply PROTOBUF_FINAL :
                &_AirConditionerFanSpeedReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    87;
+    91;
 
   friend void swap(AirConditionerFanSpeedReply& a, AirConditionerFanSpeedReply& b) {
     a.Swap(&b);
@@ -13054,7 +13639,7 @@ class HandlingReply PROTOBUF_FINAL :
                &_HandlingReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    88;
+    92;
 
   friend void swap(HandlingReply& a, HandlingReply& b) {
     a.Swap(&b);
@@ -13191,7 +13776,7 @@ class CentralDoorLockSwitchReply PROTOBUF_FINAL :
                &_CentralDoorLockSwitchReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    89;
+    93;
 
   friend void swap(CentralDoorLockSwitchReply& a, CentralDoorLockSwitchReply& b) {
     a.Swap(&b);
@@ -13328,7 +13913,7 @@ class FrontRightDoorLockSwitchReply PROTOBUF_FINAL :
                &_FrontRightDoorLockSwitchReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    90;
+    94;
 
   friend void swap(FrontRightDoorLockSwitchReply& a, FrontRightDoorLockSwitchReply& b) {
     a.Swap(&b);
@@ -13465,7 +14050,7 @@ class FrontLeftDoorLockSwitchReply PROTOBUF_FINAL :
                &_FrontLeftDoorLockSwitchReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    91;
+    95;
 
   friend void swap(FrontLeftDoorLockSwitchReply& a, FrontLeftDoorLockSwitchReply& b) {
     a.Swap(&b);
@@ -13602,7 +14187,7 @@ class RearRightDoorLockSwitchReply PROTOBUF_FINAL :
                &_RearRightDoorLockSwitchReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    92;
+    96;
 
   friend void swap(RearRightDoorLockSwitchReply& a, RearRightDoorLockSwitchReply& b) {
     a.Swap(&b);
@@ -13739,7 +14324,7 @@ class RearLeftDoorLockSwitchReply PROTOBUF_FINAL :
                &_RearLeftDoorLockSwitchReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    93;
+    97;
 
   friend void swap(RearLeftDoorLockSwitchReply& a, RearLeftDoorLockSwitchReply& b) {
     a.Swap(&b);
@@ -13840,6 +14425,225 @@ class RearLeftDoorLockSwitchReply PROTOBUF_FINAL :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
+// setDBRequest
+
+// string message = 1;
+inline void setDBRequest::clear_message() {
+  message_.ClearToEmpty();
+}
+inline const std::string& setDBRequest::message() const {
+  // @@protoc_insertion_point(field_get:UnityAPI.setDBRequest.message)
+  return _internal_message();
+}
+inline void setDBRequest::set_message(const std::string& value) {
+  _internal_set_message(value);
+  // @@protoc_insertion_point(field_set:UnityAPI.setDBRequest.message)
+}
+inline std::string* setDBRequest::mutable_message() {
+  // @@protoc_insertion_point(field_mutable:UnityAPI.setDBRequest.message)
+  return _internal_mutable_message();
+}
+inline const std::string& setDBRequest::_internal_message() const {
+  return message_.Get();
+}
+inline void setDBRequest::_internal_set_message(const std::string& value) {
+  
+  message_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void setDBRequest::set_message(std::string&& value) {
+  
+  message_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:UnityAPI.setDBRequest.message)
+}
+inline void setDBRequest::set_message(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  message_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:UnityAPI.setDBRequest.message)
+}
+inline void setDBRequest::set_message(const char* value,
+    size_t size) {
+  
+  message_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:UnityAPI.setDBRequest.message)
+}
+inline std::string* setDBRequest::_internal_mutable_message() {
+  
+  return message_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* setDBRequest::release_message() {
+  // @@protoc_insertion_point(field_release:UnityAPI.setDBRequest.message)
+  return message_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void setDBRequest::set_allocated_message(std::string* message) {
+  if (message != nullptr) {
+    
+  } else {
+    
+  }
+  message_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), message,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:UnityAPI.setDBRequest.message)
+}
+
+// -------------------------------------------------------------------
+
+// setDBReply
+
+// bool status = 1;
+inline void setDBReply::clear_status() {
+  status_ = false;
+}
+inline bool setDBReply::_internal_status() const {
+  return status_;
+}
+inline bool setDBReply::status() const {
+  // @@protoc_insertion_point(field_get:UnityAPI.setDBReply.status)
+  return _internal_status();
+}
+inline void setDBReply::_internal_set_status(bool value) {
+  
+  status_ = value;
+}
+inline void setDBReply::set_status(bool value) {
+  _internal_set_status(value);
+  // @@protoc_insertion_point(field_set:UnityAPI.setDBReply.status)
+}
+
+// -------------------------------------------------------------------
+
+// getDBRequest
+
+// string name = 1;
+inline void getDBRequest::clear_name() {
+  name_.ClearToEmpty();
+}
+inline const std::string& getDBRequest::name() const {
+  // @@protoc_insertion_point(field_get:UnityAPI.getDBRequest.name)
+  return _internal_name();
+}
+inline void getDBRequest::set_name(const std::string& value) {
+  _internal_set_name(value);
+  // @@protoc_insertion_point(field_set:UnityAPI.getDBRequest.name)
+}
+inline std::string* getDBRequest::mutable_name() {
+  // @@protoc_insertion_point(field_mutable:UnityAPI.getDBRequest.name)
+  return _internal_mutable_name();
+}
+inline const std::string& getDBRequest::_internal_name() const {
+  return name_.Get();
+}
+inline void getDBRequest::_internal_set_name(const std::string& value) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void getDBRequest::set_name(std::string&& value) {
+  
+  name_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:UnityAPI.getDBRequest.name)
+}
+inline void getDBRequest::set_name(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:UnityAPI.getDBRequest.name)
+}
+inline void getDBRequest::set_name(const char* value,
+    size_t size) {
+  
+  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:UnityAPI.getDBRequest.name)
+}
+inline std::string* getDBRequest::_internal_mutable_name() {
+  
+  return name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* getDBRequest::release_name() {
+  // @@protoc_insertion_point(field_release:UnityAPI.getDBRequest.name)
+  return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void getDBRequest::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:UnityAPI.getDBRequest.name)
+}
+
+// -------------------------------------------------------------------
+
+// getDBReply
+
+// string message = 1;
+inline void getDBReply::clear_message() {
+  message_.ClearToEmpty();
+}
+inline const std::string& getDBReply::message() const {
+  // @@protoc_insertion_point(field_get:UnityAPI.getDBReply.message)
+  return _internal_message();
+}
+inline void getDBReply::set_message(const std::string& value) {
+  _internal_set_message(value);
+  // @@protoc_insertion_point(field_set:UnityAPI.getDBReply.message)
+}
+inline std::string* getDBReply::mutable_message() {
+  // @@protoc_insertion_point(field_mutable:UnityAPI.getDBReply.message)
+  return _internal_mutable_message();
+}
+inline const std::string& getDBReply::_internal_message() const {
+  return message_.Get();
+}
+inline void getDBReply::_internal_set_message(const std::string& value) {
+  
+  message_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void getDBReply::set_message(std::string&& value) {
+  
+  message_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:UnityAPI.getDBReply.message)
+}
+inline void getDBReply::set_message(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  message_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:UnityAPI.getDBReply.message)
+}
+inline void getDBReply::set_message(const char* value,
+    size_t size) {
+  
+  message_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:UnityAPI.getDBReply.message)
+}
+inline std::string* getDBReply::_internal_mutable_message() {
+  
+  return message_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* getDBReply::release_message() {
+  // @@protoc_insertion_point(field_release:UnityAPI.getDBReply.message)
+  return message_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void getDBReply::set_allocated_message(std::string* message) {
+  if (message != nullptr) {
+    
+  } else {
+    
+  }
+  message_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), message,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:UnityAPI.getDBReply.message)
+}
+
+// -------------------------------------------------------------------
+
 // FrontLowLightRequest
 
 // bool setMode = 1;
@@ -17037,6 +17841,14 @@ inline void RearLeftDoorLockSwitchReply::set_status(bool value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

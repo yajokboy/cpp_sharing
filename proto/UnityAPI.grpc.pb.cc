@@ -69,6 +69,8 @@ static const char* UnityAPIService_method_names[] = {
   "/UnityAPI.UnityAPIService/FrontLeftDoorLockSwitchControl",
   "/UnityAPI.UnityAPIService/RearRightDoorLockSwitchControl",
   "/UnityAPI.UnityAPIService/RearLeftDoorLockSwitchControl",
+  "/UnityAPI.UnityAPIService/get_database",
+  "/UnityAPI.UnityAPIService/send_update_database",
 };
 
 std::unique_ptr< UnityAPIService::Stub> UnityAPIService::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -125,6 +127,8 @@ UnityAPIService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& ch
   , rpcmethod_FrontLeftDoorLockSwitchControl_(UnityAPIService_method_names[44], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_RearRightDoorLockSwitchControl_(UnityAPIService_method_names[45], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_RearLeftDoorLockSwitchControl_(UnityAPIService_method_names[46], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_get_database_(UnityAPIService_method_names[47], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_send_update_database_(UnityAPIService_method_names[48], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status UnityAPIService::Stub::FrontLowLightControl(::grpc::ClientContext* context, const ::UnityAPI::FrontLowLightRequest& request, ::UnityAPI::FrontLowLightReply* response) {
@@ -1208,6 +1212,52 @@ void UnityAPIService::Stub::experimental_async::RearLeftDoorLockSwitchControl(::
   return result;
 }
 
+::grpc::Status UnityAPIService::Stub::get_database(::grpc::ClientContext* context, const ::UnityAPI::getDBRequest& request, ::UnityAPI::getDBReply* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::UnityAPI::getDBRequest, ::UnityAPI::getDBReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_get_database_, context, request, response);
+}
+
+void UnityAPIService::Stub::experimental_async::get_database(::grpc::ClientContext* context, const ::UnityAPI::getDBRequest* request, ::UnityAPI::getDBReply* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::UnityAPI::getDBRequest, ::UnityAPI::getDBReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_get_database_, context, request, response, std::move(f));
+}
+
+void UnityAPIService::Stub::experimental_async::get_database(::grpc::ClientContext* context, const ::UnityAPI::getDBRequest* request, ::UnityAPI::getDBReply* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_get_database_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::UnityAPI::getDBReply>* UnityAPIService::Stub::PrepareAsyncget_databaseRaw(::grpc::ClientContext* context, const ::UnityAPI::getDBRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::UnityAPI::getDBReply, ::UnityAPI::getDBRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_get_database_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::UnityAPI::getDBReply>* UnityAPIService::Stub::Asyncget_databaseRaw(::grpc::ClientContext* context, const ::UnityAPI::getDBRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncget_databaseRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status UnityAPIService::Stub::send_update_database(::grpc::ClientContext* context, const ::UnityAPI::setDBRequest& request, ::UnityAPI::setDBReply* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::UnityAPI::setDBRequest, ::UnityAPI::setDBReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_send_update_database_, context, request, response);
+}
+
+void UnityAPIService::Stub::experimental_async::send_update_database(::grpc::ClientContext* context, const ::UnityAPI::setDBRequest* request, ::UnityAPI::setDBReply* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::UnityAPI::setDBRequest, ::UnityAPI::setDBReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_send_update_database_, context, request, response, std::move(f));
+}
+
+void UnityAPIService::Stub::experimental_async::send_update_database(::grpc::ClientContext* context, const ::UnityAPI::setDBRequest* request, ::UnityAPI::setDBReply* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_send_update_database_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::UnityAPI::setDBReply>* UnityAPIService::Stub::PrepareAsyncsend_update_databaseRaw(::grpc::ClientContext* context, const ::UnityAPI::setDBRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::UnityAPI::setDBReply, ::UnityAPI::setDBRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_send_update_database_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::UnityAPI::setDBReply>* UnityAPIService::Stub::Asyncsend_update_databaseRaw(::grpc::ClientContext* context, const ::UnityAPI::setDBRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncsend_update_databaseRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
 UnityAPIService::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       UnityAPIService_method_names[0],
@@ -1679,6 +1729,26 @@ UnityAPIService::Service::Service() {
              ::UnityAPI::RearLeftDoorLockSwitchReply* resp) {
                return service->RearLeftDoorLockSwitchControl(ctx, req, resp);
              }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      UnityAPIService_method_names[47],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< UnityAPIService::Service, ::UnityAPI::getDBRequest, ::UnityAPI::getDBReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](UnityAPIService::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::UnityAPI::getDBRequest* req,
+             ::UnityAPI::getDBReply* resp) {
+               return service->get_database(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      UnityAPIService_method_names[48],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< UnityAPIService::Service, ::UnityAPI::setDBRequest, ::UnityAPI::setDBReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](UnityAPIService::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::UnityAPI::setDBRequest* req,
+             ::UnityAPI::setDBReply* resp) {
+               return service->send_update_database(ctx, req, resp);
+             }, this)));
 }
 
 UnityAPIService::Service::~Service() {
@@ -2007,6 +2077,20 @@ UnityAPIService::Service::~Service() {
 }
 
 ::grpc::Status UnityAPIService::Service::RearLeftDoorLockSwitchControl(::grpc::ServerContext* context, const ::UnityAPI::RearLeftDoorLockSwitchRequest* request, ::UnityAPI::RearLeftDoorLockSwitchReply* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status UnityAPIService::Service::get_database(::grpc::ServerContext* context, const ::UnityAPI::getDBRequest* request, ::UnityAPI::getDBReply* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status UnityAPIService::Service::send_update_database(::grpc::ServerContext* context, const ::UnityAPI::setDBRequest* request, ::UnityAPI::setDBReply* response) {
   (void) context;
   (void) request;
   (void) response;

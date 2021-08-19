@@ -17,6 +17,54 @@
 
 PROTOBUF_PRAGMA_INIT_SEG
 namespace UnityAPI {
+constexpr setDBRequest::setDBRequest(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : message_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
+struct setDBRequestDefaultTypeInternal {
+  constexpr setDBRequestDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~setDBRequestDefaultTypeInternal() {}
+  union {
+    setDBRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT setDBRequestDefaultTypeInternal _setDBRequest_default_instance_;
+constexpr setDBReply::setDBReply(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : status_(false){}
+struct setDBReplyDefaultTypeInternal {
+  constexpr setDBReplyDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~setDBReplyDefaultTypeInternal() {}
+  union {
+    setDBReply _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT setDBReplyDefaultTypeInternal _setDBReply_default_instance_;
+constexpr getDBRequest::getDBRequest(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
+struct getDBRequestDefaultTypeInternal {
+  constexpr getDBRequestDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~getDBRequestDefaultTypeInternal() {}
+  union {
+    getDBRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT getDBRequestDefaultTypeInternal _getDBRequest_default_instance_;
+constexpr getDBReply::getDBReply(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : message_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
+struct getDBReplyDefaultTypeInternal {
+  constexpr getDBReplyDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~getDBReplyDefaultTypeInternal() {}
+  union {
+    getDBReply _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT getDBReplyDefaultTypeInternal _getDBReply_default_instance_;
 constexpr FrontLowLightRequest::FrontLowLightRequest(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : setmode_(false)
@@ -1193,11 +1241,35 @@ struct RearLeftDoorLockSwitchReplyDefaultTypeInternal {
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT RearLeftDoorLockSwitchReplyDefaultTypeInternal _RearLeftDoorLockSwitchReply_default_instance_;
 }  // namespace UnityAPI
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_UnityAPI_2eproto[94];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_UnityAPI_2eproto[98];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_UnityAPI_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_UnityAPI_2eproto = nullptr;
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_UnityAPI_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::UnityAPI::setDBRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::UnityAPI::setDBRequest, message_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::UnityAPI::setDBReply, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::UnityAPI::setDBReply, status_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::UnityAPI::getDBRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::UnityAPI::getDBRequest, name_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::UnityAPI::getDBReply, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::UnityAPI::getDBReply, message_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::UnityAPI::FrontLowLightRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1811,103 +1883,111 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_UnityAPI_2eproto::offsets[] PR
   PROTOBUF_FIELD_OFFSET(::UnityAPI::RearLeftDoorLockSwitchReply, status_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::UnityAPI::FrontLowLightRequest)},
-  { 7, -1, sizeof(::UnityAPI::FrontHighLightRequest)},
-  { 14, -1, sizeof(::UnityAPI::RearLightRequest)},
-  { 21, -1, sizeof(::UnityAPI::FrontDaytimeLightRequest)},
-  { 28, -1, sizeof(::UnityAPI::BrakeLightRequest)},
-  { 35, -1, sizeof(::UnityAPI::ReverseLightRequest)},
-  { 42, -1, sizeof(::UnityAPI::FrontFogLightRequest)},
-  { 49, -1, sizeof(::UnityAPI::RearFogLightRequest)},
-  { 56, -1, sizeof(::UnityAPI::ClearanceLampRequest)},
-  { 63, -1, sizeof(::UnityAPI::FrontLeftBlinkerLightRequest)},
-  { 70, -1, sizeof(::UnityAPI::FrontRightBlinkerLightRequest)},
-  { 77, -1, sizeof(::UnityAPI::RearLeftBlinkerLightRequest)},
-  { 84, -1, sizeof(::UnityAPI::RearRightBlinkerLightRequest)},
-  { 91, -1, sizeof(::UnityAPI::FrontWiperRequest)},
-  { 98, -1, sizeof(::UnityAPI::RearWiperRequest)},
-  { 105, -1, sizeof(::UnityAPI::LeftSideMirrorRequest)},
-  { 112, -1, sizeof(::UnityAPI::RightSideMirrorRequest)},
-  { 119, -1, sizeof(::UnityAPI::FrontRightDoorRequest)},
-  { 126, -1, sizeof(::UnityAPI::FrontLeftDoorRequest)},
-  { 133, -1, sizeof(::UnityAPI::RearRightDoorRequest)},
-  { 140, -1, sizeof(::UnityAPI::RearLeftDoorRequest)},
-  { 147, -1, sizeof(::UnityAPI::TrunkRequest)},
-  { 154, -1, sizeof(::UnityAPI::SunRoofRequest)},
-  { 161, -1, sizeof(::UnityAPI::FrontRightPowerWindowsRequest)},
-  { 168, -1, sizeof(::UnityAPI::FrontLeftPowerWindowsRequest)},
-  { 175, -1, sizeof(::UnityAPI::RearRightPowerWindowsRequest)},
-  { 182, -1, sizeof(::UnityAPI::RearLeftPowerWindowsRequest)},
-  { 189, -1, sizeof(::UnityAPI::SideMirrorSwitchRequest)},
-  { 196, -1, sizeof(::UnityAPI::InstrumentLightRequest)},
-  { 203, -1, sizeof(::UnityAPI::PassgenerRoomDomeLightRequest)},
-  { 210, -1, sizeof(::UnityAPI::ReadingLightDriverSideRequest)},
-  { 217, -1, sizeof(::UnityAPI::ReadingLightPassgenerSideRequest)},
-  { 224, -1, sizeof(::UnityAPI::FrontRightPowerWindowsSwitchRequest)},
-  { 231, -1, sizeof(::UnityAPI::FrontLeftPowerWindowsSwitchRequest)},
-  { 238, -1, sizeof(::UnityAPI::RearRightPowerWindowsSwitchRequest)},
-  { 245, -1, sizeof(::UnityAPI::RearLeftPowerWindowsSwitchRequest)},
-  { 252, -1, sizeof(::UnityAPI::HornRequest)},
-  { 259, -1, sizeof(::UnityAPI::BuzzerRequest)},
-  { 266, -1, sizeof(::UnityAPI::AirConditionerRequest)},
-  { 273, -1, sizeof(::UnityAPI::AirCondTemperatureRequest)},
-  { 280, -1, sizeof(::UnityAPI::AirConditionerFanSpeedRequest)},
-  { 287, -1, sizeof(::UnityAPI::HandlingRequest)},
-  { 294, -1, sizeof(::UnityAPI::CentralDoorLockSwitchRequest)},
-  { 301, -1, sizeof(::UnityAPI::FrontRightDoorLockSwitchRequest)},
-  { 308, -1, sizeof(::UnityAPI::FrontLeftDoorLockSwitchRequest)},
-  { 315, -1, sizeof(::UnityAPI::RearRightDoorLockSwitchRequest)},
-  { 322, -1, sizeof(::UnityAPI::RearLeftDoorLockSwitchRequest)},
-  { 329, -1, sizeof(::UnityAPI::FrontLowLightReply)},
-  { 335, -1, sizeof(::UnityAPI::FrontHighLightReply)},
-  { 341, -1, sizeof(::UnityAPI::RearLightReply)},
-  { 347, -1, sizeof(::UnityAPI::FrontDaytimeLightReply)},
-  { 353, -1, sizeof(::UnityAPI::BrakeLightReply)},
-  { 359, -1, sizeof(::UnityAPI::ReverseLightReply)},
-  { 365, -1, sizeof(::UnityAPI::FrontFogLightReply)},
-  { 371, -1, sizeof(::UnityAPI::RearFogLightReply)},
-  { 377, -1, sizeof(::UnityAPI::ClearanceLampReply)},
-  { 383, -1, sizeof(::UnityAPI::FrontLeftBlinkerLightReply)},
-  { 389, -1, sizeof(::UnityAPI::FrontRightBlinkerLightReply)},
-  { 395, -1, sizeof(::UnityAPI::RearLeftBlinkerLightReply)},
-  { 401, -1, sizeof(::UnityAPI::RearRightBlinkerLightReply)},
-  { 407, -1, sizeof(::UnityAPI::FrontWiperReply)},
-  { 413, -1, sizeof(::UnityAPI::RearWiperReply)},
-  { 419, -1, sizeof(::UnityAPI::LeftSideMirrorReply)},
-  { 425, -1, sizeof(::UnityAPI::RightSideMirrorReply)},
-  { 431, -1, sizeof(::UnityAPI::FrontRightDoorReply)},
-  { 437, -1, sizeof(::UnityAPI::FrontLeftDoorReply)},
-  { 443, -1, sizeof(::UnityAPI::RearRightDoorReply)},
-  { 449, -1, sizeof(::UnityAPI::RearLeftDoorReply)},
-  { 455, -1, sizeof(::UnityAPI::TrunkReply)},
-  { 461, -1, sizeof(::UnityAPI::SunRoofReply)},
-  { 467, -1, sizeof(::UnityAPI::FrontRightPowerWindowsReply)},
-  { 473, -1, sizeof(::UnityAPI::FrontLeftPowerWindowsReply)},
-  { 479, -1, sizeof(::UnityAPI::RearRightPowerWindowsReply)},
-  { 485, -1, sizeof(::UnityAPI::RearLeftPowerWindowsReply)},
-  { 491, -1, sizeof(::UnityAPI::SideMirrorSwitchReply)},
-  { 497, -1, sizeof(::UnityAPI::InstrumentLightReply)},
-  { 503, -1, sizeof(::UnityAPI::PassgenerRoomDomeLightReply)},
-  { 509, -1, sizeof(::UnityAPI::ReadingLightDriverSideReply)},
-  { 515, -1, sizeof(::UnityAPI::ReadingLightPassgenerSideReply)},
-  { 521, -1, sizeof(::UnityAPI::FrontRightPowerWindowsSwitchReply)},
-  { 527, -1, sizeof(::UnityAPI::FrontLeftPowerWindowsSwitchReply)},
-  { 533, -1, sizeof(::UnityAPI::RearRightPowerWindowsSwitchReply)},
-  { 539, -1, sizeof(::UnityAPI::RearLeftPowerWindowsSwitchReply)},
-  { 545, -1, sizeof(::UnityAPI::HornReply)},
-  { 551, -1, sizeof(::UnityAPI::BuzzerReply)},
-  { 557, -1, sizeof(::UnityAPI::AirConditionerReply)},
-  { 563, -1, sizeof(::UnityAPI::AirCondTemperatureReply)},
-  { 569, -1, sizeof(::UnityAPI::AirConditionerFanSpeedReply)},
-  { 575, -1, sizeof(::UnityAPI::HandlingReply)},
-  { 581, -1, sizeof(::UnityAPI::CentralDoorLockSwitchReply)},
-  { 587, -1, sizeof(::UnityAPI::FrontRightDoorLockSwitchReply)},
-  { 593, -1, sizeof(::UnityAPI::FrontLeftDoorLockSwitchReply)},
-  { 599, -1, sizeof(::UnityAPI::RearRightDoorLockSwitchReply)},
-  { 605, -1, sizeof(::UnityAPI::RearLeftDoorLockSwitchReply)},
+  { 0, -1, sizeof(::UnityAPI::setDBRequest)},
+  { 6, -1, sizeof(::UnityAPI::setDBReply)},
+  { 12, -1, sizeof(::UnityAPI::getDBRequest)},
+  { 18, -1, sizeof(::UnityAPI::getDBReply)},
+  { 24, -1, sizeof(::UnityAPI::FrontLowLightRequest)},
+  { 31, -1, sizeof(::UnityAPI::FrontHighLightRequest)},
+  { 38, -1, sizeof(::UnityAPI::RearLightRequest)},
+  { 45, -1, sizeof(::UnityAPI::FrontDaytimeLightRequest)},
+  { 52, -1, sizeof(::UnityAPI::BrakeLightRequest)},
+  { 59, -1, sizeof(::UnityAPI::ReverseLightRequest)},
+  { 66, -1, sizeof(::UnityAPI::FrontFogLightRequest)},
+  { 73, -1, sizeof(::UnityAPI::RearFogLightRequest)},
+  { 80, -1, sizeof(::UnityAPI::ClearanceLampRequest)},
+  { 87, -1, sizeof(::UnityAPI::FrontLeftBlinkerLightRequest)},
+  { 94, -1, sizeof(::UnityAPI::FrontRightBlinkerLightRequest)},
+  { 101, -1, sizeof(::UnityAPI::RearLeftBlinkerLightRequest)},
+  { 108, -1, sizeof(::UnityAPI::RearRightBlinkerLightRequest)},
+  { 115, -1, sizeof(::UnityAPI::FrontWiperRequest)},
+  { 122, -1, sizeof(::UnityAPI::RearWiperRequest)},
+  { 129, -1, sizeof(::UnityAPI::LeftSideMirrorRequest)},
+  { 136, -1, sizeof(::UnityAPI::RightSideMirrorRequest)},
+  { 143, -1, sizeof(::UnityAPI::FrontRightDoorRequest)},
+  { 150, -1, sizeof(::UnityAPI::FrontLeftDoorRequest)},
+  { 157, -1, sizeof(::UnityAPI::RearRightDoorRequest)},
+  { 164, -1, sizeof(::UnityAPI::RearLeftDoorRequest)},
+  { 171, -1, sizeof(::UnityAPI::TrunkRequest)},
+  { 178, -1, sizeof(::UnityAPI::SunRoofRequest)},
+  { 185, -1, sizeof(::UnityAPI::FrontRightPowerWindowsRequest)},
+  { 192, -1, sizeof(::UnityAPI::FrontLeftPowerWindowsRequest)},
+  { 199, -1, sizeof(::UnityAPI::RearRightPowerWindowsRequest)},
+  { 206, -1, sizeof(::UnityAPI::RearLeftPowerWindowsRequest)},
+  { 213, -1, sizeof(::UnityAPI::SideMirrorSwitchRequest)},
+  { 220, -1, sizeof(::UnityAPI::InstrumentLightRequest)},
+  { 227, -1, sizeof(::UnityAPI::PassgenerRoomDomeLightRequest)},
+  { 234, -1, sizeof(::UnityAPI::ReadingLightDriverSideRequest)},
+  { 241, -1, sizeof(::UnityAPI::ReadingLightPassgenerSideRequest)},
+  { 248, -1, sizeof(::UnityAPI::FrontRightPowerWindowsSwitchRequest)},
+  { 255, -1, sizeof(::UnityAPI::FrontLeftPowerWindowsSwitchRequest)},
+  { 262, -1, sizeof(::UnityAPI::RearRightPowerWindowsSwitchRequest)},
+  { 269, -1, sizeof(::UnityAPI::RearLeftPowerWindowsSwitchRequest)},
+  { 276, -1, sizeof(::UnityAPI::HornRequest)},
+  { 283, -1, sizeof(::UnityAPI::BuzzerRequest)},
+  { 290, -1, sizeof(::UnityAPI::AirConditionerRequest)},
+  { 297, -1, sizeof(::UnityAPI::AirCondTemperatureRequest)},
+  { 304, -1, sizeof(::UnityAPI::AirConditionerFanSpeedRequest)},
+  { 311, -1, sizeof(::UnityAPI::HandlingRequest)},
+  { 318, -1, sizeof(::UnityAPI::CentralDoorLockSwitchRequest)},
+  { 325, -1, sizeof(::UnityAPI::FrontRightDoorLockSwitchRequest)},
+  { 332, -1, sizeof(::UnityAPI::FrontLeftDoorLockSwitchRequest)},
+  { 339, -1, sizeof(::UnityAPI::RearRightDoorLockSwitchRequest)},
+  { 346, -1, sizeof(::UnityAPI::RearLeftDoorLockSwitchRequest)},
+  { 353, -1, sizeof(::UnityAPI::FrontLowLightReply)},
+  { 359, -1, sizeof(::UnityAPI::FrontHighLightReply)},
+  { 365, -1, sizeof(::UnityAPI::RearLightReply)},
+  { 371, -1, sizeof(::UnityAPI::FrontDaytimeLightReply)},
+  { 377, -1, sizeof(::UnityAPI::BrakeLightReply)},
+  { 383, -1, sizeof(::UnityAPI::ReverseLightReply)},
+  { 389, -1, sizeof(::UnityAPI::FrontFogLightReply)},
+  { 395, -1, sizeof(::UnityAPI::RearFogLightReply)},
+  { 401, -1, sizeof(::UnityAPI::ClearanceLampReply)},
+  { 407, -1, sizeof(::UnityAPI::FrontLeftBlinkerLightReply)},
+  { 413, -1, sizeof(::UnityAPI::FrontRightBlinkerLightReply)},
+  { 419, -1, sizeof(::UnityAPI::RearLeftBlinkerLightReply)},
+  { 425, -1, sizeof(::UnityAPI::RearRightBlinkerLightReply)},
+  { 431, -1, sizeof(::UnityAPI::FrontWiperReply)},
+  { 437, -1, sizeof(::UnityAPI::RearWiperReply)},
+  { 443, -1, sizeof(::UnityAPI::LeftSideMirrorReply)},
+  { 449, -1, sizeof(::UnityAPI::RightSideMirrorReply)},
+  { 455, -1, sizeof(::UnityAPI::FrontRightDoorReply)},
+  { 461, -1, sizeof(::UnityAPI::FrontLeftDoorReply)},
+  { 467, -1, sizeof(::UnityAPI::RearRightDoorReply)},
+  { 473, -1, sizeof(::UnityAPI::RearLeftDoorReply)},
+  { 479, -1, sizeof(::UnityAPI::TrunkReply)},
+  { 485, -1, sizeof(::UnityAPI::SunRoofReply)},
+  { 491, -1, sizeof(::UnityAPI::FrontRightPowerWindowsReply)},
+  { 497, -1, sizeof(::UnityAPI::FrontLeftPowerWindowsReply)},
+  { 503, -1, sizeof(::UnityAPI::RearRightPowerWindowsReply)},
+  { 509, -1, sizeof(::UnityAPI::RearLeftPowerWindowsReply)},
+  { 515, -1, sizeof(::UnityAPI::SideMirrorSwitchReply)},
+  { 521, -1, sizeof(::UnityAPI::InstrumentLightReply)},
+  { 527, -1, sizeof(::UnityAPI::PassgenerRoomDomeLightReply)},
+  { 533, -1, sizeof(::UnityAPI::ReadingLightDriverSideReply)},
+  { 539, -1, sizeof(::UnityAPI::ReadingLightPassgenerSideReply)},
+  { 545, -1, sizeof(::UnityAPI::FrontRightPowerWindowsSwitchReply)},
+  { 551, -1, sizeof(::UnityAPI::FrontLeftPowerWindowsSwitchReply)},
+  { 557, -1, sizeof(::UnityAPI::RearRightPowerWindowsSwitchReply)},
+  { 563, -1, sizeof(::UnityAPI::RearLeftPowerWindowsSwitchReply)},
+  { 569, -1, sizeof(::UnityAPI::HornReply)},
+  { 575, -1, sizeof(::UnityAPI::BuzzerReply)},
+  { 581, -1, sizeof(::UnityAPI::AirConditionerReply)},
+  { 587, -1, sizeof(::UnityAPI::AirCondTemperatureReply)},
+  { 593, -1, sizeof(::UnityAPI::AirConditionerFanSpeedReply)},
+  { 599, -1, sizeof(::UnityAPI::HandlingReply)},
+  { 605, -1, sizeof(::UnityAPI::CentralDoorLockSwitchReply)},
+  { 611, -1, sizeof(::UnityAPI::FrontRightDoorLockSwitchReply)},
+  { 617, -1, sizeof(::UnityAPI::FrontLeftDoorLockSwitchReply)},
+  { 623, -1, sizeof(::UnityAPI::RearRightDoorLockSwitchReply)},
+  { 629, -1, sizeof(::UnityAPI::RearLeftDoorLockSwitchReply)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::UnityAPI::_setDBRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::UnityAPI::_setDBReply_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::UnityAPI::_getDBRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::UnityAPI::_getDBReply_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::UnityAPI::_FrontLowLightRequest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::UnityAPI::_FrontHighLightRequest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::UnityAPI::_RearLightRequest_default_instance_),
@@ -2005,250 +2085,257 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 };
 
 const char descriptor_table_protodef_UnityAPI_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\016UnityAPI.proto\022\010UnityAPI\"5\n\024FrontLowLi"
-  "ghtRequest\022\017\n\007setMode\030\001 \001(\010\022\014\n\004flag\030\002 \001("
-  "\010\"6\n\025FrontHighLightRequest\022\017\n\007setMode\030\001 "
-  "\001(\010\022\014\n\004flag\030\002 \001(\010\"1\n\020RearLightRequest\022\017\n"
-  "\007setMode\030\001 \001(\010\022\014\n\004flag\030\002 \001(\010\"9\n\030FrontDay"
-  "timeLightRequest\022\017\n\007setMode\030\001 \001(\010\022\014\n\004fla"
-  "g\030\002 \001(\010\"2\n\021BrakeLightRequest\022\017\n\007setMode\030"
-  "\001 \001(\010\022\014\n\004flag\030\002 \001(\010\"4\n\023ReverseLightReque"
-  "st\022\017\n\007setMode\030\001 \001(\010\022\014\n\004flag\030\002 \001(\010\"5\n\024Fro"
-  "ntFogLightRequest\022\017\n\007setMode\030\001 \001(\010\022\014\n\004fl"
-  "ag\030\002 \001(\010\"4\n\023RearFogLightRequest\022\017\n\007setMo"
-  "de\030\001 \001(\010\022\014\n\004flag\030\002 \001(\010\"5\n\024ClearanceLampR"
-  "equest\022\017\n\007setMode\030\001 \001(\010\022\014\n\004flag\030\002 \001(\010\"=\n"
-  "\034FrontLeftBlinkerLightRequest\022\017\n\007setMode"
-  "\030\001 \001(\010\022\014\n\004flag\030\002 \001(\010\">\n\035FrontRightBlinke"
-  "rLightRequest\022\017\n\007setMode\030\001 \001(\010\022\014\n\004flag\030\002"
-  " \001(\010\"<\n\033RearLeftBlinkerLightRequest\022\017\n\007s"
-  "etMode\030\001 \001(\010\022\014\n\004flag\030\002 \001(\010\"=\n\034RearRightB"
-  "linkerLightRequest\022\017\n\007setMode\030\001 \001(\010\022\014\n\004f"
-  "lag\030\002 \001(\010\"2\n\021FrontWiperRequest\022\017\n\007setMod"
-  "e\030\001 \001(\010\022\014\n\004flag\030\002 \001(\010\"1\n\020RearWiperReques"
-  "t\022\017\n\007setMode\030\001 \001(\010\022\014\n\004flag\030\002 \001(\010\"7\n\025Left"
-  "SideMirrorRequest\022\017\n\007setMode\030\001 \001(\010\022\r\n\005an"
-  "gle\030\002 \001(\001\"8\n\026RightSideMirrorRequest\022\017\n\007s"
-  "etMode\030\001 \001(\010\022\r\n\005angle\030\002 \001(\001\"6\n\025FrontRigh"
-  "tDoorRequest\022\017\n\007setMode\030\001 \001(\010\022\014\n\004flag\030\002 "
-  "\001(\010\"5\n\024FrontLeftDoorRequest\022\017\n\007setMode\030\001"
-  " \001(\010\022\014\n\004flag\030\002 \001(\010\"5\n\024RearRightDoorReque"
-  "st\022\017\n\007setMode\030\001 \001(\010\022\014\n\004flag\030\002 \001(\010\"4\n\023Rea"
-  "rLeftDoorRequest\022\017\n\007setMode\030\001 \001(\010\022\014\n\004fla"
-  "g\030\002 \001(\010\"-\n\014TrunkRequest\022\017\n\007setMode\030\001 \001(\010"
-  "\022\014\n\004flag\030\002 \001(\010\"/\n\016SunRoofRequest\022\017\n\007setM"
-  "ode\030\001 \001(\010\022\014\n\004flag\030\002 \001(\010\"C\n\035FrontRightPow"
-  "erWindowsRequest\022\017\n\007setMode\030\001 \001(\010\022\021\n\thig"
-  "hLevel\030\002 \001(\001\"B\n\034FrontLeftPowerWindowsReq"
-  "uest\022\017\n\007setMode\030\001 \001(\010\022\021\n\thighLevel\030\002 \001(\001"
-  "\"B\n\034RearRightPowerWindowsRequest\022\017\n\007setM"
-  "ode\030\001 \001(\010\022\021\n\thighLevel\030\002 \001(\001\"A\n\033RearLeft"
-  "PowerWindowsRequest\022\017\n\007setMode\030\001 \001(\010\022\021\n\t"
-  "highLevel\030\002 \001(\001\"8\n\027SideMirrorSwitchReque"
-  "st\022\017\n\007setMode\030\001 \001(\010\022\014\n\004flag\030\002 \001(\010\"7\n\026Ins"
-  "trumentLightRequest\022\017\n\007setMode\030\001 \001(\010\022\014\n\004"
-  "flag\030\002 \001(\010\">\n\035PassgenerRoomDomeLightRequ"
-  "est\022\017\n\007setMode\030\001 \001(\010\022\014\n\004flag\030\002 \001(\010\">\n\035Re"
-  "adingLightDriverSideRequest\022\017\n\007setMode\030\001"
-  " \001(\010\022\014\n\004flag\030\002 \001(\010\"A\n ReadingLightPassge"
-  "nerSideRequest\022\017\n\007setMode\030\001 \001(\010\022\014\n\004flag\030"
-  "\002 \001(\010\"D\n#FrontRightPowerWindowsSwitchReq"
-  "uest\022\017\n\007setMode\030\001 \001(\010\022\014\n\004flag\030\002 \001(\010\"C\n\"F"
-  "rontLeftPowerWindowsSwitchRequest\022\017\n\007set"
-  "Mode\030\001 \001(\010\022\014\n\004flag\030\002 \001(\010\"C\n\"RearRightPow"
-  "erWindowsSwitchRequest\022\017\n\007setMode\030\001 \001(\010\022"
-  "\014\n\004flag\030\002 \001(\010\"B\n!RearLeftPowerWindowsSwi"
-  "tchRequest\022\017\n\007setMode\030\001 \001(\010\022\014\n\004flag\030\002 \001("
-  "\010\",\n\013HornRequest\022\017\n\007setMode\030\001 \001(\010\022\014\n\004fla"
-  "g\030\002 \001(\010\".\n\rBuzzerRequest\022\017\n\007setMode\030\001 \001("
-  "\010\022\014\n\004flag\030\002 \001(\010\"6\n\025AirConditionerRequest"
-  "\022\017\n\007setMode\030\001 \001(\010\022\014\n\004flag\030\002 \001(\010\"A\n\031AirCo"
-  "ndTemperatureRequest\022\017\n\007setMode\030\001 \001(\010\022\023\n"
-  "\013temperature\030\002 \001(\001\"B\n\035AirConditionerFanS"
-  "peedRequest\022\017\n\007setMode\030\001 \001(\010\022\020\n\010fanSpeed"
-  "\030\002 \001(\005\"0\n\017HandlingRequest\022\017\n\007setMode\030\001 \001"
-  "(\010\022\014\n\004flag\030\002 \001(\010\"=\n\034CentralDoorLockSwitc"
+  "\n\016UnityAPI.proto\022\010UnityAPI\"\037\n\014setDBReque"
+  "st\022\017\n\007message\030\001 \001(\t\"\034\n\nsetDBReply\022\016\n\006sta"
+  "tus\030\001 \001(\010\"\034\n\014getDBRequest\022\014\n\004name\030\001 \001(\t\""
+  "\035\n\ngetDBReply\022\017\n\007message\030\001 \001(\t\"5\n\024FrontL"
+  "owLightRequest\022\017\n\007setMode\030\001 \001(\010\022\014\n\004flag\030"
+  "\002 \001(\010\"6\n\025FrontHighLightRequest\022\017\n\007setMod"
+  "e\030\001 \001(\010\022\014\n\004flag\030\002 \001(\010\"1\n\020RearLightReques"
+  "t\022\017\n\007setMode\030\001 \001(\010\022\014\n\004flag\030\002 \001(\010\"9\n\030Fron"
+  "tDaytimeLightRequest\022\017\n\007setMode\030\001 \001(\010\022\014\n"
+  "\004flag\030\002 \001(\010\"2\n\021BrakeLightRequest\022\017\n\007setM"
+  "ode\030\001 \001(\010\022\014\n\004flag\030\002 \001(\010\"4\n\023ReverseLightR"
+  "equest\022\017\n\007setMode\030\001 \001(\010\022\014\n\004flag\030\002 \001(\010\"5\n"
+  "\024FrontFogLightRequest\022\017\n\007setMode\030\001 \001(\010\022\014"
+  "\n\004flag\030\002 \001(\010\"4\n\023RearFogLightRequest\022\017\n\007s"
+  "etMode\030\001 \001(\010\022\014\n\004flag\030\002 \001(\010\"5\n\024ClearanceL"
+  "ampRequest\022\017\n\007setMode\030\001 \001(\010\022\014\n\004flag\030\002 \001("
+  "\010\"=\n\034FrontLeftBlinkerLightRequest\022\017\n\007set"
+  "Mode\030\001 \001(\010\022\014\n\004flag\030\002 \001(\010\">\n\035FrontRightBl"
+  "inkerLightRequest\022\017\n\007setMode\030\001 \001(\010\022\014\n\004fl"
+  "ag\030\002 \001(\010\"<\n\033RearLeftBlinkerLightRequest\022"
+  "\017\n\007setMode\030\001 \001(\010\022\014\n\004flag\030\002 \001(\010\"=\n\034RearRi"
+  "ghtBlinkerLightRequest\022\017\n\007setMode\030\001 \001(\010\022"
+  "\014\n\004flag\030\002 \001(\010\"2\n\021FrontWiperRequest\022\017\n\007se"
+  "tMode\030\001 \001(\010\022\014\n\004flag\030\002 \001(\010\"1\n\020RearWiperRe"
+  "quest\022\017\n\007setMode\030\001 \001(\010\022\014\n\004flag\030\002 \001(\010\"7\n\025"
+  "LeftSideMirrorRequest\022\017\n\007setMode\030\001 \001(\010\022\r"
+  "\n\005angle\030\002 \001(\001\"8\n\026RightSideMirrorRequest\022"
+  "\017\n\007setMode\030\001 \001(\010\022\r\n\005angle\030\002 \001(\001\"6\n\025Front"
+  "RightDoorRequest\022\017\n\007setMode\030\001 \001(\010\022\014\n\004fla"
+  "g\030\002 \001(\010\"5\n\024FrontLeftDoorRequest\022\017\n\007setMo"
+  "de\030\001 \001(\010\022\014\n\004flag\030\002 \001(\010\"5\n\024RearRightDoorR"
+  "equest\022\017\n\007setMode\030\001 \001(\010\022\014\n\004flag\030\002 \001(\010\"4\n"
+  "\023RearLeftDoorRequest\022\017\n\007setMode\030\001 \001(\010\022\014\n"
+  "\004flag\030\002 \001(\010\"-\n\014TrunkRequest\022\017\n\007setMode\030\001"
+  " \001(\010\022\014\n\004flag\030\002 \001(\010\"/\n\016SunRoofRequest\022\017\n\007"
+  "setMode\030\001 \001(\010\022\014\n\004flag\030\002 \001(\010\"C\n\035FrontRigh"
+  "tPowerWindowsRequest\022\017\n\007setMode\030\001 \001(\010\022\021\n"
+  "\thighLevel\030\002 \001(\001\"B\n\034FrontLeftPowerWindow"
+  "sRequest\022\017\n\007setMode\030\001 \001(\010\022\021\n\thighLevel\030\002"
+  " \001(\001\"B\n\034RearRightPowerWindowsRequest\022\017\n\007"
+  "setMode\030\001 \001(\010\022\021\n\thighLevel\030\002 \001(\001\"A\n\033Rear"
+  "LeftPowerWindowsRequest\022\017\n\007setMode\030\001 \001(\010"
+  "\022\021\n\thighLevel\030\002 \001(\001\"8\n\027SideMirrorSwitchR"
+  "equest\022\017\n\007setMode\030\001 \001(\010\022\014\n\004flag\030\002 \001(\010\"7\n"
+  "\026InstrumentLightRequest\022\017\n\007setMode\030\001 \001(\010"
+  "\022\014\n\004flag\030\002 \001(\010\">\n\035PassgenerRoomDomeLight"
+  "Request\022\017\n\007setMode\030\001 \001(\010\022\014\n\004flag\030\002 \001(\010\">"
+  "\n\035ReadingLightDriverSideRequest\022\017\n\007setMo"
+  "de\030\001 \001(\010\022\014\n\004flag\030\002 \001(\010\"A\n ReadingLightPa"
+  "ssgenerSideRequest\022\017\n\007setMode\030\001 \001(\010\022\014\n\004f"
+  "lag\030\002 \001(\010\"D\n#FrontRightPowerWindowsSwitc"
   "hRequest\022\017\n\007setMode\030\001 \001(\010\022\014\n\004flag\030\002 \001(\010\""
-  "@\n\037FrontRightDoorLockSwitchRequest\022\017\n\007se"
-  "tMode\030\001 \001(\010\022\014\n\004flag\030\002 \001(\010\"\?\n\036FrontLeftDo"
-  "orLockSwitchRequest\022\017\n\007setMode\030\001 \001(\010\022\014\n\004"
-  "flag\030\002 \001(\010\"\?\n\036RearRightDoorLockSwitchReq"
-  "uest\022\017\n\007setMode\030\001 \001(\010\022\014\n\004flag\030\002 \001(\010\">\n\035R"
-  "earLeftDoorLockSwitchRequest\022\017\n\007setMode\030"
-  "\001 \001(\010\022\014\n\004flag\030\002 \001(\010\"$\n\022FrontLowLightRepl"
-  "y\022\016\n\006status\030\001 \001(\010\"%\n\023FrontHighLightReply"
-  "\022\016\n\006status\030\001 \001(\010\" \n\016RearLightReply\022\016\n\006st"
-  "atus\030\001 \001(\010\"(\n\026FrontDaytimeLightReply\022\016\n\006"
-  "status\030\001 \001(\010\"!\n\017BrakeLightReply\022\016\n\006statu"
-  "s\030\001 \001(\010\"#\n\021ReverseLightReply\022\016\n\006status\030\001"
-  " \001(\010\"$\n\022FrontFogLightReply\022\016\n\006status\030\001 \001"
-  "(\010\"#\n\021RearFogLightReply\022\016\n\006status\030\001 \001(\010\""
-  "$\n\022ClearanceLampReply\022\016\n\006status\030\001 \001(\010\",\n"
-  "\032FrontLeftBlinkerLightReply\022\016\n\006status\030\001 "
-  "\001(\010\"-\n\033FrontRightBlinkerLightReply\022\016\n\006st"
-  "atus\030\001 \001(\010\"+\n\031RearLeftBlinkerLightReply\022"
-  "\016\n\006status\030\001 \001(\010\",\n\032RearRightBlinkerLight"
-  "Reply\022\016\n\006status\030\001 \001(\010\"!\n\017FrontWiperReply"
-  "\022\016\n\006status\030\001 \001(\010\" \n\016RearWiperReply\022\016\n\006st"
-  "atus\030\001 \001(\010\"$\n\023LeftSideMirrorReply\022\r\n\005ang"
-  "le\030\001 \001(\001\"%\n\024RightSideMirrorReply\022\r\n\005angl"
-  "e\030\001 \001(\001\"%\n\023FrontRightDoorReply\022\016\n\006status"
-  "\030\001 \001(\010\"$\n\022FrontLeftDoorReply\022\016\n\006status\030\001"
-  " \001(\010\"$\n\022RearRightDoorReply\022\016\n\006status\030\001 \001"
-  "(\010\"#\n\021RearLeftDoorReply\022\016\n\006status\030\001 \001(\010\""
-  "\034\n\nTrunkReply\022\016\n\006status\030\001 \001(\010\"\036\n\014SunRoof"
-  "Reply\022\016\n\006status\030\001 \001(\010\"0\n\033FrontRightPower"
-  "WindowsReply\022\021\n\thighLevel\030\001 \001(\001\"/\n\032Front"
-  "LeftPowerWindowsReply\022\021\n\thighLevel\030\001 \001(\001"
-  "\"/\n\032RearRightPowerWindowsReply\022\021\n\thighLe"
-  "vel\030\001 \001(\001\".\n\031RearLeftPowerWindowsReply\022\021"
-  "\n\thighLevel\030\001 \001(\001\"\'\n\025SideMirrorSwitchRep"
-  "ly\022\016\n\006status\030\001 \001(\010\"&\n\024InstrumentLightRep"
-  "ly\022\016\n\006status\030\001 \001(\010\"-\n\033PassgenerRoomDomeL"
-  "ightReply\022\016\n\006status\030\001 \001(\010\"-\n\033ReadingLigh"
-  "tDriverSideReply\022\016\n\006status\030\001 \001(\010\"0\n\036Read"
-  "ingLightPassgenerSideReply\022\016\n\006status\030\001 \001"
-  "(\010\"3\n!FrontRightPowerWindowsSwitchReply\022"
-  "\016\n\006status\030\001 \001(\010\"2\n FrontLeftPowerWindows"
-  "SwitchReply\022\016\n\006status\030\001 \001(\010\"2\n RearRight"
-  "PowerWindowsSwitchReply\022\016\n\006status\030\001 \001(\010\""
-  "1\n\037RearLeftPowerWindowsSwitchReply\022\016\n\006st"
-  "atus\030\001 \001(\010\"\033\n\tHornReply\022\016\n\006status\030\001 \001(\010\""
-  "\035\n\013BuzzerReply\022\016\n\006status\030\001 \001(\010\"%\n\023AirCon"
-  "ditionerReply\022\016\n\006status\030\001 \001(\010\".\n\027AirCond"
-  "TemperatureReply\022\023\n\013temperature\030\001 \001(\001\"/\n"
-  "\033AirConditionerFanSpeedReply\022\020\n\010fanSpeed"
-  "\030\001 \001(\005\"\037\n\rHandlingReply\022\016\n\006status\030\001 \001(\010\""
-  ",\n\032CentralDoorLockSwitchReply\022\016\n\006status\030"
-  "\001 \001(\010\"/\n\035FrontRightDoorLockSwitchReply\022\016"
-  "\n\006status\030\001 \001(\010\".\n\034FrontLeftDoorLockSwitc"
-  "hReply\022\016\n\006status\030\001 \001(\010\".\n\034RearRightDoorL"
-  "ockSwitchReply\022\016\n\006status\030\001 \001(\010\"-\n\033RearLe"
-  "ftDoorLockSwitchReply\022\016\n\006status\030\001 \001(\0102\320$"
-  "\n\017UnityAPIService\022V\n\024FrontLowLightContro"
-  "l\022\036.UnityAPI.FrontLowLightRequest\032\034.Unit"
-  "yAPI.FrontLowLightReply\"\000\022Y\n\025FrontHighLi"
-  "ghtControl\022\037.UnityAPI.FrontHighLightRequ"
-  "est\032\035.UnityAPI.FrontHighLightReply\"\000\022J\n\020"
-  "RearLightControl\022\032.UnityAPI.RearLightReq"
-  "uest\032\030.UnityAPI.RearLightReply\"\000\022b\n\030Fron"
-  "tDaytimeLightControl\022\".UnityAPI.FrontDay"
-  "timeLightRequest\032 .UnityAPI.FrontDaytime"
-  "LightReply\"\000\022M\n\021BrakeLightControl\022\033.Unit"
-  "yAPI.BrakeLightRequest\032\031.UnityAPI.BrakeL"
-  "ightReply\"\000\022S\n\023ReverseLightControl\022\035.Uni"
-  "tyAPI.ReverseLightRequest\032\033.UnityAPI.Rev"
-  "erseLightReply\"\000\022V\n\024FrontFogLightControl"
-  "\022\036.UnityAPI.FrontFogLightRequest\032\034.Unity"
-  "API.FrontFogLightReply\"\000\022S\n\023RearFogLight"
-  "Control\022\035.UnityAPI.RearFogLightRequest\032\033"
-  ".UnityAPI.RearFogLightReply\"\000\022V\n\024Clearan"
-  "ceLampControl\022\036.UnityAPI.ClearanceLampRe"
-  "quest\032\034.UnityAPI.ClearanceLampReply\"\000\022n\n"
-  "\034FrontLeftBlinkerLightControl\022&.UnityAPI"
-  ".FrontLeftBlinkerLightRequest\032$.UnityAPI"
-  ".FrontLeftBlinkerLightReply\"\000\022q\n\035FrontRi"
-  "ghtBlinkerLightControl\022\'.UnityAPI.FrontR"
-  "ightBlinkerLightRequest\032%.UnityAPI.Front"
-  "RightBlinkerLightReply\"\000\022k\n\033RearLeftBlin"
-  "kerLightControl\022%.UnityAPI.RearLeftBlink"
-  "erLightRequest\032#.UnityAPI.RearLeftBlinke"
-  "rLightReply\"\000\022n\n\034RearRightBlinkerLightCo"
-  "ntrol\022&.UnityAPI.RearRightBlinkerLightRe"
-  "quest\032$.UnityAPI.RearRightBlinkerLightRe"
-  "ply\"\000\022M\n\021FrontWiperControl\022\033.UnityAPI.Fr"
-  "ontWiperRequest\032\031.UnityAPI.FrontWiperRep"
-  "ly\"\000\022J\n\020RearWiperControl\022\032.UnityAPI.Rear"
-  "WiperRequest\032\030.UnityAPI.RearWiperReply\"\000"
-  "\022Y\n\025LeftSideMirrorControl\022\037.UnityAPI.Lef"
-  "tSideMirrorRequest\032\035.UnityAPI.LeftSideMi"
-  "rrorReply\"\000\022\\\n\026RightSideMirrorControl\022 ."
-  "UnityAPI.RightSideMirrorRequest\032\036.UnityA"
-  "PI.RightSideMirrorReply\"\000\022Y\n\025FrontRightD"
-  "oorControl\022\037.UnityAPI.FrontRightDoorRequ"
-  "est\032\035.UnityAPI.FrontRightDoorReply\"\000\022V\n\024"
-  "FrontLeftDoorControl\022\036.UnityAPI.FrontLef"
-  "tDoorRequest\032\034.UnityAPI.FrontLeftDoorRep"
-  "ly\"\000\022V\n\024RearRightDoorControl\022\036.UnityAPI."
-  "RearRightDoorRequest\032\034.UnityAPI.RearRigh"
-  "tDoorReply\"\000\022S\n\023RearLeftDoorControl\022\035.Un"
-  "ityAPI.RearLeftDoorRequest\032\033.UnityAPI.Re"
-  "arLeftDoorReply\"\000\022>\n\014TrunkControl\022\026.Unit"
-  "yAPI.TrunkRequest\032\024.UnityAPI.TrunkReply\""
-  "\000\022D\n\016SunRoofControl\022\030.UnityAPI.SunRoofRe"
-  "quest\032\026.UnityAPI.SunRoofReply\"\000\022q\n\035Front"
-  "RightPowerWindowsControl\022\'.UnityAPI.Fron"
-  "tRightPowerWindowsRequest\032%.UnityAPI.Fro"
-  "ntRightPowerWindowsReply\"\000\022n\n\034FrontLeftP"
-  "owerWindowsControl\022&.UnityAPI.FrontLeftP"
-  "owerWindowsRequest\032$.UnityAPI.FrontLeftP"
-  "owerWindowsReply\"\000\022n\n\034RearRightPowerWind"
-  "owsControl\022&.UnityAPI.RearRightPowerWind"
-  "owsRequest\032$.UnityAPI.RearRightPowerWind"
-  "owsReply\"\000\022k\n\033RearLeftPowerWindowsContro"
-  "l\022%.UnityAPI.RearLeftPowerWindowsRequest"
-  "\032#.UnityAPI.RearLeftPowerWindowsReply\"\000\022"
-  "_\n\027SideMirrorSwitchControl\022!.UnityAPI.Si"
-  "deMirrorSwitchRequest\032\037.UnityAPI.SideMir"
-  "rorSwitchReply\"\000\022\\\n\026InstrumentLightContr"
-  "ol\022 .UnityAPI.InstrumentLightRequest\032\036.U"
-  "nityAPI.InstrumentLightReply\"\000\022q\n\035Passge"
-  "nerRoomDomeLightControl\022\'.UnityAPI.Passg"
-  "enerRoomDomeLightRequest\032%.UnityAPI.Pass"
-  "generRoomDomeLightReply\"\000\022q\n\035ReadingLigh"
-  "tDriverSideControl\022\'.UnityAPI.ReadingLig"
-  "htDriverSideRequest\032%.UnityAPI.ReadingLi"
-  "ghtDriverSideReply\"\000\022z\n ReadingLightPass"
-  "generSideControl\022*.UnityAPI.ReadingLight"
-  "PassgenerSideRequest\032(.UnityAPI.ReadingL"
-  "ightPassgenerSideReply\"\000\022\203\001\n#FrontRightP"
-  "owerWindowsSwitchControl\022-.UnityAPI.Fron"
-  "tRightPowerWindowsSwitchRequest\032+.UnityA"
-  "PI.FrontRightPowerWindowsSwitchReply\"\000\022\200"
-  "\001\n\"FrontLeftPowerWindowsSwitchControl\022,."
-  "UnityAPI.FrontLeftPowerWindowsSwitchRequ"
-  "est\032*.UnityAPI.FrontLeftPowerWindowsSwit"
-  "chReply\"\000\022\200\001\n\"RearRightPowerWindowsSwitc"
-  "hControl\022,.UnityAPI.RearRightPowerWindow"
-  "sSwitchRequest\032*.UnityAPI.RearRightPower"
-  "WindowsSwitchReply\"\000\022}\n!RearLeftPowerWin"
-  "dowsSwitchControl\022+.UnityAPI.RearLeftPow"
-  "erWindowsSwitchRequest\032).UnityAPI.RearLe"
-  "ftPowerWindowsSwitchReply\"\000\022;\n\013HornContr"
-  "ol\022\025.UnityAPI.HornRequest\032\023.UnityAPI.Hor"
-  "nReply\"\000\022A\n\rBuzzerControl\022\027.UnityAPI.Buz"
-  "zerRequest\032\025.UnityAPI.BuzzerReply\"\000\022Y\n\025A"
-  "irConditionerControl\022\037.UnityAPI.AirCondi"
-  "tionerRequest\032\035.UnityAPI.AirConditionerR"
-  "eply\"\000\022l\n AirConditionerTemperatureContr"
-  "ol\022#.UnityAPI.AirCondTemperatureRequest\032"
-  "!.UnityAPI.AirCondTemperatureReply\"\000\022q\n\035"
-  "AirConditionerFanSpeedControl\022\'.UnityAPI"
-  ".AirConditionerFanSpeedRequest\032%.UnityAP"
-  "I.AirConditionerFanSpeedReply\"\000\022G\n\017Handl"
-  "ingControl\022\031.UnityAPI.HandlingRequest\032\027."
-  "UnityAPI.HandlingReply\"\000\022n\n\034CentralDoorL"
-  "ockSwitchControl\022&.UnityAPI.CentralDoorL"
-  "ockSwitchRequest\032$.UnityAPI.CentralDoorL"
-  "ockSwitchReply\"\000\022w\n\037FrontRightDoorLockSw"
-  "itchControl\022).UnityAPI.FrontRightDoorLoc"
-  "kSwitchRequest\032\'.UnityAPI.FrontRightDoor"
-  "LockSwitchReply\"\000\022t\n\036FrontLeftDoorLockSw"
-  "itchControl\022(.UnityAPI.FrontLeftDoorLock"
-  "SwitchRequest\032&.UnityAPI.FrontLeftDoorLo"
-  "ckSwitchReply\"\000\022t\n\036RearRightDoorLockSwit"
-  "chControl\022(.UnityAPI.RearRightDoorLockSw"
-  "itchRequest\032&.UnityAPI.RearRightDoorLock"
-  "SwitchReply\"\000\022q\n\035RearLeftDoorLockSwitchC"
-  "ontrol\022\'.UnityAPI.RearLeftDoorLockSwitch"
-  "Request\032%.UnityAPI.RearLeftDoorLockSwitc"
-  "hReply\"\000B3\n\031io.grpc.examples.UnityAPIB\rU"
-  "nityAPIProtoP\001\242\002\004UAPIb\006proto3"
+  "C\n\"FrontLeftPowerWindowsSwitchRequest\022\017\n"
+  "\007setMode\030\001 \001(\010\022\014\n\004flag\030\002 \001(\010\"C\n\"RearRigh"
+  "tPowerWindowsSwitchRequest\022\017\n\007setMode\030\001 "
+  "\001(\010\022\014\n\004flag\030\002 \001(\010\"B\n!RearLeftPowerWindow"
+  "sSwitchRequest\022\017\n\007setMode\030\001 \001(\010\022\014\n\004flag\030"
+  "\002 \001(\010\",\n\013HornRequest\022\017\n\007setMode\030\001 \001(\010\022\014\n"
+  "\004flag\030\002 \001(\010\".\n\rBuzzerRequest\022\017\n\007setMode\030"
+  "\001 \001(\010\022\014\n\004flag\030\002 \001(\010\"6\n\025AirConditionerReq"
+  "uest\022\017\n\007setMode\030\001 \001(\010\022\014\n\004flag\030\002 \001(\010\"A\n\031A"
+  "irCondTemperatureRequest\022\017\n\007setMode\030\001 \001("
+  "\010\022\023\n\013temperature\030\002 \001(\001\"B\n\035AirConditioner"
+  "FanSpeedRequest\022\017\n\007setMode\030\001 \001(\010\022\020\n\010fanS"
+  "peed\030\002 \001(\005\"0\n\017HandlingRequest\022\017\n\007setMode"
+  "\030\001 \001(\010\022\014\n\004flag\030\002 \001(\010\"=\n\034CentralDoorLockS"
+  "witchRequest\022\017\n\007setMode\030\001 \001(\010\022\014\n\004flag\030\002 "
+  "\001(\010\"@\n\037FrontRightDoorLockSwitchRequest\022\017"
+  "\n\007setMode\030\001 \001(\010\022\014\n\004flag\030\002 \001(\010\"\?\n\036FrontLe"
+  "ftDoorLockSwitchRequest\022\017\n\007setMode\030\001 \001(\010"
+  "\022\014\n\004flag\030\002 \001(\010\"\?\n\036RearRightDoorLockSwitc"
+  "hRequest\022\017\n\007setMode\030\001 \001(\010\022\014\n\004flag\030\002 \001(\010\""
+  ">\n\035RearLeftDoorLockSwitchRequest\022\017\n\007setM"
+  "ode\030\001 \001(\010\022\014\n\004flag\030\002 \001(\010\"$\n\022FrontLowLight"
+  "Reply\022\016\n\006status\030\001 \001(\010\"%\n\023FrontHighLightR"
+  "eply\022\016\n\006status\030\001 \001(\010\" \n\016RearLightReply\022\016"
+  "\n\006status\030\001 \001(\010\"(\n\026FrontDaytimeLightReply"
+  "\022\016\n\006status\030\001 \001(\010\"!\n\017BrakeLightReply\022\016\n\006s"
+  "tatus\030\001 \001(\010\"#\n\021ReverseLightReply\022\016\n\006stat"
+  "us\030\001 \001(\010\"$\n\022FrontFogLightReply\022\016\n\006status"
+  "\030\001 \001(\010\"#\n\021RearFogLightReply\022\016\n\006status\030\001 "
+  "\001(\010\"$\n\022ClearanceLampReply\022\016\n\006status\030\001 \001("
+  "\010\",\n\032FrontLeftBlinkerLightReply\022\016\n\006statu"
+  "s\030\001 \001(\010\"-\n\033FrontRightBlinkerLightReply\022\016"
+  "\n\006status\030\001 \001(\010\"+\n\031RearLeftBlinkerLightRe"
+  "ply\022\016\n\006status\030\001 \001(\010\",\n\032RearRightBlinkerL"
+  "ightReply\022\016\n\006status\030\001 \001(\010\"!\n\017FrontWiperR"
+  "eply\022\016\n\006status\030\001 \001(\010\" \n\016RearWiperReply\022\016"
+  "\n\006status\030\001 \001(\010\"$\n\023LeftSideMirrorReply\022\r\n"
+  "\005angle\030\001 \001(\001\"%\n\024RightSideMirrorReply\022\r\n\005"
+  "angle\030\001 \001(\001\"%\n\023FrontRightDoorReply\022\016\n\006st"
+  "atus\030\001 \001(\010\"$\n\022FrontLeftDoorReply\022\016\n\006stat"
+  "us\030\001 \001(\010\"$\n\022RearRightDoorReply\022\016\n\006status"
+  "\030\001 \001(\010\"#\n\021RearLeftDoorReply\022\016\n\006status\030\001 "
+  "\001(\010\"\034\n\nTrunkReply\022\016\n\006status\030\001 \001(\010\"\036\n\014Sun"
+  "RoofReply\022\016\n\006status\030\001 \001(\010\"0\n\033FrontRightP"
+  "owerWindowsReply\022\021\n\thighLevel\030\001 \001(\001\"/\n\032F"
+  "rontLeftPowerWindowsReply\022\021\n\thighLevel\030\001"
+  " \001(\001\"/\n\032RearRightPowerWindowsReply\022\021\n\thi"
+  "ghLevel\030\001 \001(\001\".\n\031RearLeftPowerWindowsRep"
+  "ly\022\021\n\thighLevel\030\001 \001(\001\"\'\n\025SideMirrorSwitc"
+  "hReply\022\016\n\006status\030\001 \001(\010\"&\n\024InstrumentLigh"
+  "tReply\022\016\n\006status\030\001 \001(\010\"-\n\033PassgenerRoomD"
+  "omeLightReply\022\016\n\006status\030\001 \001(\010\"-\n\033Reading"
+  "LightDriverSideReply\022\016\n\006status\030\001 \001(\010\"0\n\036"
+  "ReadingLightPassgenerSideReply\022\016\n\006status"
+  "\030\001 \001(\010\"3\n!FrontRightPowerWindowsSwitchRe"
+  "ply\022\016\n\006status\030\001 \001(\010\"2\n FrontLeftPowerWin"
+  "dowsSwitchReply\022\016\n\006status\030\001 \001(\010\"2\n RearR"
+  "ightPowerWindowsSwitchReply\022\016\n\006status\030\001 "
+  "\001(\010\"1\n\037RearLeftPowerWindowsSwitchReply\022\016"
+  "\n\006status\030\001 \001(\010\"\033\n\tHornReply\022\016\n\006status\030\001 "
+  "\001(\010\"\035\n\013BuzzerReply\022\016\n\006status\030\001 \001(\010\"%\n\023Ai"
+  "rConditionerReply\022\016\n\006status\030\001 \001(\010\".\n\027Air"
+  "CondTemperatureReply\022\023\n\013temperature\030\001 \001("
+  "\001\"/\n\033AirConditionerFanSpeedReply\022\020\n\010fanS"
+  "peed\030\001 \001(\005\"\037\n\rHandlingReply\022\016\n\006status\030\001 "
+  "\001(\010\",\n\032CentralDoorLockSwitchReply\022\016\n\006sta"
+  "tus\030\001 \001(\010\"/\n\035FrontRightDoorLockSwitchRep"
+  "ly\022\016\n\006status\030\001 \001(\010\".\n\034FrontLeftDoorLockS"
+  "witchReply\022\016\n\006status\030\001 \001(\010\".\n\034RearRightD"
+  "oorLockSwitchReply\022\016\n\006status\030\001 \001(\010\"-\n\033Re"
+  "arLeftDoorLockSwitchReply\022\016\n\006status\030\001 \001("
+  "\0102\330%\n\017UnityAPIService\022V\n\024FrontLowLightCo"
+  "ntrol\022\036.UnityAPI.FrontLowLightRequest\032\034."
+  "UnityAPI.FrontLowLightReply\"\000\022Y\n\025FrontHi"
+  "ghLightControl\022\037.UnityAPI.FrontHighLight"
+  "Request\032\035.UnityAPI.FrontHighLightReply\"\000"
+  "\022J\n\020RearLightControl\022\032.UnityAPI.RearLigh"
+  "tRequest\032\030.UnityAPI.RearLightReply\"\000\022b\n\030"
+  "FrontDaytimeLightControl\022\".UnityAPI.Fron"
+  "tDaytimeLightRequest\032 .UnityAPI.FrontDay"
+  "timeLightReply\"\000\022M\n\021BrakeLightControl\022\033."
+  "UnityAPI.BrakeLightRequest\032\031.UnityAPI.Br"
+  "akeLightReply\"\000\022S\n\023ReverseLightControl\022\035"
+  ".UnityAPI.ReverseLightRequest\032\033.UnityAPI"
+  ".ReverseLightReply\"\000\022V\n\024FrontFogLightCon"
+  "trol\022\036.UnityAPI.FrontFogLightRequest\032\034.U"
+  "nityAPI.FrontFogLightReply\"\000\022S\n\023RearFogL"
+  "ightControl\022\035.UnityAPI.RearFogLightReque"
+  "st\032\033.UnityAPI.RearFogLightReply\"\000\022V\n\024Cle"
+  "aranceLampControl\022\036.UnityAPI.ClearanceLa"
+  "mpRequest\032\034.UnityAPI.ClearanceLampReply\""
+  "\000\022n\n\034FrontLeftBlinkerLightControl\022&.Unit"
+  "yAPI.FrontLeftBlinkerLightRequest\032$.Unit"
+  "yAPI.FrontLeftBlinkerLightReply\"\000\022q\n\035Fro"
+  "ntRightBlinkerLightControl\022\'.UnityAPI.Fr"
+  "ontRightBlinkerLightRequest\032%.UnityAPI.F"
+  "rontRightBlinkerLightReply\"\000\022k\n\033RearLeft"
+  "BlinkerLightControl\022%.UnityAPI.RearLeftB"
+  "linkerLightRequest\032#.UnityAPI.RearLeftBl"
+  "inkerLightReply\"\000\022n\n\034RearRightBlinkerLig"
+  "htControl\022&.UnityAPI.RearRightBlinkerLig"
+  "htRequest\032$.UnityAPI.RearRightBlinkerLig"
+  "htReply\"\000\022M\n\021FrontWiperControl\022\033.UnityAP"
+  "I.FrontWiperRequest\032\031.UnityAPI.FrontWipe"
+  "rReply\"\000\022J\n\020RearWiperControl\022\032.UnityAPI."
+  "RearWiperRequest\032\030.UnityAPI.RearWiperRep"
+  "ly\"\000\022Y\n\025LeftSideMirrorControl\022\037.UnityAPI"
+  ".LeftSideMirrorRequest\032\035.UnityAPI.LeftSi"
+  "deMirrorReply\"\000\022\\\n\026RightSideMirrorContro"
+  "l\022 .UnityAPI.RightSideMirrorRequest\032\036.Un"
+  "ityAPI.RightSideMirrorReply\"\000\022Y\n\025FrontRi"
+  "ghtDoorControl\022\037.UnityAPI.FrontRightDoor"
+  "Request\032\035.UnityAPI.FrontRightDoorReply\"\000"
+  "\022V\n\024FrontLeftDoorControl\022\036.UnityAPI.Fron"
+  "tLeftDoorRequest\032\034.UnityAPI.FrontLeftDoo"
+  "rReply\"\000\022V\n\024RearRightDoorControl\022\036.Unity"
+  "API.RearRightDoorRequest\032\034.UnityAPI.Rear"
+  "RightDoorReply\"\000\022S\n\023RearLeftDoorControl\022"
+  "\035.UnityAPI.RearLeftDoorRequest\032\033.UnityAP"
+  "I.RearLeftDoorReply\"\000\022>\n\014TrunkControl\022\026."
+  "UnityAPI.TrunkRequest\032\024.UnityAPI.TrunkRe"
+  "ply\"\000\022D\n\016SunRoofControl\022\030.UnityAPI.SunRo"
+  "ofRequest\032\026.UnityAPI.SunRoofReply\"\000\022q\n\035F"
+  "rontRightPowerWindowsControl\022\'.UnityAPI."
+  "FrontRightPowerWindowsRequest\032%.UnityAPI"
+  ".FrontRightPowerWindowsReply\"\000\022n\n\034FrontL"
+  "eftPowerWindowsControl\022&.UnityAPI.FrontL"
+  "eftPowerWindowsRequest\032$.UnityAPI.FrontL"
+  "eftPowerWindowsReply\"\000\022n\n\034RearRightPower"
+  "WindowsControl\022&.UnityAPI.RearRightPower"
+  "WindowsRequest\032$.UnityAPI.RearRightPower"
+  "WindowsReply\"\000\022k\n\033RearLeftPowerWindowsCo"
+  "ntrol\022%.UnityAPI.RearLeftPowerWindowsReq"
+  "uest\032#.UnityAPI.RearLeftPowerWindowsRepl"
+  "y\"\000\022_\n\027SideMirrorSwitchControl\022!.UnityAP"
+  "I.SideMirrorSwitchRequest\032\037.UnityAPI.Sid"
+  "eMirrorSwitchReply\"\000\022\\\n\026InstrumentLightC"
+  "ontrol\022 .UnityAPI.InstrumentLightRequest"
+  "\032\036.UnityAPI.InstrumentLightReply\"\000\022q\n\035Pa"
+  "ssgenerRoomDomeLightControl\022\'.UnityAPI.P"
+  "assgenerRoomDomeLightRequest\032%.UnityAPI."
+  "PassgenerRoomDomeLightReply\"\000\022q\n\035Reading"
+  "LightDriverSideControl\022\'.UnityAPI.Readin"
+  "gLightDriverSideRequest\032%.UnityAPI.Readi"
+  "ngLightDriverSideReply\"\000\022z\n ReadingLight"
+  "PassgenerSideControl\022*.UnityAPI.ReadingL"
+  "ightPassgenerSideRequest\032(.UnityAPI.Read"
+  "ingLightPassgenerSideReply\"\000\022\203\001\n#FrontRi"
+  "ghtPowerWindowsSwitchControl\022-.UnityAPI."
+  "FrontRightPowerWindowsSwitchRequest\032+.Un"
+  "ityAPI.FrontRightPowerWindowsSwitchReply"
+  "\"\000\022\200\001\n\"FrontLeftPowerWindowsSwitchContro"
+  "l\022,.UnityAPI.FrontLeftPowerWindowsSwitch"
+  "Request\032*.UnityAPI.FrontLeftPowerWindows"
+  "SwitchReply\"\000\022\200\001\n\"RearRightPowerWindowsS"
+  "witchControl\022,.UnityAPI.RearRightPowerWi"
+  "ndowsSwitchRequest\032*.UnityAPI.RearRightP"
+  "owerWindowsSwitchReply\"\000\022}\n!RearLeftPowe"
+  "rWindowsSwitchControl\022+.UnityAPI.RearLef"
+  "tPowerWindowsSwitchRequest\032).UnityAPI.Re"
+  "arLeftPowerWindowsSwitchReply\"\000\022;\n\013HornC"
+  "ontrol\022\025.UnityAPI.HornRequest\032\023.UnityAPI"
+  ".HornReply\"\000\022A\n\rBuzzerControl\022\027.UnityAPI"
+  ".BuzzerRequest\032\025.UnityAPI.BuzzerReply\"\000\022"
+  "Y\n\025AirConditionerControl\022\037.UnityAPI.AirC"
+  "onditionerRequest\032\035.UnityAPI.AirConditio"
+  "nerReply\"\000\022l\n AirConditionerTemperatureC"
+  "ontrol\022#.UnityAPI.AirCondTemperatureRequ"
+  "est\032!.UnityAPI.AirCondTemperatureReply\"\000"
+  "\022q\n\035AirConditionerFanSpeedControl\022\'.Unit"
+  "yAPI.AirConditionerFanSpeedRequest\032%.Uni"
+  "tyAPI.AirConditionerFanSpeedReply\"\000\022G\n\017H"
+  "andlingControl\022\031.UnityAPI.HandlingReques"
+  "t\032\027.UnityAPI.HandlingReply\"\000\022n\n\034CentralD"
+  "oorLockSwitchControl\022&.UnityAPI.CentralD"
+  "oorLockSwitchRequest\032$.UnityAPI.CentralD"
+  "oorLockSwitchReply\"\000\022w\n\037FrontRightDoorLo"
+  "ckSwitchControl\022).UnityAPI.FrontRightDoo"
+  "rLockSwitchRequest\032\'.UnityAPI.FrontRight"
+  "DoorLockSwitchReply\"\000\022t\n\036FrontLeftDoorLo"
+  "ckSwitchControl\022(.UnityAPI.FrontLeftDoor"
+  "LockSwitchRequest\032&.UnityAPI.FrontLeftDo"
+  "orLockSwitchReply\"\000\022t\n\036RearRightDoorLock"
+  "SwitchControl\022(.UnityAPI.RearRightDoorLo"
+  "ckSwitchRequest\032&.UnityAPI.RearRightDoor"
+  "LockSwitchReply\"\000\022q\n\035RearLeftDoorLockSwi"
+  "tchControl\022\'.UnityAPI.RearLeftDoorLockSw"
+  "itchRequest\032%.UnityAPI.RearLeftDoorLockS"
+  "witchReply\"\000\022>\n\014get_database\022\026.UnityAPI."
+  "getDBRequest\032\024.UnityAPI.getDBReply\"\000\022F\n\024"
+  "send_update_database\022\026.UnityAPI.setDBReq"
+  "uest\032\024.UnityAPI.setDBReply\"\000B3\n\031io.grpc."
+  "examples.UnityAPIB\rUnityAPIProtoP\001\242\002\004UAP"
+  "Ib\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_UnityAPI_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_UnityAPI_2eproto = {
-  false, false, 9549, descriptor_table_protodef_UnityAPI_2eproto, "UnityAPI.proto", 
-  &descriptor_table_UnityAPI_2eproto_once, nullptr, 0, 94,
+  false, false, 9809, descriptor_table_protodef_UnityAPI_2eproto, "UnityAPI.proto", 
+  &descriptor_table_UnityAPI_2eproto_once, nullptr, 0, 98,
   schemas, file_default_instances, TableStruct_UnityAPI_2eproto::offsets,
   file_level_metadata_UnityAPI_2eproto, file_level_enum_descriptors_UnityAPI_2eproto, file_level_service_descriptors_UnityAPI_2eproto,
 };
@@ -2261,6 +2348,793 @@ descriptor_table_UnityAPI_2eproto_metadata_getter(int index) {
 // Force running AddDescriptors() at dynamic initialization time.
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY static ::PROTOBUF_NAMESPACE_ID::internal::AddDescriptorsRunner dynamic_init_dummy_UnityAPI_2eproto(&descriptor_table_UnityAPI_2eproto);
 namespace UnityAPI {
+
+// ===================================================================
+
+class setDBRequest::_Internal {
+ public:
+};
+
+setDBRequest::setDBRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:UnityAPI.setDBRequest)
+}
+setDBRequest::setDBRequest(const setDBRequest& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  message_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_message().empty()) {
+    message_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_message(), 
+      GetArena());
+  }
+  // @@protoc_insertion_point(copy_constructor:UnityAPI.setDBRequest)
+}
+
+void setDBRequest::SharedCtor() {
+message_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+setDBRequest::~setDBRequest() {
+  // @@protoc_insertion_point(destructor:UnityAPI.setDBRequest)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void setDBRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  message_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void setDBRequest::ArenaDtor(void* object) {
+  setDBRequest* _this = reinterpret_cast< setDBRequest* >(object);
+  (void)_this;
+}
+void setDBRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void setDBRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void setDBRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:UnityAPI.setDBRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  message_.ClearToEmpty();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* setDBRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // string message = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_message();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "UnityAPI.setDBRequest.message"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* setDBRequest::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:UnityAPI.setDBRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string message = 1;
+  if (this->message().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_message().data(), static_cast<int>(this->_internal_message().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "UnityAPI.setDBRequest.message");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_message(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:UnityAPI.setDBRequest)
+  return target;
+}
+
+size_t setDBRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:UnityAPI.setDBRequest)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string message = 1;
+  if (this->message().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_message());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void setDBRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:UnityAPI.setDBRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  const setDBRequest* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<setDBRequest>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:UnityAPI.setDBRequest)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:UnityAPI.setDBRequest)
+    MergeFrom(*source);
+  }
+}
+
+void setDBRequest::MergeFrom(const setDBRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:UnityAPI.setDBRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.message().size() > 0) {
+    _internal_set_message(from._internal_message());
+  }
+}
+
+void setDBRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:UnityAPI.setDBRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void setDBRequest::CopyFrom(const setDBRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:UnityAPI.setDBRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool setDBRequest::IsInitialized() const {
+  return true;
+}
+
+void setDBRequest::InternalSwap(setDBRequest* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  message_.Swap(&other->message_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata setDBRequest::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class setDBReply::_Internal {
+ public:
+};
+
+setDBReply::setDBReply(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:UnityAPI.setDBReply)
+}
+setDBReply::setDBReply(const setDBReply& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  status_ = from.status_;
+  // @@protoc_insertion_point(copy_constructor:UnityAPI.setDBReply)
+}
+
+void setDBReply::SharedCtor() {
+status_ = false;
+}
+
+setDBReply::~setDBReply() {
+  // @@protoc_insertion_point(destructor:UnityAPI.setDBReply)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void setDBReply::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void setDBReply::ArenaDtor(void* object) {
+  setDBReply* _this = reinterpret_cast< setDBReply* >(object);
+  (void)_this;
+}
+void setDBReply::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void setDBReply::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void setDBReply::Clear() {
+// @@protoc_insertion_point(message_clear_start:UnityAPI.setDBReply)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  status_ = false;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* setDBReply::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // bool status = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          status_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* setDBReply::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:UnityAPI.setDBReply)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // bool status = 1;
+  if (this->status() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_status(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:UnityAPI.setDBReply)
+  return target;
+}
+
+size_t setDBReply::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:UnityAPI.setDBReply)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // bool status = 1;
+  if (this->status() != 0) {
+    total_size += 1 + 1;
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void setDBReply::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:UnityAPI.setDBReply)
+  GOOGLE_DCHECK_NE(&from, this);
+  const setDBReply* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<setDBReply>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:UnityAPI.setDBReply)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:UnityAPI.setDBReply)
+    MergeFrom(*source);
+  }
+}
+
+void setDBReply::MergeFrom(const setDBReply& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:UnityAPI.setDBReply)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.status() != 0) {
+    _internal_set_status(from._internal_status());
+  }
+}
+
+void setDBReply::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:UnityAPI.setDBReply)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void setDBReply::CopyFrom(const setDBReply& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:UnityAPI.setDBReply)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool setDBReply::IsInitialized() const {
+  return true;
+}
+
+void setDBReply::InternalSwap(setDBReply* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(status_, other->status_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata setDBReply::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class getDBRequest::_Internal {
+ public:
+};
+
+getDBRequest::getDBRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:UnityAPI.getDBRequest)
+}
+getDBRequest::getDBRequest(const getDBRequest& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_name().empty()) {
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
+      GetArena());
+  }
+  // @@protoc_insertion_point(copy_constructor:UnityAPI.getDBRequest)
+}
+
+void getDBRequest::SharedCtor() {
+name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+getDBRequest::~getDBRequest() {
+  // @@protoc_insertion_point(destructor:UnityAPI.getDBRequest)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void getDBRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void getDBRequest::ArenaDtor(void* object) {
+  getDBRequest* _this = reinterpret_cast< getDBRequest* >(object);
+  (void)_this;
+}
+void getDBRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void getDBRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void getDBRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:UnityAPI.getDBRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  name_.ClearToEmpty();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* getDBRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // string name = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_name();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "UnityAPI.getDBRequest.name"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* getDBRequest::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:UnityAPI.getDBRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string name = 1;
+  if (this->name().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "UnityAPI.getDBRequest.name");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_name(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:UnityAPI.getDBRequest)
+  return target;
+}
+
+size_t getDBRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:UnityAPI.getDBRequest)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string name = 1;
+  if (this->name().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_name());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void getDBRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:UnityAPI.getDBRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  const getDBRequest* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<getDBRequest>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:UnityAPI.getDBRequest)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:UnityAPI.getDBRequest)
+    MergeFrom(*source);
+  }
+}
+
+void getDBRequest::MergeFrom(const getDBRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:UnityAPI.getDBRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.name().size() > 0) {
+    _internal_set_name(from._internal_name());
+  }
+}
+
+void getDBRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:UnityAPI.getDBRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void getDBRequest::CopyFrom(const getDBRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:UnityAPI.getDBRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool getDBRequest::IsInitialized() const {
+  return true;
+}
+
+void getDBRequest::InternalSwap(getDBRequest* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata getDBRequest::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class getDBReply::_Internal {
+ public:
+};
+
+getDBReply::getDBReply(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:UnityAPI.getDBReply)
+}
+getDBReply::getDBReply(const getDBReply& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  message_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_message().empty()) {
+    message_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_message(), 
+      GetArena());
+  }
+  // @@protoc_insertion_point(copy_constructor:UnityAPI.getDBReply)
+}
+
+void getDBReply::SharedCtor() {
+message_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+getDBReply::~getDBReply() {
+  // @@protoc_insertion_point(destructor:UnityAPI.getDBReply)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void getDBReply::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  message_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void getDBReply::ArenaDtor(void* object) {
+  getDBReply* _this = reinterpret_cast< getDBReply* >(object);
+  (void)_this;
+}
+void getDBReply::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void getDBReply::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void getDBReply::Clear() {
+// @@protoc_insertion_point(message_clear_start:UnityAPI.getDBReply)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  message_.ClearToEmpty();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* getDBReply::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // string message = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_message();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "UnityAPI.getDBReply.message"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* getDBReply::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:UnityAPI.getDBReply)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string message = 1;
+  if (this->message().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_message().data(), static_cast<int>(this->_internal_message().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "UnityAPI.getDBReply.message");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_message(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:UnityAPI.getDBReply)
+  return target;
+}
+
+size_t getDBReply::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:UnityAPI.getDBReply)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string message = 1;
+  if (this->message().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_message());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void getDBReply::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:UnityAPI.getDBReply)
+  GOOGLE_DCHECK_NE(&from, this);
+  const getDBReply* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<getDBReply>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:UnityAPI.getDBReply)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:UnityAPI.getDBReply)
+    MergeFrom(*source);
+  }
+}
+
+void getDBReply::MergeFrom(const getDBReply& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:UnityAPI.getDBReply)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.message().size() > 0) {
+    _internal_set_message(from._internal_message());
+  }
+}
+
+void getDBReply::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:UnityAPI.getDBReply)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void getDBReply::CopyFrom(const getDBReply& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:UnityAPI.getDBReply)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool getDBReply::IsInitialized() const {
+  return true;
+}
+
+void getDBReply::InternalSwap(getDBReply* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  message_.Swap(&other->message_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata getDBReply::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
 
 // ===================================================================
 
@@ -21398,6 +22272,18 @@ void RearLeftDoorLockSwitchReply::InternalSwap(RearLeftDoorLockSwitchReply* othe
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace UnityAPI
 PROTOBUF_NAMESPACE_OPEN
+template<> PROTOBUF_NOINLINE ::UnityAPI::setDBRequest* Arena::CreateMaybeMessage< ::UnityAPI::setDBRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::UnityAPI::setDBRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::UnityAPI::setDBReply* Arena::CreateMaybeMessage< ::UnityAPI::setDBReply >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::UnityAPI::setDBReply >(arena);
+}
+template<> PROTOBUF_NOINLINE ::UnityAPI::getDBRequest* Arena::CreateMaybeMessage< ::UnityAPI::getDBRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::UnityAPI::getDBRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::UnityAPI::getDBReply* Arena::CreateMaybeMessage< ::UnityAPI::getDBReply >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::UnityAPI::getDBReply >(arena);
+}
 template<> PROTOBUF_NOINLINE ::UnityAPI::FrontLowLightRequest* Arena::CreateMaybeMessage< ::UnityAPI::FrontLowLightRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::UnityAPI::FrontLowLightRequest >(arena);
 }
