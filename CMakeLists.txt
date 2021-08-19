@@ -32,6 +32,11 @@ set(hw_proto_srcs "./proto/UnityAPI.pb.cc")
 set(hw_proto_hdrs "./proto/UnityAPI.pb.h")
 set(hw_grpc_srcs "./proto/UnityAPI.grpc.pb.cc")
 set(hw_grpc_hdrs "./proto/UnityAPI.grpc.pb.h")
+
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
 #add_custom_command(
 #      OUTPUT "${hw_proto_srcs}" "${hw_proto_hdrs}" "${hw_grpc_srcs}" "${hw_grpc_hdrs}"
 #      COMMAND ${_PROTOBUF_PROTOC}
