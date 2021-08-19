@@ -3,14 +3,20 @@
 #include <grpcpp/grpcpp.h>
 #include "../proto/UnityAPI.pb.h"
 #include "../proto/UnityAPI.grpc.pb.h"
+#include <sstream>
+#include <chrono>
+#include <thread>
+#include <iomanip>
 
 using namespace std;
+using namespace std::chrono_literals;
 using grpc::Channel;
 using grpc::ClientContext;
 using grpc::Status;
 using UnityAPI::UnityAPIService;
 
 string ip_port = "192.168.1.63:30055";
+string ip_NodeJS = "192.168.1.63:30056";
 
 void setFrontLowLight(bool flag) {
     auto channel = grpc::CreateChannel(
@@ -658,7 +664,7 @@ void  getRearWiper() {
     }
 }
 
-void setLeftSideMirror(double val) {
+string setLeftSideMirror(double val) {
     auto channel = grpc::CreateChannel(
         ip_port,
         grpc::InsecureChannelCredentials()
@@ -674,6 +680,9 @@ void setLeftSideMirror(double val) {
     ClientContext context;
 
     Status status = serviceStub.LeftSideMirrorControl(&context, request, &reply);
+    std::stringstream stream;
+    stream << std::fixed << std::setprecision(2) << reply.angle();
+    return stream.str();
 }
 
 void  getLeftSideMirror() {
@@ -696,7 +705,7 @@ void  getLeftSideMirror() {
     cout << "Left Side Mirror: " << reply.angle() << "\370";
 }
 
-void setRightSideMirror(double val) {
+string setRightSideMirror(double val) {
     auto channel = grpc::CreateChannel(
         ip_port,
         grpc::InsecureChannelCredentials()
@@ -712,6 +721,9 @@ void setRightSideMirror(double val) {
     ClientContext context;
 
     Status status = serviceStub.RightSideMirrorControl(&context, request, &reply);
+    std::stringstream stream;
+    stream << std::fixed << std::setprecision(2) << reply.angle();
+    return stream.str();
 }
 
 void  getRightSideMirror() {
@@ -734,7 +746,7 @@ void  getRightSideMirror() {
     cout << "Right Side Mirror: " << reply.angle() << "\370";
 }
 
-void setFrontRightDoor(bool flag) {
+string setFrontRightDoor(bool flag) {
     auto channel = grpc::CreateChannel(
         ip_port,
         grpc::InsecureChannelCredentials()
@@ -750,6 +762,12 @@ void setFrontRightDoor(bool flag) {
     ClientContext context;
 
     Status status = serviceStub.FrontRightDoorControl(&context, request, &reply);
+    if (reply.status()) {
+        return "1";
+    }
+    else {
+        return "0";
+    }
 }
 
 void  getFrontRightDoor() {
@@ -777,7 +795,7 @@ void  getFrontRightDoor() {
     }
 }
 
-void setFrontLeftDoor(bool flag) {
+string setFrontLeftDoor(bool flag) {
     auto channel = grpc::CreateChannel(
         ip_port,
         grpc::InsecureChannelCredentials()
@@ -793,6 +811,12 @@ void setFrontLeftDoor(bool flag) {
     ClientContext context;
 
     Status status = serviceStub.FrontLeftDoorControl(&context, request, &reply);
+    if (reply.status()) {
+        return "1";
+    }
+    else {
+        return "0";
+    }
 }
 
 void  getFrontLeftDoor() {
@@ -1618,7 +1642,7 @@ void  getBuzzer() {
     }
 }
 
-void setAirConditioner(bool flag) {
+string setAirConditioner(bool flag) {
     auto channel = grpc::CreateChannel(
         ip_port,
         grpc::InsecureChannelCredentials()
@@ -1634,6 +1658,12 @@ void setAirConditioner(bool flag) {
     ClientContext context;
 
     Status status = serviceStub.AirConditionerControl(&context, request, &reply);
+    if (reply.status()) {
+        return "1";
+    }
+    else {
+        return "0";
+    }
 }
 
 void  getAirConditioner() {
@@ -1661,7 +1691,7 @@ void  getAirConditioner() {
     }
 }
 
-void setAirConditionerTemperature(double val) {
+string setAirConditionerTemperature(double val) {
     auto channel = grpc::CreateChannel(
         ip_port,
         grpc::InsecureChannelCredentials()
@@ -1677,6 +1707,9 @@ void setAirConditionerTemperature(double val) {
     ClientContext context;
 
     Status status = serviceStub.AirConditionerTemperatureControl(&context, request, &reply);
+    std::stringstream stream;
+    stream << std::fixed << std::setprecision(2) << reply.temperature();
+    return stream.str();
 }
 
 void  getAirConditionerTemperature() {
@@ -1699,7 +1732,7 @@ void  getAirConditionerTemperature() {
     cout << "Air Cond Temperature: " << reply.temperature() << "\370" <<"C";
 }
 
-void setAirConditionerFanSpeed(int val) {
+string setAirConditionerFanSpeed(int val) {
     auto channel = grpc::CreateChannel(
         ip_port,
         grpc::InsecureChannelCredentials()
@@ -1715,6 +1748,7 @@ void setAirConditionerFanSpeed(int val) {
     ClientContext context;
 
     Status status = serviceStub.AirConditionerFanSpeedControl(&context, request, &reply);
+    return std::to_string(reply.fanspeed());
 }
 
 void  getAirConditionerFanSpeed() {
@@ -1737,7 +1771,7 @@ void  getAirConditionerFanSpeed() {
     cout << "Air Cond fanspeed: " << reply.fanspeed() << " Level";
 }
 
-void setHandling(bool flag) {
+string setHandling(bool flag) {
     auto channel = grpc::CreateChannel(
         ip_port,
         grpc::InsecureChannelCredentials()
@@ -1753,6 +1787,12 @@ void setHandling(bool flag) {
     ClientContext context;
 
     Status status = serviceStub.HandlingControl(&context, request, &reply);
+    if (reply.status()) {
+        return "1";
+    }
+    else {
+        return "0";
+    }
 }
 
 void  getHandling() {
@@ -1780,7 +1820,7 @@ void  getHandling() {
     }
 }
 
-void setCentralDoorLockSwitch(bool flag) {
+string setCentralDoorLockSwitch(bool flag) {
     auto channel = grpc::CreateChannel(
         ip_port,
         grpc::InsecureChannelCredentials()
@@ -1796,6 +1836,13 @@ void setCentralDoorLockSwitch(bool flag) {
     ClientContext context;
 
     Status status = serviceStub.CentralDoorLockSwitchControl(&context, request, &reply);
+    if (reply.status()) {
+        return "1";
+    }
+    else {
+        return "0";
+    }
+
 }
 
 void  getCentralDoorLockSwitch() {
@@ -1995,725 +2042,809 @@ void  getRearRightDoorLockSwitch() {
     }
 }
 
+string  sendPeriodicCall() {
+    auto channel = grpc::CreateChannel(
+        ip_NodeJS,
+        grpc::InsecureChannelCredentials()
+    );
+
+    UnityAPIService::Stub serviceStub(channel);
+
+    UnityAPI::getDBRequest request;
+    request.set_name("true");
+
+    UnityAPI::getDBReply reply;
+    ClientContext context;
+
+    Status message = serviceStub.get_database(&context, request, &reply);
+	return reply.message();
+} 
+
+void  sendUpdateDatabase(string msg) {
+    auto channel = grpc::CreateChannel(
+        ip_NodeJS,
+        grpc::InsecureChannelCredentials()
+    );
+
+    UnityAPIService::Stub serviceStub(channel);
+
+    UnityAPI::setDBRequest request;
+    request.set_message(msg);
+
+    UnityAPI::setDBReply reply;
+    ClientContext context;
+
+    Status status = serviceStub.send_update_database(&context, request, &reply);
+
+}
+
+string* extractMethodParam(string msg) {
+	string method;
+    string param;
+	string* out_arr = new string[2];
+	
+	method = msg;
+	param = msg;
+	
+	method.erase(msg.find("("), msg.find(")") - msg.find("(") + 1);
+	param.erase(0, param.find("(") + 1);
+	param.erase(param.length() - 1, 1);
+	
+	out_arr[0] = method;
+	out_arr[1] = param;
+
+ return out_arr;
+}
 
 int main(int argc, char** argv)
 {
+    string strMytestString("hello world");
+    cout << strMytestString;
+
     string command;
-    string method;
+	string *arry_VW_call;
+	string method;
     string param;
-    bool paramFlag;
-    double paramVal;
+	string token;
+	string Response_msg;
+    string set_DB_msg;
 
+    //cout << "test" << endl;
+    //Response_msg = sendPeriodicCall();
+    //Response_msg.erase(0, 1);
+    //cout << Response_msg << endl;
     while (true) {
-        command = "";
+        Response_msg = sendPeriodicCall();
+        Response_msg.erase(0, 1);
+        set_DB_msg= "";
+        // Split String
+        std::istringstream ss(Response_msg);
 
-        cout << endl << "Command: ";
-        cin  >> command;
+        while (std::getline(ss, token, ',')) {
 
-        method = command;
-        param = command;
+            arry_VW_call = extractMethodParam(token);
 
-        method.erase(command.find("("), command.find(")") - command.find("(") + 1);
-        param.erase(0, param.find("(") + 1);
-        param.erase(param.length() - 1, 1);
+            method = arry_VW_call[0];
+            method = method.substr(0, method.size() - 7);
+            param = arry_VW_call[1];
 
+            set_DB_msg = set_DB_msg + method + ":";
 
-        if (method == "setFrontLowLight") {
+            if (method == "setFrontLowLight") {
 
-            if (param == "true") {
-                setFrontLowLight(true);
-            } 
-            else if (param == "false") {
-                setFrontLowLight(false);
+                if (param == "true") {
+                    setFrontLowLight(true);
+                } 
+                else if (param == "false") {
+                    setFrontLowLight(false);
+                }
             }
-        }
-        else if (method == "getFrontLowLight") {
-            getFrontLowLight();
-        }
+            else if (method == "setCentralDoorLockSwitch") {
 
-        else if (method == "setFrontHighLight") {
+                if (param == "true") {
+                    set_DB_msg = set_DB_msg + setCentralDoorLockSwitch(true)+ ",";
+                }
+                else if (param == "false") {
+                    set_DB_msg = set_DB_msg + setCentralDoorLockSwitch(false)+ ",";
+                }
+            }
+            else if (method == "setFrontRightDoor") {
 
-            if (param == "true") {
+                if (param == "true") {
 
-                setFrontHighLight(true);
-            }
-            else if (param == "false") {
+                    set_DB_msg = set_DB_msg + setFrontRightDoor(true)+ ",";
+                }
+                else if (param == "false") {
 
-                setFrontHighLight(false);
+                    set_DB_msg = set_DB_msg + setFrontRightDoor(false)+ ",";
+                }
             }
-        }
-        else if (method == "getFrontHighLight") {
-
-            getFrontHighLight();
-        }
+            else if (method == "setFrontLeftDoor") {
 
-        else if (method == "setRearLight") {
+                if (param == "true") {
 
-            if (param == "true") {
+                    set_DB_msg = set_DB_msg + setFrontLeftDoor(true)+ ",";
+                }
+                else if (param == "false") {
 
-                setRearLight(true);
+                    set_DB_msg = set_DB_msg + setFrontLeftDoor(false)+ ",";
+                }
             }
-            else if (param == "false") {
-
-                setRearLight(false);
+            else if (method == "setRightSideMirror") {
+                set_DB_msg = set_DB_msg + setRightSideMirror(stod(param))+ ",";
             }
-        }
-        else if (method == "getRearLight") {
+            else if (method == "setLeftSideMirror") {
 
-            getRearLight();
-        }
+                set_DB_msg = set_DB_msg + setLeftSideMirror(stod(param))+ ",";
+            }
+            else if (method == "setHandling") {
 
-        else if (method == "setFrontDaytimeLight") {
+                if (param == "true") {
 
-            if (param == "true") {
+                    set_DB_msg = set_DB_msg + setHandling(true)+ ",";
+                }
+                else if (param == "false") {
 
-                setFrontDaytimeLight(true);
+                    set_DB_msg = set_DB_msg + setHandling(false)+ ",";
+                }
             }
-            else if (param == "false") {
+            else if (method == "setAirConditionerTemperature") {
 
-                setFrontDaytimeLight(false);
+                set_DB_msg = set_DB_msg + setAirConditionerTemperature(stod(param))+ ",";
             }
-        }
-        else if (method == "getFrontDaytimeLight") {
+            else if (method == "setAirConditionerFanSpeed") {
 
-            getFrontDaytimeLight();
-        }
+                set_DB_msg = set_DB_msg + setAirConditionerFanSpeed(stoi(param))+ ",";
+            }
+            else if (method == "setAirConditioner") {
 
-        else if (method == "setBrakeLight") {
+                if (param == "true") {
 
-            if (param == "true") {
+                    set_DB_msg = set_DB_msg + setAirConditioner(true)+ ",";
+                }
+                else if (param == "false") {
 
-                setBrakeLight(true);
+                    set_DB_msg = set_DB_msg + setAirConditioner(false)+ ",";
+                }
             }
-            else if (param == "false") {
-
-                setBrakeLight(false);
+            else if (method == "getFrontLowLight") {
+                getFrontLowLight();
             }
-        }
-        else if (method == "getBrakeLight") {
 
-            getBrakeLight();
-        }
+            else if (method == "setFrontHighLight") {
 
-        else if (method == "setReverseLight") {
+                if (param == "true") {
 
-            if (param == "true") {
+                    setFrontHighLight(true);
+                }
+                else if (param == "false") {
 
-                setReverseLight(true);
+                    setFrontHighLight(false);
+                }
             }
-            else if (param == "false") {
+            else if (method == "getFrontHighLight") {
 
-                setReverseLight(false);
+                getFrontHighLight();
             }
-        }
-        else if (method == "getReverseLight") {
 
-            getReverseLight();
-        }
+            else if (method == "setRearLight") {
 
-        else if (method == "setFrontFogLight") {
+                if (param == "true") {
 
-            if (param == "true") {
+                    setRearLight(true);
+                }
+                else if (param == "false") {
 
-                setFrontFogLight(true);
+                    setRearLight(false);
+                }
             }
-            else if (param == "false") {
+            else if (method == "getRearLight") {
 
-                setFrontFogLight(false);
+                getRearLight();
             }
-        }
-        else if (method == "getFrontFogLight") {
 
-            getFrontFogLight();
-        }
+            else if (method == "setFrontDaytimeLight") {
 
-        else if (method == "setRearFogLight") {
+                if (param == "true") {
 
-            if (param == "true") {
+                    setFrontDaytimeLight(true);
+                }
+                else if (param == "false") {
 
-                setRearFogLight(true);
+                    setFrontDaytimeLight(false);
+                }
             }
-            else if (param == "false") {
+            else if (method == "getFrontDaytimeLight") {
 
-                setRearFogLight(false);
+                getFrontDaytimeLight();
             }
-        }
-        else if (method == "getRearFogLight") {
 
-            getRearFogLight();
-        }
+            else if (method == "setBrakeLight") {
 
-        else if (method == "setClearanceLamp") {
+                if (param == "true") {
 
-            if (param == "true") {
+                    setBrakeLight(true);
+                }
+                else if (param == "false") {
 
-                setClearanceLamp(true);
+                    setBrakeLight(false);
+                }
             }
-            else if (param == "false") {
+            else if (method == "getBrakeLight") {
 
-                setClearanceLamp(false);
+                getBrakeLight();
             }
-        }
-        else if (method == "getClearanceLamp") {
 
-            getClearanceLamp();
-        }
+            else if (method == "setReverseLight") {
 
-        else if (method == "setFrontLeftBlinkerLight") {
+                if (param == "true") {
 
-            if (param == "true") {
+                    setReverseLight(true);
+                }
+                else if (param == "false") {
 
-                setFrontLeftBlinkerLight(true);
+                    setReverseLight(false);
+                }
             }
-            else if (param == "false") {
+            else if (method == "getReverseLight") {
 
-                setFrontLeftBlinkerLight(false);
+                getReverseLight();
             }
-        }
-        else if (method == "getFrontLeftBlinkerLight") {
 
-            getFrontLeftBlinkerLight();
-        }
+            else if (method == "setFrontFogLight") {
 
-        else if (method == "setFrontRightBlinkerLight") {
+                if (param == "true") {
 
-            if (param == "true") {
+                    setFrontFogLight(true);
+                }
+                else if (param == "false") {
 
-                setFrontRightBlinkerLight(true);
+                    setFrontFogLight(false);
+                }
             }
-            else if (param == "false") {
+            else if (method == "getFrontFogLight") {
 
-                setFrontRightBlinkerLight(false);
+                getFrontFogLight();
             }
-        }
-        else if (method == "getFrontRightBlinkerLight") {
 
-            getFrontRightBlinkerLight();
-        }
+            else if (method == "setRearFogLight") {
 
-        else if (method == "setRearLeftBlinkerLight") {
+                if (param == "true") {
 
-            if (param == "true") {
+                    setRearFogLight(true);
+                }
+                else if (param == "false") {
 
-                setRearLeftBlinkerLight(true);
+                    setRearFogLight(false);
+                }
             }
-            else if (param == "false") {
+            else if (method == "getRearFogLight") {
 
-                setRearLeftBlinkerLight(false);
+                getRearFogLight();
             }
-        }
-        else if (method == "getRearLeftBlinkerLight") {
 
-            getRearLeftBlinkerLight();
-        }
+            else if (method == "setClearanceLamp") {
 
-        else if (method == "setRearRightBlinkerLight") {
+                if (param == "true") {
 
-            if (param == "true") {
+                    setClearanceLamp(true);
+                }
+                else if (param == "false") {
 
-                setRearRightBlinkerLight(true);
+                    setClearanceLamp(false);
+                }
             }
-            else if (param == "false") {
+            else if (method == "getClearanceLamp") {
 
-                setRearRightBlinkerLight(false);
+                getClearanceLamp();
             }
-        }
-        else if (method == "getRearRightBlinkerLight") {
 
-            getRearRightBlinkerLight();
-        }
+            else if (method == "setFrontLeftBlinkerLight") {
 
-        else if (method == "setFrontWiper") {
+                if (param == "true") {
 
-            if (param == "true") {
+                    setFrontLeftBlinkerLight(true);
+                }
+                else if (param == "false") {
 
-                setFrontWiper(true);
+                    setFrontLeftBlinkerLight(false);
+                }
             }
-            else if (param == "false") {
+            else if (method == "getFrontLeftBlinkerLight") {
 
-                setFrontWiper(false);
+                getFrontLeftBlinkerLight();
             }
-        }
-        else if (method == "getFrontWiper") {
 
-            getFrontWiper();
-        }
+            else if (method == "setFrontRightBlinkerLight") {
 
-        else if (method == "setRearWiper") {
+                if (param == "true") {
 
-            if (param == "true") {
+                    setFrontRightBlinkerLight(true);
+                }
+                else if (param == "false") {
 
-                setRearWiper(true);
+                    setFrontRightBlinkerLight(false);
+                }
             }
-            else if (param == "false") {
+            else if (method == "getFrontRightBlinkerLight") {
 
-                setRearWiper(false);
+                getFrontRightBlinkerLight();
             }
-        }
-        else if (method == "getRearWiper") {
 
-            getRearWiper();
-        }
+            else if (method == "setRearLeftBlinkerLight") {
 
-        else if (method == "setLeftSideMirror") {
+                if (param == "true") {
 
-            setLeftSideMirror(stod(param));
-        }
-        else if (method == "getLeftSideMirror") {
+                    setRearLeftBlinkerLight(true);
+                }
+                else if (param == "false") {
 
-            getLeftSideMirror();
-        }
+                    setRearLeftBlinkerLight(false);
+                }
+            }
+            else if (method == "getRearLeftBlinkerLight") {
 
-        else if (method == "setRightSideMirror") {
-            setRightSideMirror(stod(param));
-        }
-        else if (method == "getRightSideMirror") {
+                getRearLeftBlinkerLight();
+            }
 
-            getRightSideMirror();
-        }
+            else if (method == "setRearRightBlinkerLight") {
 
-        else if (method == "setFrontRightDoor") {
+                if (param == "true") {
 
-            if (param == "true") {
+                    setRearRightBlinkerLight(true);
+                }
+                else if (param == "false") {
 
-                setFrontRightDoor(true);
+                    setRearRightBlinkerLight(false);
+                }
             }
-            else if (param == "false") {
+            else if (method == "getRearRightBlinkerLight") {
 
-                setFrontRightDoor(false);
+                getRearRightBlinkerLight();
             }
-        }
-        else if (method == "getFrontRightDoor") {
 
-            getFrontRightDoor();
-        }
+            else if (method == "setFrontWiper") {
 
-        else if (method == "setFrontLeftDoor") {
+                if (param == "true") {
 
-            if (param == "true") {
+                    setFrontWiper(true);
+                }
+                else if (param == "false") {
 
-                setFrontLeftDoor(true);
+                    setFrontWiper(false);
+                }
             }
-            else if (param == "false") {
+            else if (method == "getFrontWiper") {
 
-                setFrontLeftDoor(false);
+                getFrontWiper();
             }
-        }
-        else if (method == "getFrontLeftDoor") {
 
-            getFrontLeftDoor();
-        }
+            else if (method == "setRearWiper") {
 
-        else if (method == "setRearRightDoor") {
+                if (param == "true") {
 
-            if (param == "true") {
+                    setRearWiper(true);
+                }
+                else if (param == "false") {
 
-                setRearRightDoor(true);
+                    setRearWiper(false);
+                }
             }
-            else if (param == "false") {
+            else if (method == "getRearWiper") {
 
-                setRearRightDoor(false);
+                getRearWiper();
             }
-        }
-        else if (method == "getRearRightDoor") {
 
-            getRearRightDoor();
-        }
+            
+            else if (method == "getLeftSideMirror") {
 
-        else if (method == "setRearLeftDoor") {
+                getLeftSideMirror();
+            }
 
-            if (param == "true") {
+            
+            else if (method == "getRightSideMirror") {
 
-                setRearLeftDoor(true);
+                getRightSideMirror();
             }
-            else if (param == "false") {
 
-                setRearLeftDoor(false);
+            
+            else if (method == "getFrontRightDoor") {
+
+                getFrontRightDoor();
             }
-        }
-        else if (method == "getRearLeftDoor") {
 
-            getRearLeftDoor();
-        }
+            
+            else if (method == "getFrontLeftDoor") {
+
+                getFrontLeftDoor();
+            }
+
+            else if (method == "setRearRightDoor") {
 
-        else if (method == "setTrunk") {
+                if (param == "true") {
 
-            if (param == "true") {
+                    setRearRightDoor(true);
+                }
+                else if (param == "false") {
 
-                setTrunk(true);
+                    setRearRightDoor(false);
+                }
             }
-            else if (param == "false") {
+            else if (method == "getRearRightDoor") {
 
-                setTrunk(false);
+                getRearRightDoor();
             }
-        }
-        else if (method == "getTrunk") {
 
-            getTrunk();
-        }
+            else if (method == "setRearLeftDoor") {
 
-        else if (method == "setSunRoof") {
+                if (param == "true") {
 
-            if (param == "true") {
+                    setRearLeftDoor(true);
+                }
+                else if (param == "false") {
 
-                setSunRoof(true);
+                    setRearLeftDoor(false);
+                }
             }
-            else if (param == "false") {
+            else if (method == "getRearLeftDoor") {
 
-                setSunRoof(false);
+                getRearLeftDoor();
             }
-        }
-        else if (method == "getSunRoof") {
-
-            getSunRoof();
-        }
 
-        else if (method == "setFrontRightPowerWindows") {
+            else if (method == "setTrunk") {
 
-            setFrontRightPowerWindows(stod(param));
-        }
-        else if (method == "getFrontRightPowerWindows") {
+                if (param == "true") {
 
-            getFrontRightPowerWindows();
-        }
+                    setTrunk(true);
+                }
+                else if (param == "false") {
 
-        else if (method == "setFrontLeftPowerWindows") {
+                    setTrunk(false);
+                }
+            }
+            else if (method == "getTrunk") {
 
-            setFrontLeftPowerWindows(stod(param));
-        }
-        else if (method == "getFrontLeftPowerWindows") {
+                getTrunk();
+            }
 
-            getFrontLeftPowerWindows();
-        }
+            else if (method == "setSunRoof") {
 
-        else if (method == "setRearRightPowerWindows") {
+                if (param == "true") {
 
-            setRearRightPowerWindows(stod(param));
-        }
-        else if (method == "getRearRightPowerWindows") {
+                    setSunRoof(true);
+                }
+                else if (param == "false") {
 
-            getRearRightPowerWindows();
-        }
+                    setSunRoof(false);
+                }
+            }
+            else if (method == "getSunRoof") {
 
-        else if (method == "setRearLeftPowerWindows") {
+                getSunRoof();
+            }
 
-            setRearLeftPowerWindows(stod(param));
-        }
-        else if (method == "getRearLeftPowerWindows") {
+            else if (method == "setFrontRightPowerWindows") {
 
-            getRearLeftPowerWindows();
-        }
+                setFrontRightPowerWindows(stod(param));
+            }
+            else if (method == "getFrontRightPowerWindows") {
 
-        else if (method == "setSideMirrorSwitch") {
+                getFrontRightPowerWindows();
+            }
 
-            if (param == "true") {
+            else if (method == "setFrontLeftPowerWindows") {
 
-                setSideMirrorSwitch(true);
+                setFrontLeftPowerWindows(stod(param));
             }
-            else if (param == "false") {
+            else if (method == "getFrontLeftPowerWindows") {
 
-                setSideMirrorSwitch(false);
+                getFrontLeftPowerWindows();
             }
-        }
-        else if (method == "getSideMirrorSwitch") {
 
-            getSideMirrorSwitch();
-        }
+            else if (method == "setRearRightPowerWindows") {
 
-        else if (method == "setInstrumentLight") {
+                setRearRightPowerWindows(stod(param));
+            }
+            else if (method == "getRearRightPowerWindows") {
+
+                getRearRightPowerWindows();
+            }
 
-            if (param == "true") {
+            else if (method == "setRearLeftPowerWindows") {
 
-                setInstrumentLight(true);
+                setRearLeftPowerWindows(stod(param));
             }
-            else if (param == "false") {
+            else if (method == "getRearLeftPowerWindows") {
 
-                setInstrumentLight(false);
+                getRearLeftPowerWindows();
             }
-        }
-        else if (method == "getInstrumentLight") {
 
-            getInstrumentLight();
-        }
+            else if (method == "setSideMirrorSwitch") {
 
-        else if (method == "setPassengerRoomDomeLight") {
+                if (param == "true") {
 
-            if (param == "true") {
+                    setSideMirrorSwitch(true);
+                }
+                else if (param == "false") {
 
-                setPassengerRoomDomeLight(true);
+                    setSideMirrorSwitch(false);
+                }
             }
-            else if (param == "false") {
+            else if (method == "getSideMirrorSwitch") {
 
-                setPassengerRoomDomeLight(false);
+                getSideMirrorSwitch();
             }
-        }
-        else if (method == "getPassengerRoomDomeLight") {
 
-            getPassengerRoomDomeLight();
-        }
+            else if (method == "setInstrumentLight") {
 
-        else if (method == "setReadingLightDriverSide") {
+                if (param == "true") {
 
-            if (param == "true") {
+                    setInstrumentLight(true);
+                }
+                else if (param == "false") {
 
-                setReadingLightDriverSide(true);
+                    setInstrumentLight(false);
+                }
             }
-            else if (param == "false") {
+            else if (method == "getInstrumentLight") {
 
-                setReadingLightDriverSide(false);
+                getInstrumentLight();
             }
-        }
-        else if (method == "getReadingLightDriverSide") {
 
-            getReadingLightDriverSide();
-        }
+            else if (method == "setPassengerRoomDomeLight") {
 
-        else if (method == "setReadingLightPassengerSide") {
+                if (param == "true") {
 
-            if (param == "true") {
+                    setPassengerRoomDomeLight(true);
+                }
+                else if (param == "false") {
 
-                setReadingLightPassengerSide(true);
+                    setPassengerRoomDomeLight(false);
+                }
             }
-            else if (param == "false") {
+            else if (method == "getPassengerRoomDomeLight") {
 
-                setReadingLightPassengerSide(false);
+                getPassengerRoomDomeLight();
             }
-        }
-        else if (method == "getReadingLightPassengerSide") {
 
-            getReadingLightPassengerSide();
-        }
+            else if (method == "setReadingLightDriverSide") {
+
+                if (param == "true") {
 
-        else if (method == "setFrontRightPowerWindowsSwitch") {
-            if (param == "true") {
+                    setReadingLightDriverSide(true);
+                }
+                else if (param == "false") {
 
-                setFrontRightPowerWindowsSwitch(true);
+                    setReadingLightDriverSide(false);
+                }
             }
-            else if (param == "false") {
+            else if (method == "getReadingLightDriverSide") {
 
-                setFrontRightPowerWindowsSwitch(false);
+                getReadingLightDriverSide();
             }
-        }
-        else if (method == "getFrontRightPowerWindowsSwitch") {
 
-            getFrontRightPowerWindowsSwitch();
-        }
+            else if (method == "setReadingLightPassengerSide") {
 
-        else if (method == "setFrontLeftPowerWindowsSwitch") {
+                if (param == "true") {
 
-            if (param == "true") {
+                    setReadingLightPassengerSide(true);
+                }
+                else if (param == "false") {
 
-                setFrontLeftPowerWindowsSwitch(true);
+                    setReadingLightPassengerSide(false);
+                }
             }
-            else if (param == "false") {
+            else if (method == "getReadingLightPassengerSide") {
 
-                setFrontLeftPowerWindowsSwitch(false);
+                getReadingLightPassengerSide();
             }
-        }
-        else if (method == "getFrontLeftPowerWindowsSwitch") {
-
-            getFrontLeftPowerWindowsSwitch();
-        }
 
-        else if (method == "setRearRightPowerWindowsSwitch") {
+            else if (method == "setFrontRightPowerWindowsSwitch") {
+                if (param == "true") {
 
-            if (param == "true") {
+                    setFrontRightPowerWindowsSwitch(true);
+                }
+                else if (param == "false") {
 
-                setRearRightPowerWindowsSwitch(true);
+                    setFrontRightPowerWindowsSwitch(false);
+                }
             }
-            else if (param == "false") {
+            else if (method == "getFrontRightPowerWindowsSwitch") {
 
-                setRearRightPowerWindowsSwitch(false);
+                getFrontRightPowerWindowsSwitch();
             }
-        }
-        else if (method == "getRearRightPowerWindowsSwitch") {
 
-            getRearRightPowerWindowsSwitch();
-        }
+            else if (method == "setFrontLeftPowerWindowsSwitch") {
 
-        else if (method == "setRearLeftPowerWindowsSwitch") {
+                if (param == "true") {
 
-            if (param == "true") {
+                    setFrontLeftPowerWindowsSwitch(true);
+                }
+                else if (param == "false") {
 
-                setRearLeftPowerWindowsSwitch(true);
+                    setFrontLeftPowerWindowsSwitch(false);
+                }
             }
-            else if (param == "false") {
+            else if (method == "getFrontLeftPowerWindowsSwitch") {
 
-                setRearLeftPowerWindowsSwitch(false);
+                getFrontLeftPowerWindowsSwitch();
             }
-        }
-        else if (method == "getRearLeftPowerWindowsSwitch") {
 
-            getRearLeftPowerWindowsSwitch();
-        }
+            else if (method == "setRearRightPowerWindowsSwitch") {
 
-        else if (method == "setHorn") {
+                if (param == "true") {
 
-            if (param == "true") {
+                    setRearRightPowerWindowsSwitch(true);
+                }
+                else if (param == "false") {
 
-                setHorn(true);
+                    setRearRightPowerWindowsSwitch(false);
+                }
             }
-            else if (param == "false") {
+            else if (method == "getRearRightPowerWindowsSwitch") {
 
-                setHorn(false);
+                getRearRightPowerWindowsSwitch();
             }
-        }
-        else if (method == "getHorn") {
 
-            getHorn();
-        }
+            else if (method == "setRearLeftPowerWindowsSwitch") {
 
-        else if (method == "setBuzzer") {
+                if (param == "true") {
 
-            if (param == "true") {
+                    setRearLeftPowerWindowsSwitch(true);
+                }
+                else if (param == "false") {
 
-                setBuzzer(true);
+                    setRearLeftPowerWindowsSwitch(false);
+                }
             }
-            else if (param == "false") {
+            else if (method == "getRearLeftPowerWindowsSwitch") {
 
-                setBuzzer(false);
+                getRearLeftPowerWindowsSwitch();
             }
-        }
-        else if (method == "getBuzzer") {
 
-            getBuzzer();
-        }
-
-        else if (method == "setAirConditionerTemperature") {
+            else if (method == "setHorn") {
 
-            setAirConditionerTemperature(stod(param));
-        }
-        else if (method == "getAirConditionerTemperature") {
+                if (param == "true") {
 
-            getAirConditionerTemperature();
-        }
+                    setHorn(true);
+                }
+                else if (param == "false") {
 
-        else if (method == "setAirConditionerFanSpeed") {
+                    setHorn(false);
+                }
+            }
+            else if (method == "getHorn") {
 
-            setAirConditionerFanSpeed(stoi(param));
-        }
-        else if (method == "getAirConditionerFanSpeed") {
+                getHorn();
+            }
 
-            getAirConditionerFanSpeed();
-        }
+            else if (method == "setBuzzer") {
 
-        else if (method == "setAirConditioner") {
+                if (param == "true") {
 
-            if (param == "true") {
+                    setBuzzer(true);
+                }
+                else if (param == "false") {
 
-                setAirConditioner(true);
+                    setBuzzer(false);
+                }
             }
-            else if (param == "false") {
+            else if (method == "getBuzzer") {
 
-                setAirConditioner(false);
+                getBuzzer();
             }
-        }
-        else if (method == "getAirConditioner") {
-
-            getAirConditioner();
-        }
 
+            
+            else if (method == "getAirConditionerTemperature") {
 
-        else if (method == "setHandling") {
+                getAirConditionerTemperature();
+            }
 
-            if (param == "true") {
+            
+            else if (method == "getAirConditionerFanSpeed") {
 
-                setHandling(true);
+                getAirConditionerFanSpeed();
             }
-            else if (param == "false") {
 
-                setHandling(false);
-            }
-        }
-        else if (method == "getHandling") {
+            
+            else if (method == "getAirConditioner") {
 
-            getHandling();
-        }
+                getAirConditioner();
+            }
 
-        else if (method == "setCentralDoorLockSwitch") {
 
-            if (param == "true") {
+            
+            else if (method == "getHandling") {
 
-                setCentralDoorLockSwitch(true);
+                getHandling();
             }
-            else if (param == "false") {
 
-                setCentralDoorLockSwitch(false);
+            
+            else if (method == "getCentralDoorLockSwitch") {
+
+                getCentralDoorLockSwitch();
             }
-        }
-        else if (method == "getCentralDoorLockSwitch") {
 
-            getCentralDoorLockSwitch();
-        }
+            else if (method == "setFrontRightDoorLockSwitch") {
 
-        else if (method == "setFrontRightDoorLockSwitch") {
+                if (param == "true") {
 
-            if (param == "true") {
+                    setFrontRightDoorLockSwitch(true);
+                }
+                else if (param == "false") {
 
-                setFrontRightDoorLockSwitch(true);
+                    setFrontRightDoorLockSwitch(false);
+                }
             }
-            else if (param == "false") {
+            else if (method == "getFrontRightDoorLockSwitch") {
 
-                setFrontRightDoorLockSwitch(false);
+                getFrontRightDoorLockSwitch();
             }
-        }
-        else if (method == "getFrontRightDoorLockSwitch") {
 
-            getFrontRightDoorLockSwitch();
-        }
+            else if (method == "setFrontLeftDoorLockSwitch") {
 
-        else if (method == "setFrontLeftDoorLockSwitch") {
+                if (param == "true") {
 
-            if (param == "true") {
+                    setFrontLeftDoorLockSwitch(true);
+                }
+                else if (param == "false") {
 
-                setFrontLeftDoorLockSwitch(true);
+                    setFrontLeftDoorLockSwitch(false);
+                }
             }
-            else if (param == "false") {
+            else if (method == "getFrontLeftDoorLockSwitch") {
 
-                setFrontLeftDoorLockSwitch(false);
+                getFrontLeftDoorLockSwitch();
             }
-        }
-        else if (method == "getFrontLeftDoorLockSwitch") {
 
-            getFrontLeftDoorLockSwitch();
-        }
+            else if (method == "setRearRightDoorLockSwitch") {
 
-        else if (method == "setRearRightDoorLockSwitch") {
+                if (param == "true") {
 
-            if (param == "true") {
+                    setRearRightDoorLockSwitch(true);
+                }
+                else if (param == "false") {
 
-                setRearRightDoorLockSwitch(true);
+                    setRearRightDoorLockSwitch(false);
+                }
             }
-            else if (param == "false") {
+            else if (method == "getRearRightDoorLockSwitch") {
 
-                setRearRightDoorLockSwitch(false);
+                getRearRightDoorLockSwitch();
             }
-        }
-        else if (method == "getRearRightDoorLockSwitch") {
 
-            getRearRightDoorLockSwitch();
-        }
+            else if (method == "setRearLeftDoorLockSwitch") {
 
-        else if (method == "setRearLeftDoorLockSwitch") {
+                if (param == "true") {
 
-            if (param == "true") {
+                    setRearLeftDoorLockSwitch(true);
+                }
+                else if (param == "false") {
 
-                setRearLeftDoorLockSwitch(true);
+                    setRearLeftDoorLockSwitch(false);
+                }
             }
-            else if (param == "false") {
+            else if (method == "getRearLeftDoorLockSwitch") {
 
-                setRearLeftDoorLockSwitch(false);
+                getRearLeftDoorLockSwitch();
             }
-        }
-        else if (method == "getRearLeftDoorLockSwitch") {
 
-            getRearLeftDoorLockSwitch();
-        }
-
-        else if (command == "stop") {
-            break;
+            else if (command == "stop") {
+                break;
+            }
+            
+            //cout << method << endl;
         }
+        set_DB_msg.pop_back();
+        sendUpdateDatabase(set_DB_msg);
+        std::this_thread::sleep_for(1s);
     }
-    return 0;
+    
+    
+    //string Response_msg = "setCentralDoorLockSwitch(true),setFrontRightDoor(true),setFrontLeftDoor(false),setRightSideMirror(40.5),setLeftSideMirror(80.5),setHandling(false),setAirConditioner(false),setAirConditionerTemperature(25.5),setAirConditionerFanSpeed(3)";
+	
+	//delete[] arry_VW_call;
+	std::getchar();
+	//return 0;
 }
 
