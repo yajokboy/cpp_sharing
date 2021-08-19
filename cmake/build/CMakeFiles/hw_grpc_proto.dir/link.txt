@@ -1,2 +1,2 @@
-/bin/ar qc libhw_grpc_proto.a CMakeFiles/hw_grpc_proto.dir/proto/UnityAPI.grpc.pb.cc.o CMakeFiles/hw_grpc_proto.dir/proto/UnityAPI.pb.cc.o
-/bin/ranlib libhw_grpc_proto.a
+/usr/bin/ar qc libhw_grpc_proto.a  CMakeFiles/hw_grpc_proto.dir/proto/UnityAPI.grpc.pb.cc.o CMakeFiles/hw_grpc_proto.dir/proto/UnityAPI.pb.cc.o
+/usr/bin/ranlib libhw_grpc_proto.a

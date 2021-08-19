@@ -1,4 +1,4 @@
-/home/white_kung/SharedFolder/cpp_sharing/cmake/build/CMakeFiles/edit_cache.dir
-/home/white_kung/SharedFolder/cpp_sharing/cmake/build/CMakeFiles/rebuild_cache.dir
-/home/white_kung/SharedFolder/cpp_sharing/cmake/build/CMakeFiles/ClientService.dir
-/home/white_kung/SharedFolder/cpp_sharing/cmake/build/CMakeFiles/hw_grpc_proto.dir
+/usr/src/cpp_sharing/cmake/build/CMakeFiles/rebuild_cache.dir
+/usr/src/cpp_sharing/cmake/build/CMakeFiles/edit_cache.dir
+/usr/src/cpp_sharing/cmake/build/CMakeFiles/ClientService.dir
+/usr/src/cpp_sharing/cmake/build/CMakeFiles/hw_grpc_proto.dir
