@@ -2122,15 +2122,15 @@ int main(int argc, char** argv)
     //Response_msg = sendPeriodicCall();
     //Response_msg.erase(0, 1);
     //cout << Response_msg << endl;
-    try {
-        while (true) {
-            Response_msg = sendPeriodicCall();
-            Response_msg.erase(0, 1);
-            set_DB_msg= "";
-            // Split String
-            std::istringstream ss(Response_msg);
 
-            while (std::getline(ss, token, ',')) {
+    while (true) {
+        Response_msg = sendPeriodicCall();
+        Response_msg.erase(0, 1);
+        set_DB_msg= "";
+        // Split String
+        std::istringstream ss(Response_msg);
+
+        while (std::getline(ss, token, ',')) {
 
                 method = extractMethod(token);
                 method = method.substr(0, method.size() - 7);
@@ -2843,14 +2843,14 @@ int main(int argc, char** argv)
                 
                 //cout << method << endl;
             }
+        if(!set_DB_msg.empty()) {
             set_DB_msg.pop_back();
-            sendUpdateDatabase(set_DB_msg);
-            std::this_thread::sleep_for(1s);
         }
-    } catch (const std::bad_alloc&) {
-        // this executes if f() throws std::string or int or any other unrelated type
-        return -1;
+        
+        sendUpdateDatabase(set_DB_msg);
+        std::this_thread::sleep_for(1s);
     }
+
     
 
 
