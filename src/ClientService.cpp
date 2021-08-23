@@ -2078,10 +2078,9 @@ void  sendUpdateDatabase(string msg) {
 
 }
 
-string* extractMethodParam(string msg) {
+string extractMethod(string msg) {
 	string method;
     string param;
-	string* out_arr = new string[2];
 	
 	method = msg;
 	param = msg;
@@ -2090,10 +2089,21 @@ string* extractMethodParam(string msg) {
 	param.erase(0, param.find("(") + 1);
 	param.erase(param.length() - 1, 1);
 	
-	out_arr[0] = method;
-	out_arr[1] = param;
+ return method;
+}
 
- return out_arr;
+string extractParam(string msg) {
+	string method;
+    string param;
+	
+	method = msg;
+	param = msg;
+	
+	method.erase(msg.find("("), msg.find(")") - msg.find("(") + 1);
+	param.erase(0, param.find("(") + 1);
+	param.erase(param.length() - 1, 1);
+
+ return param;
 }
 
 int main(int argc, char** argv)
@@ -2102,7 +2112,6 @@ int main(int argc, char** argv)
     cout << strMytestString;
 
     string command;
-	string *arry_VW_call;
 	string method;
     string param;
 	string token;
@@ -2122,11 +2131,9 @@ int main(int argc, char** argv)
 
         while (std::getline(ss, token, ',')) {
 
-            arry_VW_call = extractMethodParam(token);
-
-            method = arry_VW_call[0];
+            method = extractMethod(token);
             method = method.substr(0, method.size() - 7);
-            param = arry_VW_call[1];
+            param = extractParam(token);
 
             set_DB_msg = set_DB_msg + method + ":";
 
